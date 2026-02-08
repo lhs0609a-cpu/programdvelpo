@@ -1,0 +1,3839 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>직원 3명이 하던 일, 프로그램 하나로 끝내세요 | DevAuto</title>
+    <meta name="description" content="매일 3시간씩 반복 작업에 낭비하고 계신가요? 귀사 맞춤 자동화 프로그램으로 업무시간 70% 단축. 150개 기업이 선택한 검증된 솔루션.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --primary-light: #7df9ff;
+            --primary-dark: #0066ff;
+            --accent: #a855f7;
+            --accent-light: #c084fc;
+            --gold: #fbbf24;
+            --bg-dark: #050508;
+            --bg-card: rgba(15, 15, 25, 0.8);
+            --bg-card-solid: #0f0f19;
+            --bg-card-hover: #1a1a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --gradient: linear-gradient(135deg, #00d4ff 0%, #0066ff 50%, #a855f7 100%);
+            --gradient-gold: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            --gradient-subtle: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+            --danger: #f43f5e;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --glow-primary: 0 0 40px rgba(0, 212, 255, 0.3);
+            --glow-accent: 0 0 40px rgba(168, 85, 247, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Premium Animated Background */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-gradient-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 70%);
+            bottom: -150px;
+            left: -100px;
+            animation-delay: -7s;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.1) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -14s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 30px) scale(1.02); }
+        }
+
+        /* Noise texture overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        main {
+            position: relative;
+            z-index: 2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .highlight {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .highlight-glow {
+            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.4));
+        }
+
+        .highlight-danger {
+            color: var(--danger);
+            -webkit-text-fill-color: var(--danger);
+            text-shadow: 0 0 30px rgba(244, 63, 94, 0.3);
+        }
+
+        .highlight-gold {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
+        }
+
+        .highlight-accent {
+            background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation - Glassmorphism */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(5, 5, 8, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-cta {
+            background: var(--gradient);
+            color: var(--bg-dark);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-cta:hover::before {
+            left: 100%;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-primary), 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .nav-cta .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Hero Section - Premium */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(0, 212, 255, 0.08) 0%, rgba(168, 85, 247, 0.05) 40%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--bg-dark), transparent);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: var(--success);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.9); }
+        }
+
+        .hero h1 {
+            font-size: 3.6rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 28px;
+            letter-spacing: -0.03em;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 .highlight {
+            position: relative;
+            text-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+        }
+
+        .hero h1 .highlight-danger {
+            text-shadow: 0 0 30px rgba(244, 63, 94, 0.4);
+        }
+
+        /* A/B Test Headlines - 숨김 처리 */
+        .headline-variant {
+            display: none;
+        }
+        .headline-variant.active {
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .hero-proof {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-proof-avatars {
+            display: flex;
+        }
+
+        .hero-proof-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--gradient);
+            border: 2px solid var(--bg-dark);
+            margin-left: -10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .hero-proof-avatar:first-child {
+            margin-left: 0;
+        }
+
+        .hero-proof-text {
+            font-size: 0.95rem;
+        }
+
+        .hero-proof-text strong {
+            color: var(--primary);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--bg-dark);
+            padding: 20px 40px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.15rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--glow-primary), 0 20px 50px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-guarantee {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-guarantee span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-guarantee svg {
+            color: var(--success);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, rgba(15, 15, 25, 0.9) 0%, rgba(25, 25, 45, 0.8) 100%);
+            border-radius: 24px;
+            padding: 36px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow:
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                inset 0 1px 1px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), rgba(168, 85, 247, 0.3), transparent);
+        }
+
+        .hero-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-card-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--danger);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .hero-card-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .hero-card-header h3 {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .hero-card-header .big-number {
+            font-size: 4rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .hero-card-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Client Logos Section - 강화 */
+        .logos {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logos-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logos-header p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .logos-header h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            align-items: center;
+        }
+
+        .logo-item {
+            background: linear-gradient(135deg, rgba(15, 15, 25, 0.8) 0%, rgba(25, 25, 45, 0.6) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .logo-item:hover {
+            border-color: rgba(0, 212, 255, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 212, 255, 0.05);
+        }
+
+        .logo-item:hover::before {
+            opacity: 1;
+        }
+
+        .logo-item .logo-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .logo-item .logo-name {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .logo-item .logo-industry {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .logo-item .logo-result {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        /* Demo Video Section - Premium */
+        .demo {
+            padding: 140px 0;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(15, 15, 25, 0.5) 50%, var(--bg-dark) 100%);
+            position: relative;
+        }
+
+        .demo::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .demo-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-bottom: 24px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.1);
+        }
+
+        .section-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .section-badge.danger {
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0.1) 0%, rgba(244, 63, 94, 0.05) 100%);
+            border-color: rgba(244, 63, 94, 0.2);
+            color: var(--danger);
+            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.1);
+        }
+
+        .section-badge.danger::before {
+            background: var(--danger);
+            box-shadow: 0 0 10px var(--danger);
+        }
+
+        .section-badge.success {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border-color: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.1);
+        }
+
+        .section-badge.success::before {
+            background: var(--success);
+            box-shadow: 0 0 10px var(--success);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title .highlight {
+            text-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .demo-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .demo-video {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .demo-video-placeholder {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--bg-card) 0%, #1a1a2e 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .demo-video-placeholder:hover {
+            background: linear-gradient(135deg, #1a1a2e 0%, var(--bg-card) 100%);
+        }
+
+        .demo-play-btn {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .demo-video-placeholder:hover .demo-play-btn {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(86, 228, 253, 0.5);
+        }
+
+        .demo-play-btn svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--bg-dark);
+            margin-left: 4px;
+        }
+
+        .demo-video-placeholder p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .demo-video-placeholder span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .demo-features {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .demo-feature {
+            display: flex;
+            gap: 20px;
+            padding: 28px;
+            background: linear-gradient(135deg, rgba(15, 15, 25, 0.8) 0%, rgba(25, 25, 45, 0.6) 100%);
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .demo-feature:hover {
+            border-color: rgba(0, 212, 255, 0.2);
+            transform: translateY(-4px) translateX(4px);
+            box-shadow: -8px 8px 30px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 212, 255, 0.05);
+        }
+
+        .demo-feature:hover::before {
+            opacity: 1;
+        }
+
+        .demo-feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .demo-feature-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .demo-feature-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ROI Calculator Section - Premium */
+        .calculator {
+            padding: 140px 0;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(10, 10, 20, 0.8) 50%, var(--bg-dark) 100%);
+            position: relative;
+        }
+
+        .calculator::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .calculator-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .calculator-content {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .calculator-box {
+            background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(20, 20, 40, 0.9) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 28px;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 212, 255, 0.05);
+        }
+
+        .calculator-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .calculator-box::after {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .calculator-inputs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .calc-input-group {
+            text-align: center;
+        }
+
+        .calc-input-group label {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .calc-input-group input {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            background: var(--bg-card);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .calc-input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .calc-input-group .unit {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        .calculator-result {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(168, 85, 247, 0.05) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 45px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculator-result::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+        }
+
+        .result-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-item h4 {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .result-item .amount {
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+
+        .result-item .amount.danger {
+            color: var(--danger);
+        }
+
+        .result-item .amount.success {
+            color: var(--success);
+        }
+
+        .result-arrow {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .result-savings {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .result-savings h3 {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .result-savings .big-savings {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .result-savings p {
+            color: var(--text-secondary);
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 120px 0;
+        }
+
+        .problem-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, rgba(20, 15, 18, 0.9) 0%, rgba(30, 20, 25, 0.8) 100%);
+            border: 1px solid rgba(244, 63, 94, 0.15);
+            border-radius: 20px;
+            padding: 36px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--danger), transparent);
+        }
+
+        .problem-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .problem-card:hover {
+            border-color: rgba(244, 63, 94, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(244, 63, 94, 0.1), 0 0 30px rgba(244, 63, 94, 0.05);
+        }
+
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0.15) 0%, rgba(244, 63, 94, 0.05) 100%);
+            border: 1px solid rgba(244, 63, 94, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .problem-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .problem-stat {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .problem-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--danger);
+        }
+
+        .problem-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 120px 0;
+            background: var(--bg-card);
+        }
+
+        .solution-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, rgba(10, 10, 20, 0.9) 0%, rgba(20, 20, 40, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            padding: 44px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .solution-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .solution-card:hover {
+            border-color: rgba(0, 212, 255, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 212, 255, 0.08);
+        }
+
+        .solution-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .solution-card > p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .solution-benefits {
+            list-style: none;
+        }
+
+        .solution-benefits li {
+            padding: 10px 0;
+            color: var(--text-primary);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .solution-benefits li svg {
+            color: var(--success);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .solution-result {
+            margin-top: 24px;
+            padding: 16px 20px;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .solution-result p {
+            color: var(--success);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 120px 0;
+        }
+
+        .comparison-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .comparison-table {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr 1fr;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-cell {
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .comparison-row.header {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .comparison-row.header .comparison-cell {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .comparison-cell:first-child {
+            justify-content: flex-start;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .comparison-cell.bad {
+            color: var(--danger);
+        }
+
+        .comparison-cell.good {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .comparison-highlight {
+            background: rgba(86, 228, 253, 0.05);
+        }
+
+        .comparison-highlight .comparison-cell:last-child {
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        /* Testimonials Section - 강화 */
+        .testimonials {
+            padding: 120px 0;
+            background: var(--bg-card);
+        }
+
+        .testimonials-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(86, 228, 253, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .testimonial-video-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--danger);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .testimonial-rating {
+            color: var(--warning);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .testimonial-result {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-result p {
+            color: var(--success);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-info h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .testimonial-info p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .testimonial-company {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .testimonial-company img {
+            height: 16px;
+            opacity: 0.7;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            padding: 40px;
+            background: var(--bg-dark);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stats-bar-item {
+            text-align: center;
+        }
+
+        .stats-bar-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stats-bar-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 120px 0;
+        }
+
+        .process-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+        }
+
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 12%;
+            right: 12%;
+            height: 3px;
+            background: var(--gradient);
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-number {
+            width: 100px;
+            height: 100px;
+            background: var(--bg-card);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step h4 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .process-duration {
+            display: inline-block;
+            background: rgba(86, 228, 253, 0.1);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        /* Guarantee Section */
+        .guarantee {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(86, 228, 253, 0.1) 0%, rgba(5, 93, 254, 0.1) 100%);
+            border-top: 1px solid rgba(86, 228, 253, 0.2);
+            border-bottom: 1px solid rgba(86, 228, 253, 0.2);
+        }
+
+        .guarantee-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .guarantee-icon {
+            font-size: 5rem;
+        }
+
+        .guarantee-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .guarantee-text p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Anti-Anxiety Section - 불안 해소 */
+        .anti-anxiety {
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(255, 107, 107, 0.05) 50%, var(--bg-dark) 100%);
+        }
+
+        .anti-anxiety-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .worry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .worry-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            border-radius: 20px;
+            padding: 36px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .worry-box:hover {
+            border-color: rgba(86, 228, 253, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .worry-box h4 {
+            font-size: 1.15rem;
+            margin-bottom: 16px;
+            color: var(--danger);
+            font-weight: 700;
+        }
+
+        .worry-box p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .worry-box .answer {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .worry-box .answer p {
+            color: var(--success);
+            font-weight: 600;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Price Anchor Section - 가격 앵커링 */
+        .price-anchor {
+            padding: 120px 0;
+            background: var(--bg-card);
+        }
+
+        .price-anchor-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .price-compare {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .price-option {
+            background: var(--bg-dark);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price-option.bad {
+            border-color: rgba(255, 107, 107, 0.3);
+        }
+
+        .price-option.good {
+            border-color: rgba(86, 228, 253, 0.5);
+            position: relative;
+        }
+
+        .price-option.good::before {
+            content: '추천';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: var(--bg-dark);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .price-option h4 {
+            font-size: 1.3rem;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .price-option ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .price-option ul li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .price-option ul li:last-child {
+            border-bottom: none;
+        }
+
+        .price-option .total {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price-option .total span {
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+
+        .price-option .total small {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        .price-vs {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        @media (max-width: 992px) {
+            .worry-grid {
+                grid-template-columns: 1fr;
+            }
+            .price-compare {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .price-vs {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 120px 0;
+            background: var(--bg-card);
+        }
+
+        .faq-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(86, 228, 253, 0.3);
+        }
+
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 400px;
+        }
+
+        .faq-answer p {
+            padding: 0 24px 24px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(86, 228, 253, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .cta-content > p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .cta-note {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background: var(--bg-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(86, 228, 253, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .contact-info > p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .contact-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .contact-benefit {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-benefit svg {
+            color: var(--success);
+            flex-shrink: 0;
+        }
+
+        .contact-benefit span {
+            font-weight: 500;
+        }
+
+        .contact-urgency {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .contact-urgency-icon {
+            font-size: 2rem;
+        }
+
+        .contact-urgency-text p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .contact-urgency-text strong {
+            color: var(--danger);
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(20, 20, 40, 0.9) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            border-radius: 24px;
+            padding: 48px;
+            position: relative;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 212, 255, 0.05);
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .form-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: var(--bg-dark);
+            padding: 10px 24px;
+            border-radius: 24px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            white-space: nowrap;
+            box-shadow: var(--glow-primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group label span {
+            color: var(--danger);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px 20px;
+            background: rgba(15, 15, 25, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(0, 212, 255, 0.4);
+            background: rgba(20, 20, 35, 0.9);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(148, 163, 184, 0.5);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: var(--bg-dark);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--gradient);
+            color: var(--bg-dark);
+            padding: 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(86, 228, 253, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, rgba(5, 5, 10, 0.8) 0%, var(--bg-dark) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 80px 0 40px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--bg-card);
+            border: 1px solid rgba(86, 228, 253, 0.3);
+            border-radius: 12px;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success {
+            border-color: var(--success);
+        }
+
+        .toast.error {
+            border-color: var(--danger);
+        }
+
+        /* Floating CTA - 강화 */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            z-index: 999;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, rgba(5, 5, 10, 0.95) 0%, rgba(15, 15, 30, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 18px 28px;
+            border-radius: 24px;
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .floating-cta.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .floating-cta a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--gradient);
+            color: var(--bg-dark);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: var(--glow-primary), 0 10px 40px rgba(0, 212, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-cta a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            100% { left: 100%; }
+        }
+
+        .floating-cta a:hover {
+            transform: scale(1.05);
+            box-shadow: var(--glow-primary), 0 15px 50px rgba(0, 212, 255, 0.5);
+        }
+
+        @keyframes urgencyPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .floating-urgency {
+            animation: urgencyPulse 1.5s infinite;
+        }
+
+        /* Video Modal */
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .video-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-modal-content {
+            width: 90%;
+            max-width: 900px;
+            position: relative;
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .video-modal-placeholder {
+            aspect-ratio: 16/9;
+            background: var(--bg-card);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-modal-placeholder p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        /* Exit Intent Popup */
+        .exit-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .exit-popup.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .exit-popup-content {
+            background: var(--bg-card);
+            border: 2px solid var(--primary);
+            border-radius: 24px;
+            padding: 50px;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+
+        .exit-popup.show .exit-popup-content {
+            transform: scale(1);
+        }
+
+        .exit-popup-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .exit-popup-close:hover {
+            color: var(--text-primary);
+        }
+
+        .exit-popup-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .exit-popup h3 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .exit-popup p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .exit-popup .btn-primary {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .exit-popup .popup-note {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+        }
+
+        /* A/B Test Badge */
+        .ab-test-badge {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            z-index: 1000;
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content,
+            .demo-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .logos-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .solution-grid,
+            .problem-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-inputs {
+                grid-template-columns: 1fr;
+            }
+
+            .result-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .result-arrow {
+                transform: rotate(90deg);
+            }
+
+            .process-timeline {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+            .process-timeline::before {
+                display: none;
+            }
+
+            .comparison-row {
+                grid-template-columns: 1fr 1fr 1fr;
+                text-align: center;
+                font-size: 0.8rem;
+            }
+
+            .comparison-row.header {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .comparison-row.header .comparison-cell:first-child {
+                display: none;
+            }
+
+            .comparison-cell:first-child {
+                grid-column: 1 / -1;
+                justify-content: center;
+                text-align: center;
+                font-weight: 700;
+                background: rgba(255, 255, 255, 0.03);
+            }
+
+            .comparison-cell {
+                padding: 12px 8px;
+                font-size: 0.75rem;
+            }
+
+            .guarantee-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.6rem;
+                line-height: 1.4;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .logos-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .process-timeline {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-guarantee {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .calculator-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Premium Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-gradient-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    <div class="noise-overlay"></div>
+
+    <main>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">DevAuto</div>
+            <a href="#contact" class="nav-cta">
+                <span class="pulse-dot"></span>
+                🔥 이번 주 상담 가능 - 무료 진단
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section with A/B Test Headlines -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">
+                        <span class="dot"></span>
+                        이번 주 상담 가능 - 월/수/금 오전만 진행
+                    </span>
+
+                    <!-- A/B Test Headlines - CRO 최적화 -->
+                    <div id="headline-container">
+                        <div class="headline-variant active" data-variant="A">
+                            <h1>
+                                직원 3명이 하루 종일 하는 일,<br>
+                                프로그램 하나가 <span class="highlight">27분</span>에 끝냅니다<br>
+                                <span class="highlight-danger">→ 연간 1,200만원 절감. 150개 기업이 증명.</span>
+                            </h1>
+                        </div>
+                        <div class="headline-variant" data-variant="B">
+                            <h1>
+                                지금 이 순간에도<br>
+                                경쟁사는 <span class="highlight">70% 더 빨리</span> 일하고 있습니다<br>
+                                <span class="highlight-danger">당신 회사의 연간 손실: 최소 1,200만원</span>
+                            </h1>
+                        </div>
+                        <div class="headline-variant" data-variant="C">
+                            <h1>
+                                월급 <span class="highlight-danger">405만원</span> 직원 1명 뽑을 돈으로<br>
+                                <span class="highlight">24시간 무휴 자동화 시스템</span> 8개 운영<br>
+                                150개 기업이 이미 선택했습니다
+                            </h1>
+                        </div>
+                        <div class="headline-variant" data-variant="D">
+                            <h1>
+                                매일 <span class="highlight-danger">3시간</span>씩, 매년 <span class="highlight-danger">720시간</span><br>
+                                복사-붙여넣기에 갈아 넣는 시간<br>
+                                <span class="highlight">→ 버튼 하나로 끝내는 회사들의 비결</span>
+                            </h1>
+                        </div>
+                    </div>
+
+                    <p class="hero-subtitle">
+                        매일 3시간씩, 매달 60시간, 매년 720시간.<br>
+                        당신 직원들이 복사-붙여넣기에 갈아 넣는 시간입니다.<br>
+                        <strong style="color: var(--primary);">150개 기업</strong>이 이 시간을 되찾았습니다. <strong style="color: var(--danger);">다음은 당신 차례.</strong>
+                    </p>
+                    <div class="hero-proof">
+                        <div class="hero-proof-avatars">
+                            <div class="hero-proof-avatar">K</div>
+                            <div class="hero-proof-avatar">S</div>
+                            <div class="hero-proof-avatar">L</div>
+                            <div class="hero-proof-avatar">+</div>
+                        </div>
+                        <div class="hero-proof-text">
+                            <strong>147개 기업</strong>이 이미 업무 자동화에 성공했습니다
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn-primary">
+                            🔥 우리 회사 연간 절감액 무료로 받기
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                        <a href="#calculator" class="btn-secondary">📊 30초만에 ROI 계산하기</a>
+                    </div>
+                    <p class="cta-micro" style="font-size: 0.85rem; color: var(--text-secondary); margin-top: -20px; margin-bottom: 32px;">
+                        ✓ 폼 작성 30초 · ✓ 24시간 내 맞춤 견적 · ✓ 안 맞으면 100% 환불
+                    </p>
+                    <div class="hero-guarantee">
+                        <span>
+                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            24시간 내 견적
+                        </span>
+                        <span>
+                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            상담 비용 0원
+                        </span>
+                        <span>
+                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            만족 못하면 100% 환불
+                        </span>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <span class="hero-card-badge">실시간</span>
+                        <div class="hero-card-header">
+                            <h3>평균 업무시간 단축률</h3>
+                            <div class="big-number">70%</div>
+                            <p>도입 기업 평균 기준</p>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="hero-stat">
+                                <div class="hero-stat-number">150+</div>
+                                <div class="hero-stat-label">도입 기업</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-number">98%</div>
+                                <div class="hero-stat-label">재계약률</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-number">4.9</div>
+                                <div class="hero-stat-label">만족도</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-number">24h</div>
+                                <div class="hero-stat-label">견적 응답</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos Section - 강화 -->
+    <section class="logos">
+        <div class="container">
+            <div class="logos-header">
+                <p>신뢰할 수 있는 파트너</p>
+                <h3>150개 이상의 기업이 DevAuto와 함께합니다</h3>
+            </div>
+            <div class="logos-grid">
+                <div class="logo-item">
+                    <div class="logo-icon">🏭</div>
+                    <div class="logo-name">한성정밀</div>
+                    <div class="logo-industry">제조업 / 직원 120명</div>
+                    <div class="logo-result">업무시간 65% 단축</div>
+                </div>
+                <div class="logo-item">
+                    <div class="logo-icon">🛒</div>
+                    <div class="logo-name">마켓플러스</div>
+                    <div class="logo-industry">유통업 / 직원 45명</div>
+                    <div class="logo-result">월 80시간 절감</div>
+                </div>
+                <div class="logo-item">
+                    <div class="logo-icon">💼</div>
+                    <div class="logo-name">스마트HR</div>
+                    <div class="logo-industry">HR 서비스 / 직원 30명</div>
+                    <div class="logo-result">인건비 40% 절감</div>
+                </div>
+                <div class="logo-item">
+                    <div class="logo-icon">📦</div>
+                    <div class="logo-name">퀵로지스</div>
+                    <div class="logo-industry">물류업 / 직원 80명</div>
+                    <div class="logo-result">오류율 99% 감소</div>
+                </div>
+                <div class="logo-item">
+                    <div class="logo-icon">🏥</div>
+                    <div class="logo-name">메디케어랩</div>
+                    <div class="logo-industry">의료기기 / 직원 55명</div>
+                    <div class="logo-result">보고서 자동화 100%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section (PAS: Problem First) -->
+    <section class="problem">
+        <div class="container">
+            <div class="problem-header">
+                <span class="section-badge danger">⚠️ 경고: 당신의 회사도 해당됩니다</span>
+                <h2 class="section-title">
+                    이 중 하나라도 해당되면<br><span class="highlight-danger">매달 돈이 새고 있습니다</span>
+                </h2>
+                <p class="section-subtitle">
+                    대부분의 회사가 모르고 있습니다. 아래 상황에 <strong style="color: var(--danger);">연간 수천만 원</strong>이 낭비되고 있다는 것을.
+                </p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>"또 사람 뽑자는 품의서..."</h3>
+                    <p>업무량이 1.5배 늘었다고 인원을 1.5배 충원할 순 없습니다. 채용 공고 → 면접 → 온보딩 → 퇴사. 이 사이클에 매번 수백만 원이 소멸됩니다.</p>
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">연 4,860만원</div>
+                        <div class="problem-stat-label">신입 1명 실제 비용 (월급+4대보험+퇴직금+교육)</div>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🤯</div>
+                    <h3>"이 보고서, 숫자가 또 틀렸잖아"</h3>
+                    <p>사람이 수동으로 다루는 데이터는 반드시 틀립니다. 엑셀 한 셀의 오타가 수천만 원짜리 발주 실수로 이어진 실제 사례가 있습니다.</p>
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">평균 3.6%</div>
+                        <div class="problem-stat-label">수작업 데이터 오류율 (IBM 리서치)</div>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🚨</div>
+                    <h3>"핵심 담당자가 퇴사하면 끝"</h3>
+                    <p>김 대리만 아는 엑셀 매크로, 박 과장만 돌릴 줄 아는 정산 시스템. 그 사람이 없으면 회사가 멈춥니다. 이게 진짜 리스크입니다.</p>
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">평균 2.3개월</div>
+                        <div class="problem-stat-label">담당자 퇴사 시 업무 공백 기간</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator Section (PAS: Agitation - 고통을 숫자로) -->
+    <section class="calculator" id="calculator">
+        <div class="container">
+            <div class="calculator-header">
+                <span class="section-badge danger">손실 계산기</span>
+                <h2 class="section-title">
+                    지금 <span class="highlight-danger">얼마나 손해</span>보고 계신지<br>
+                    직접 계산해 보세요
+                </h2>
+                <p class="section-subtitle">
+                    아래 숫자만 입력하면 귀사의 연간 손실 비용을 바로 확인할 수 있습니다.
+                </p>
+            </div>
+            <div class="calculator-content">
+                <div class="calculator-box">
+                    <div class="calculator-inputs">
+                        <div class="calc-input-group">
+                            <label>반복 업무에 소요되는 일일 시간</label>
+                            <input type="number" id="calc-hours" value="3" min="0" max="24">
+                            <p class="unit">시간 / 일</p>
+                        </div>
+                        <div class="calc-input-group">
+                            <label>해당 업무를 수행하는 직원 수</label>
+                            <input type="number" id="calc-employees" value="2" min="1" max="100">
+                            <p class="unit">명</p>
+                        </div>
+                        <div class="calc-input-group">
+                            <label>직원 평균 시급</label>
+                            <input type="number" id="calc-wage" value="20000" min="9860" step="1000">
+                            <p class="unit">원</p>
+                        </div>
+                    </div>
+                    <div class="calculator-result">
+                        <p class="result-label">현재 상태를 유지하면...</p>
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <h4>연간 낭비되는 비용</h4>
+                                <div class="amount danger" id="result-waste">₩31,200,000</div>
+                            </div>
+                            <div class="result-arrow">→</div>
+                            <div class="result-item">
+                                <h4>자동화 도입 비용 (예상)</h4>
+                                <div class="amount success" id="result-cost">₩5,000,000</div>
+                            </div>
+                        </div>
+                        <div class="result-savings">
+                            <h3>자동화 시 연간 절감 금액</h3>
+                            <div class="big-savings" id="result-savings">₩26,200,000</div>
+                            <p>* 도입 비용은 프로젝트 규모에 따라 달라질 수 있습니다. 정확한 견적은 무료 상담에서 확인하세요.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section (PAS: Solution) -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="solution-header">
+                <span class="section-badge">해결책</span>
+                <h2 class="section-title">
+                    "그래서 어떻게<br>해결해 주시는 건가요?"
+                </h2>
+                <p class="section-subtitle">
+                    범용 소프트웨어 NO. 오직 <strong style="color: var(--primary);">귀사만을 위한</strong> 맞춤 솔루션으로<br>
+                    업무 효율을 극대화합니다.
+                </p>
+            </div>
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">⚡</div>
+                    <h3>업무 자동화 프로그램</h3>
+                    <p>3시간짜리 반복 작업, 버튼 하나로 끝내세요.</p>
+                    <ul class="solution-benefits">
+                        <li>
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            3시간짜리 엑셀 정리 → 버튼 하나로 3분 완료
+                        </li>
+                        <li>
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            매일 아침 9시, 보고서가 대표님 메일함에 자동 도착
+                        </li>
+                        <li>
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            납기 지연, 재고 부족? 알아서 알림 → 실수 제로
+                        </li>
+                        <li>
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            경쟁사 가격/재고를 24시간 자동 모니터링
+                        </li>
+                    </ul>
+                    <div class="solution-result">
+                        <p>→ 평균 업무시간 70% 단축, 연간 960시간 확보</p>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🔧</div>
+                    <h3>맞춤 사내 프로그램</h3>
+                    <p>범용 솔루션은 결국 안 씁니다. 귀사 전용으로 만듭니다.</p>
+                    <ul class="solution-benefits">
+                        <li>
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            우리 회사 프로세스 그대로 → 교육 없이 바로 사용
+                        </li>
+                        <li>
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            재고/주문/고객, 흩어진 데이터를 한 화면에서 관리
+                        </li>
+                        <li>
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            실시간 대시보드로 의사결정 속도 3배 향상
+                        </li>
+                        <li>
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            기존 시스템(엑셀/ERP/쇼핑몰)과 자동 연동
+                        </li>
+                    </ul>
+                    <div class="solution-result">
+                        <p>→ 데이터 정확도 99.9%, 담당자 퇴사해도 업무 중단 제로</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Video Section (증거) -->
+    <section class="demo" id="demo">
+        <div class="container">
+            <div class="demo-header">
+                <span class="section-badge">👀 실제 화면 공개</span>
+                <h2 class="section-title">
+                    4시간 → 3분<br>
+                    <span class="highlight">직접 눈으로 확인하세요</span>
+                </h2>
+                <p class="section-subtitle">
+                    "에이, 과장이겠지" 하셨죠? 실제 고객사 적용 사례입니다.<br>
+                    <strong style="color: var(--primary);">버튼 한 번</strong>으로 4시간 업무가 3분에 끝납니다.
+                </p>
+            </div>
+            <div class="demo-content">
+                <div class="demo-video">
+                    <div class="demo-video-placeholder" onclick="openVideoModal()">
+                        <div class="demo-play-btn">
+                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                        <p><span>클릭하여 데모 영상 보기</span></p>
+                        <p style="font-size: 0.85rem; margin-top: 8px;">2분 15초 | 실제 사용 화면</p>
+                    </div>
+                </div>
+                <div class="demo-features">
+                    <div class="demo-feature">
+                        <div class="demo-feature-icon">⚡</div>
+                        <div class="demo-feature-content">
+                            <h4>Before: 4시간 걸리던 작업</h4>
+                            <p>수동으로 10개 사이트에서 데이터 수집, 엑셀 정리, 보고서 작성</p>
+                        </div>
+                    </div>
+                    <div class="demo-feature">
+                        <div class="demo-feature-icon">🚀</div>
+                        <div class="demo-feature-content">
+                            <h4>After: 버튼 한 번, 3분 완료</h4>
+                            <p>자동 수집 → 자동 정리 → 자동 보고서 생성 → 이메일 발송까지</p>
+                        </div>
+                    </div>
+                    <div class="demo-feature">
+                        <div class="demo-feature-icon">💰</div>
+                        <div class="demo-feature-content">
+                            <h4>결과: 월 80시간 × 12개월 = 960시간</h4>
+                            <p>시급 2만원 기준 연간 1,920만원 절감 효과</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container">
+            <div class="comparison-header">
+                <span class="section-badge">비교</span>
+                <h2 class="section-title">
+                    사람 채용 vs 범용 툴 vs DevAuto<br>뭐가 진짜 이득일까요?
+                </h2>
+            </div>
+            <div class="comparison-table">
+                <div class="comparison-row header">
+                    <div class="comparison-cell"></div>
+                    <div class="comparison-cell">사람 채용</div>
+                    <div class="comparison-cell">범용 솔루션</div>
+                    <div class="comparison-cell" style="color: var(--primary);">DevAuto 맞춤 개발</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">월 비용</div>
+                    <div class="comparison-cell bad">405만원+</div>
+                    <div class="comparison-cell">10~50만원/월</div>
+                    <div class="comparison-cell good">50만원~ (1회)</div>
+                </div>
+                <div class="comparison-row comparison-highlight">
+                    <div class="comparison-cell">우리 업무 적합도</div>
+                    <div class="comparison-cell">높음</div>
+                    <div class="comparison-cell bad">낮음 (범용)</div>
+                    <div class="comparison-cell good">100% 맞춤</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">퇴사/중단 리스크</div>
+                    <div class="comparison-cell bad">높음</div>
+                    <div class="comparison-cell bad">서비스 종료 리스크</div>
+                    <div class="comparison-cell good">없음 (영구 소유)</div>
+                </div>
+                <div class="comparison-row comparison-highlight">
+                    <div class="comparison-cell">실수율</div>
+                    <div class="comparison-cell bad">인간 평균 3.6%</div>
+                    <div class="comparison-cell">설정 오류 가능</div>
+                    <div class="comparison-cell good">0%</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">24시간 가동</div>
+                    <div class="comparison-cell bad">불가</div>
+                    <div class="comparison-cell good">가능</div>
+                    <div class="comparison-cell good">가능</div>
+                </div>
+                <div class="comparison-row comparison-highlight">
+                    <div class="comparison-cell">교육/온보딩</div>
+                    <div class="comparison-cell bad">1~3개월</div>
+                    <div class="comparison-cell bad">직원 교육 필요</div>
+                    <div class="comparison-cell good">1일</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">환불 정책</div>
+                    <div class="comparison-cell bad">불가</div>
+                    <div class="comparison-cell bad">환불 불가</div>
+                    <div class="comparison-cell good">100% 환불 보장</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section (Social Proof - 남들도 했다) -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonials-header">
+                <span class="section-badge success">실제 후기</span>
+                <h2 class="section-title">
+                    "진작 할 걸 그랬어요"<br>
+                    도입 기업들의 솔직 후기
+                </h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">
+                        "솔직히 처음엔 '이 가격에 될까?' 의심했습니다. 그런데 매일 4시간씩 걸리던 매출 정산이 이제 <strong>버튼 하나</strong>로 끝납니다. 도입 첫 주부터 효과가 바로 나타났어요. 직원들이 야근에서 해방됐습니다."
+                    </p>
+                    <div class="testimonial-result">
+                        <p>→ 월 80시간 단축 · 연 960시간 확보 · <strong>시급 2만원 기준 연 1,920만원 절감</strong></p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">K</div>
+                        <div class="testimonial-info">
+                            <h4>김영수 대표</h4>
+                            <p>마켓플러스 / 유통업 / 직원 45명</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">
+                        "엑셀 파일 수십 개 관리하다 실수 나면 난리였는데, 이제 <strong>통합 시스템</strong>으로 실수가 0이 됐습니다. 경쟁사보다 견적도 빠르고 소통도 정말 잘 됐어요."
+                    </p>
+                    <div class="testimonial-result">
+                        <p>→ 데이터 오류 100% 감소, 업무 효율 2배 상승</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">L</div>
+                        <div class="testimonial-info">
+                            <h4>이정민 팀장</h4>
+                            <p>한성정밀 / 제조업 / 직원 120명</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">
+                        "사람 한 명 더 뽑으려다 자동화를 선택했는데, <strong>인건비 연 4천만 원</strong>을 아꼈습니다. 최고의 결정이었어요. 다른 부서에서도 '우리도 해달라'고 요청이 쏟아지고 있습니다."
+                    </p>
+                    <div class="testimonial-result">
+                        <p>→ 연간 인건비 4,000만원 절감, ROI 800%</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">P</div>
+                        <div class="testimonial-info">
+                            <h4>박지현 이사</h4>
+                            <p>스마트HR / 서비스업 / 직원 30명</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="stats-bar-item">
+                    <div class="stats-bar-number">150+</div>
+                    <div class="stats-bar-label">도입 기업 수</div>
+                </div>
+                <div class="stats-bar-item">
+                    <div class="stats-bar-number">98%</div>
+                    <div class="stats-bar-label">재계약률</div>
+                </div>
+                <div class="stats-bar-item">
+                    <div class="stats-bar-number">70%</div>
+                    <div class="stats-bar-label">평균 업무시간 단축</div>
+                </div>
+                <div class="stats-bar-item">
+                    <div class="stats-bar-number">4.9/5</div>
+                    <div class="stats-bar-label">고객 만족도</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Anchor Section (가격 저항 제거) -->
+    <section class="price-anchor">
+        <div class="container">
+            <div class="price-anchor-header">
+                <span class="section-badge">비용 비교</span>
+                <h2 class="section-title">
+                    직원 반 달 월급으로<br>영구 자동화 시스템을 구축합니다
+                </h2>
+                <p class="section-subtitle">
+                    신입 1명 연봉 4,860만원 vs 자동화 프로그램 50만원. 숫자가 답합니다.
+                </p>
+            </div>
+            <div class="price-compare">
+                <div class="price-option bad">
+                    <h4>👤 신입 직원 1명 채용 시</h4>
+                    <ul>
+                        <li><span>월급</span><span style="color: var(--danger);">300만원</span></li>
+                        <li><span>4대보험</span><span style="color: var(--danger);">30만원</span></li>
+                        <li><span>교육/온보딩 비용</span><span style="color: var(--danger);">50만원</span></li>
+                        <li><span>퇴직금 적립</span><span style="color: var(--danger);">25만원</span></li>
+                        <li><span>실수로 인한 손실</span><span style="color: var(--danger);">연 평균 340만원</span></li>
+                        <li><span>퇴사 리스크</span><span style="color: var(--danger);">재채용 비용 200만원+</span></li>
+                    </ul>
+                    <div class="total">
+                        월 <span style="color: var(--danger);">405만원+</span>
+                        <small>연 4,860만원 + 관리 부담 + 퇴사 리스크</small>
+                    </div>
+                </div>
+                <div class="price-vs">VS</div>
+                <div class="price-option good">
+                    <h4>🤖 맞춤 자동화 프로그램</h4>
+                    <ul>
+                        <li><span>24시간 무휴 작동</span><span style="color: var(--success);">✓</span></li>
+                        <li><span>실수 확률</span><span style="color: var(--success);">0%</span></li>
+                        <li><span>퇴사 걱정</span><span style="color: var(--success);">없음</span></li>
+                        <li><span>교육 필요</span><span style="color: var(--success);">없음</span></li>
+                        <li><span>1개월 무상 유지보수</span><span style="color: var(--success);">포함</span></li>
+                        <li><span>소스코드 소유</span><span style="color: var(--success);">영구 사용</span></li>
+                    </ul>
+                    <div class="total">
+                        <span style="color: var(--success);">50만원부터</span>
+                        <small>직원 반 달 월급으로 영구 자동화 시스템 구축</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anti-Anxiety Section (마지막 의심 제거) -->
+    <section class="anti-anxiety">
+        <div class="container">
+            <div class="anti-anxiety-header">
+                <span class="section-badge danger">솔직한 의문</span>
+                <h2 class="section-title">
+                    "솔직히 이런 걱정<br>되시죠?"
+                </h2>
+                <p class="section-subtitle">
+                    당신의 의심, 저희도 압니다. 그래서 미리 답변 준비했습니다.
+                </p>
+            </div>
+            <div class="worry-grid">
+                <div class="worry-box">
+                    <h4>❓ "이 가격에 제대로 된 걸 만들어 준다고?"</h4>
+                    <p>대기업은 같은 프로젝트에 5,000만 원 씁니다. 저희가 1/10 비용으로 가능한 이유: 150건 납품에서 축적된 자동화 템플릿. 처음부터 만드는 게 아니라, 검증된 모듈을 조합하고 귀사에 맞게 커스터마이징합니다.</p>
+                    <div class="answer">
+                        <p>✅ 납품물 코드 품질 평가 평균 4.8/5.0 · 소스코드 100% 귀사 소유</p>
+                    </div>
+                </div>
+                <div class="worry-box">
+                    <h4>❓ "우리 회사엔 안 맞을 것 같은데..."</h4>
+                    <p>범용 솔루션 도입했다가 결국 안 쓰게 된 경험, 있으시죠? 저희는 귀사 업무 프로세스를 직접 분석해서 1:1 맞춤 개발합니다. 150개 기업, 150개 서로 다른 프로그램.</p>
+                    <div class="answer">
+                        <p>✅ 도입 후 실사용률 96% · 98% 재계약률이 증거입니다</p>
+                    </div>
+                </div>
+                <div class="worry-box">
+                    <h4>❓ "만들고 나서 버그 나면?"</h4>
+                    <p>개발 후 연락 두절? 저희는 다릅니다. 1개월 무상 유지보수 + 평일 핫라인 운영. 심지어 결과물이 마음에 안 들면 100% 환불. 계약서에 명시합니다.</p>
+                    <div class="answer">
+                        <p>✅ 1개월 무상 A/S + 2시간 내 대응 보장 + 불만족 시 전액 환불</p>
+                    </div>
+                </div>
+                <div class="worry-box">
+                    <h4>❓ "개발 과정이 복잡하지 않을까?"</h4>
+                    <p>전문 용어로 소통하는 개발사 아닙니다. "이 엑셀 작업 자동으로 해주세요"라고 말씀하시면 됩니다. 기술적인 건 저희가 알아서 처리합니다.</p>
+                    <div class="answer">
+                        <p>✅ 30분 무료 진단 → 24시간 내 맞춤 견적 → 1~4주 완성</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section (리스크 제로) -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-content">
+                <div class="guarantee-icon">🛡️</div>
+                <div class="guarantee-text">
+                    <h3>결과 불만족 시 <span style="color: var(--primary);">100% 환불</span></h3>
+                    <p>
+                        "돈만 받고 도망가면 어떡하지?" 걱정하지 마세요.<br>
+                        <strong style="color: var(--danger);">합의된 결과물이 안 나오면 전액 환불.</strong> 계약서에 명시합니다.<br>
+                        이게 저희가 150개 기업에서 <strong style="color: var(--primary);">98% 재계약률</strong>을 유지하는 비결입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section (쉬운 다음 단계) -->
+    <section class="process">
+        <div class="container">
+            <div class="process-header">
+                <span class="section-badge">진행 과정</span>
+                <h2 class="section-title">
+                    복잡한 절차? 없습니다.<br>
+                    딱 4단계면 끝.
+                </h2>
+            </div>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h4>무료 진단</h4>
+                    <p>현재 업무 환경을 분석하고<br>자동화 가능 영역을 파악합니다</p>
+                    <span class="process-duration">30분</span>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h4>맞춤 제안</h4>
+                    <p>귀사에 최적화된<br>솔루션과 견적을 제안드립니다</p>
+                    <span class="process-duration">24시간 내</span>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h4>개발 진행</h4>
+                    <p>실시간으로 진행 상황 공유<br>피드백 즉시 반영</p>
+                    <span class="process-duration">1-4주</span>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h4>배포 & 교육</h4>
+                    <p>완성된 솔루션 배포 및<br>사용법 교육까지</p>
+                    <span class="process-duration">1일</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="faq-header">
+                <span class="section-badge">FAQ</span>
+                <h2 class="section-title">자주 묻는 질문</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>비용이 많이 들지 않을까요?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>직원 1명 월급(약 350만원)보다 저렴한 비용으로 시작할 수 있습니다. 게다가 한 번 개발하면 계속 사용 가능하니 장기적으로 보면 인건비 대비 훨씬 경제적입니다. 무료 상담에서 예상 ROI를 계산해 드립니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>우리 회사 업무도 자동화가 가능할까요?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>엑셀로 하는 작업, 복붙이 많은 작업, 정해진 규칙이 있는 반복 작업이라면 거의 100% 자동화 가능합니다. 30분 무료 진단으로 귀사 업무의 자동화 가능 여부와 예상 효과를 정확히 알려드립니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>개발 기간은 얼마나 걸리나요?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>간단한 자동화 도구는 1-2주, 중규모 시스템은 3-4주면 완성됩니다. 급하신 경우 긴급 개발도 가능합니다. 정확한 일정은 무료 상담 후 안내드리며, 약속한 납기는 100% 지킵니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>개발 후 문제가 생기면 어떻게 하나요?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>개발 완료 후 1개월간 무상 유지보수를 제공합니다. 이 기간 동안 발생하는 모든 버그 수정, 기능 조정은 무료입니다. 이후에도 합리적인 비용으로 지속적인 지원을 받으실 수 있습니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>결과가 마음에 안 들면 어떻게 되나요?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>100% 환불 보장합니다. 합의된 요구사항대로 개발했음에도 만족하지 못하시면 전액 환불해 드립니다. 저희는 그만큼 결과물에 자신 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section - FOMO 강화 -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>
+                    이 페이지를 읽는 <span class="highlight-danger">5분 동안</span><br>
+                    당신 회사에서 <span class="highlight-danger">25,000원</span>이 낭비됐습니다
+                </h2>
+                <p>
+                    시급 2만원 × 직원 3명 × 5분 = 5,000원.<br>
+                    이게 반복 업무의 실제 비용입니다. 매일, 매달, 매년.<br>
+                    <strong style="color: var(--primary);">30분 무료 진단 하나</strong>로 이 숫자를 0에 가깝게 만들 수 있습니다.
+                </p>
+                <div style="background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.3); border-radius: 12px; padding: 16px 24px; margin-bottom: 30px; display: inline-block;">
+                    <p style="margin: 0; color: var(--danger); font-weight: 700;">
+                        ⚠️ 이번 주 상담 가능: 월/수/금 오전 10시~12시 (품질 유지를 위해 주 6건만 진행)
+                    </p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn-primary">
+                        🔥 우리 회사 연간 절감액 무료로 받기
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="cta-note">✓ 폼 작성 30초 · ✓ 24시간 내 맞춤 견적 · ✓ 안 맞으면 100% 환불</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>
+                        30초만 투자하면<br>
+                        <span class="highlight">연간 절감액</span> 바로 알려드립니다
+                    </h2>
+                    <p>
+                        <strong style="color: var(--danger);">"우리 회사도 자동화 가능할까?"</strong><br>
+                        3가지만 적어주세요. 24시간 내 맞춤 견적을 보내드립니다.
+                    </p>
+                    <div class="contact-benefits">
+                        <div class="contact-benefit">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>자동화 가능 업무 무료 분석</span>
+                        </div>
+                        <div class="contact-benefit">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>예상 시간/비용 절감 효과 계산</span>
+                        </div>
+                        <div class="contact-benefit">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>24시간 내 맞춤 견적 제공</span>
+                        </div>
+                        <div class="contact-benefit">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>상담 후 결정해도 OK (강매 NO)</span>
+                        </div>
+                    </div>
+                    <div class="contact-urgency">
+                        <div class="contact-urgency-icon">⚡</div>
+                        <div class="contact-urgency-text">
+                            <p><strong>이번 주 상담 가능: 월/수/금 오전 10시~12시</strong></p>
+                            <p>품질 유지를 위해 주 6건만 진행합니다</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <span class="form-badge">상담 비용 0원 · 폼 작성 30초</span>
+                    <form id="inquiryForm">
+                        <div class="form-group">
+                            <label>회사명 <span>*</span></label>
+                            <input type="text" name="company" required placeholder="예) ABC 주식회사">
+                        </div>
+                        <div class="form-group">
+                            <label>담당자명 <span>*</span></label>
+                            <input type="text" name="name" required placeholder="예) 홍길동">
+                        </div>
+                        <div class="form-group">
+                            <label>연락처 (전화 또는 이메일) <span>*</span></label>
+                            <input type="text" name="phone" required placeholder="예) 010-1234-5678 또는 contact@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label>자동화하고 싶은 업무 <span style="color: var(--text-secondary); font-weight: 400;">(선택)</span></label>
+                            <textarea name="message" placeholder="예) 매일 여러 사이트에서 가격 정보를 수집해서 엑셀로 정리하는 작업 (없으면 비워두셔도 됩니다)"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            🔥 우리 회사 연간 절감액 무료로 받기
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </button>
+                        <p class="form-note">
+                            ✓ 24시간 내 맞춤 견적 · ✓ 강매 절대 없음 · ✓ 안 맞으면 100% 환불
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">DevAuto</div>
+                <div class="footer-links">
+                    <a href="#solution">서비스</a>
+                    <a href="#demo">데모</a>
+                    <a href="#contact">문의하기</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 DevAuto. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Floating CTA - 긴급성 강화 -->
+    <div class="floating-cta" id="floatingCta">
+        <div class="floating-urgency" style="font-size: 0.75rem; color: var(--danger); margin-bottom: 6px; text-align: center; font-weight: 700;">
+            🔥 이번 주 상담 가능: 월/수/금 오전
+        </div>
+        <a href="#contact">
+            <span>연간 절감액 무료로 받기</span>
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+        </a>
+        <div class="floating-micro" style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 6px; text-align: center;">
+            ✓ 폼 작성 30초 ✓ 24시간 내 견적 ✓ 100% 환불 보장
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+            <div class="video-modal-placeholder">
+                <p>데모 영상 준비 중입니다</p>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">
+                    실제 서비스 시 영상이 표시됩니다
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Intent Popup -->
+    <div class="exit-popup" id="exitPopup">
+        <div class="exit-popup-content">
+            <button class="exit-popup-close" onclick="closeExitPopup()">&times;</button>
+            <div class="exit-popup-icon">⏰</div>
+            <h3>잠깐, 이것만 확인하세요</h3>
+            <p>
+                당신 회사에서 <strong style="color: var(--danger);">매년 1,200만원 이상</strong>이<br>
+                반복 업무에 낭비되고 있을 수 있습니다.<br>
+                <strong style="color: var(--primary);">30분 무료 진단</strong>으로 정확한 절감액을 알려드립니다.
+            </p>
+            <a href="#contact" class="btn-primary" onclick="closeExitPopup()">
+                🔥 연간 절감액 무료로 받기
+            </a>
+            <p class="popup-note">
+                ✓ 폼 작성 30초 · ✓ 24시간 내 맞춤 견적 · ✓ 안 맞으면 100% 환불
+            </p>
+        </div>
+    </div>
+
+    <!-- A/B Test Badge (for testing) -->
+    <div class="ab-test-badge" id="abTestBadge">
+        현재 헤드라인: <span id="currentVariant">A</span>
+    </div>
+
+    <script>
+        // ========== A/B Test Headlines ==========
+        const headlines = document.querySelectorAll('.headline-variant');
+        const variants = ['A', 'B', 'C', 'D'];
+
+        function setHeadlineVariant() {
+            // Get variant from URL param or randomly assign
+            const urlParams = new URLSearchParams(window.location.search);
+            let variant = urlParams.get('variant');
+
+            if (!variant || !variants.includes(variant)) {
+                // Check localStorage for existing assignment
+                variant = localStorage.getItem('headline_variant');
+                if (!variant) {
+                    // Random assignment
+                    variant = variants[Math.floor(Math.random() * variants.length)];
+                    localStorage.setItem('headline_variant', variant);
+                }
+            }
+
+            // Show selected variant
+            headlines.forEach(h => h.classList.remove('active'));
+            const activeHeadline = document.querySelector(`[data-variant="${variant}"]`);
+            if (activeHeadline) {
+                activeHeadline.classList.add('active');
+            }
+
+            // Update badge (for testing)
+            document.getElementById('currentVariant').textContent = variant;
+
+            // Track variant (for analytics)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'headline_view', {
+                    'headline_variant': variant
+                });
+            }
+        }
+
+        setHeadlineVariant();
+
+        // ========== ROI Calculator ==========
+        function calculateROI() {
+            const hours = parseFloat(document.getElementById('calc-hours').value) || 0;
+            const employees = parseFloat(document.getElementById('calc-employees').value) || 0;
+            const wage = parseFloat(document.getElementById('calc-wage').value) || 0;
+
+            // Calculate annual waste
+            const workDays = 260; // Working days per year
+            const annualWaste = hours * employees * wage * workDays;
+
+            // Estimated automation cost (simplified)
+            const automationCost = Math.max(3000000, annualWaste * 0.15);
+
+            // Savings (assuming 70% efficiency gain)
+            const savings = (annualWaste * 0.7) - automationCost;
+
+            // Update display
+            document.getElementById('result-waste').textContent = '₩' + annualWaste.toLocaleString();
+            document.getElementById('result-cost').textContent = '₩' + Math.round(automationCost).toLocaleString();
+            document.getElementById('result-savings').textContent = '₩' + Math.max(0, Math.round(savings)).toLocaleString();
+        }
+
+        // Add event listeners to calculator inputs
+        document.querySelectorAll('.calculator-inputs input').forEach(input => {
+            input.addEventListener('input', calculateROI);
+        });
+
+        // Initial calculation
+        calculateROI();
+
+        // ========== Video Modal ==========
+        function openVideoModal() {
+            document.getElementById('videoModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+
+            // Track video view
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'video_open', {
+                    'video_name': 'demo_video'
+                });
+            }
+        }
+
+        function closeVideoModal() {
+            document.getElementById('videoModal').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeVideoModal();
+        });
+
+        // Close modal on background click
+        document.getElementById('videoModal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeVideoModal();
+        });
+
+        // ========== FAQ Accordion ==========
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const wasActive = item.classList.contains('active');
+
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // ========== Toast Notification ==========
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+
+            toast.className = 'toast ' + type;
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+
+        // ========== Floating CTA ==========
+        window.addEventListener('scroll', () => {
+            const floatingCta = document.getElementById('floatingCta');
+            const contactSection = document.getElementById('contact');
+            const contactRect = contactSection.getBoundingClientRect();
+
+            if (window.scrollY > 800 && contactRect.top > window.innerHeight) {
+                floatingCta.classList.add('show');
+            } else {
+                floatingCta.classList.remove('show');
+            }
+        });
+
+        // ========== Form Submission ==========
+        document.getElementById('inquiryForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalHTML = submitBtn.innerHTML;
+            submitBtn.innerHTML = '전송 중...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(this);
+            const data = {
+                company: formData.get('company'),
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                type: formData.get('type'),
+                message: formData.get('message'),
+                timestamp: new Date().toLocaleString('ko-KR'),
+                headline_variant: localStorage.getItem('headline_variant') || 'unknown'
+            };
+
+            // Google Apps Script Web App URL - 실제 배포 URL로 교체하세요
+            const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                showToast('신청이 완료되었습니다! 24시간 내에 연락드리겠습니다.', 'success');
+                this.reset();
+
+                // Track conversion
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'form_submit', {
+                        'headline_variant': data.headline_variant,
+                        'service_type': data.type
+                    });
+                }
+            } catch (error) {
+                showToast('전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.', 'error');
+                console.error('Error:', error);
+            } finally {
+                submitBtn.innerHTML = originalHTML;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // ========== Smooth Scroll ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ========== Show A/B Test Badge (DEV MODE) ==========
+        // URL에 ?debug=true 추가하면 A/B 테스트 배지 표시
+        if (new URLSearchParams(window.location.search).get('debug') === 'true') {
+            document.getElementById('abTestBadge').style.display = 'block';
+        }
+
+        // ========== Exit Intent Popup ==========
+        let exitPopupShown = false;
+
+        function showExitPopup() {
+            if (exitPopupShown) return;
+            if (sessionStorage.getItem('exitPopupShown')) return;
+
+            document.getElementById('exitPopup').classList.add('show');
+            document.body.style.overflow = 'hidden';
+            exitPopupShown = true;
+            sessionStorage.setItem('exitPopupShown', 'true');
+
+            // Track exit intent
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'exit_intent_shown', {
+                    'headline_variant': localStorage.getItem('headline_variant') || 'unknown'
+                });
+            }
+        }
+
+        function closeExitPopup() {
+            document.getElementById('exitPopup').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        // Desktop: Mouse leaves viewport
+        document.addEventListener('mouseout', function(e) {
+            if (e.clientY < 0 && !exitPopupShown) {
+                showExitPopup();
+            }
+        });
+
+        // Mobile: Back button or scroll up quickly
+        let lastScrollTop = 0;
+        let scrollUpCount = 0;
+
+        window.addEventListener('scroll', function() {
+            const st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st < lastScrollTop && st < 100) {
+                scrollUpCount++;
+                if (scrollUpCount > 3 && !exitPopupShown) {
+                    showExitPopup();
+                }
+            } else {
+                scrollUpCount = 0;
+            }
+            lastScrollTop = st <= 0 ? 0 : st;
+        }, false);
+
+        // Close on click outside
+        document.getElementById('exitPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeExitPopup();
+            }
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeExitPopup();
+            }
+        });
+    </script>
+    </main>
+</body>
+</html>

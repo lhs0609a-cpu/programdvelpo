@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta 광고 소재 - DevAuto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: #1a1a1a;
+            padding: 40px;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .info {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .ads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .ad-container {
+            background: #0a0a0a;
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .ad-label {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .ad-label span {
+            color: #56e4fd;
+            font-weight: 600;
+        }
+
+        /* 광고 소재 공통 스타일 */
+        .ad {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .ad-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ad .logo {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #56e4fd 0%, #055dfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 2;
+        }
+
+        .ad .cta-btn {
+            background: linear-gradient(135deg, #56e4fd 0%, #055dfe 100%);
+            color: #0a0a0a;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 24px;
+            display: inline-block;
+        }
+
+        .ad .small-text {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 12px;
+        }
+
+        .ad .highlight {
+            background: linear-gradient(135deg, #56e4fd 0%, #055dfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ad .highlight-danger {
+            color: #ff6b6b;
+        }
+
+        .ad .highlight-yellow {
+            color: #ffd93d;
+        }
+
+        /* ========== 광고 1: 고통 자극 - 야근 ========== */
+        .ad-1 {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        .ad-1 h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+        .ad-1 p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* ========== 광고 2: 숫자 강조 - ROI ========== */
+        .ad-2 {
+            background: linear-gradient(135deg, #1a0a2e 0%, #0a1a2e 100%);
+        }
+        .ad-2 .big-number {
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #56e4fd 0%, #055dfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+        .ad-2 h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-top: 12px;
+        }
+        .ad-2 p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 8px;
+        }
+
+        /* ========== 광고 3: Before/After ========== */
+        .ad-3 {
+            background: #0a0a0a;
+            padding: 0;
+        }
+        .ad-3 .split {
+            display: flex;
+            height: 100%;
+        }
+        .ad-3 .before, .ad-3 .after {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+        .ad-3 .before {
+            background: rgba(255, 107, 107, 0.1);
+        }
+        .ad-3 .after {
+            background: rgba(86, 228, 253, 0.1);
+        }
+        .ad-3 .label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .ad-3 .before .label { color: #ff6b6b; }
+        .ad-3 .after .label { color: #56e4fd; }
+        .ad-3 .time {
+            font-size: 3rem;
+            font-weight: 900;
+        }
+        .ad-3 .before .time { color: #ff6b6b; }
+        .ad-3 .after .time { color: #56e4fd; }
+        .ad-3 .desc {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        /* ========== 광고 4: FOMO ========== */
+        .ad-4 {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 100%);
+            border: 3px solid #ff6b6b;
+        }
+        .ad-4 .urgent-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        .ad-4 h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+
+        /* ========== 광고 5: 질문형 ========== */
+        .ad-5 {
+            background: linear-gradient(180deg, #055dfe 0%, #0a0a0a 100%);
+        }
+        .ad-5 h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+        .ad-5 p {
+            font-size: 1.1rem;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* ========== 광고 6: 사회적 증거 ========== */
+        .ad-6 {
+            background: linear-gradient(135deg, #0a1a0a 0%, #0a0a1a 100%);
+        }
+        .ad-6 .stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 24px;
+        }
+        .ad-6 .stat-item {
+            text-align: center;
+        }
+        .ad-6 .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #56e4fd;
+        }
+        .ad-6 .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+        }
+        .ad-6 h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* ========== 광고 7: 비교 ========== */
+        .ad-7 {
+            background: #0a0a0a;
+        }
+        .ad-7 .compare {
+            width: 100%;
+        }
+        .ad-7 .compare-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .ad-7 .compare-row:last-child {
+            border-bottom: none;
+        }
+        .ad-7 .compare-label {
+            color: rgba(255,255,255,0.7);
+        }
+        .ad-7 .compare-bad {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+        .ad-7 .compare-good {
+            color: #22c55e;
+            font-weight: 600;
+        }
+        .ad-7 h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        /* ========== 광고 8: 후기 스타일 ========== */
+        .ad-8 {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a2e 100%);
+        }
+        .ad-8 .quote {
+            font-size: 6rem;
+            color: #56e4fd;
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+        .ad-8 .testimonial {
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .ad-8 .author {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+        }
+        .ad-8 .result {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.5);
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 16px;
+            color: #22c55e;
+            font-weight: 600;
+        }
+
+        /* ========== 광고 9: 문제 강조 ========== */
+        .ad-9 {
+            background: linear-gradient(135deg, #2e0a0a 0%, #0a0a0a 100%);
+        }
+        .ad-9 .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        .ad-9 h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.4;
+            color: #ff6b6b;
+        }
+        .ad-9 p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: 16px;
+        }
+
+        /* ========== 광고 10: 해결책 ========== */
+        .ad-10 {
+            background: linear-gradient(135deg, #0a2e0a 0%, #0a0a2e 100%);
+        }
+        .ad-10 .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        .ad-10 h2 {
+            font-size: 1.7rem;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+        .ad-10 .benefits {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .ad-10 .benefit {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            font-size: 0.95rem;
+        }
+        .ad-10 .check {
+            color: #22c55e;
+        }
+
+        /* ========== 광고 11: 긴급성 + 숫자 ========== */
+        .ad-11 {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 100%);
+            border: 3px solid #ffd93d;
+        }
+        .ad-11 .badge {
+            background: #ffd93d;
+            color: #0a0a0a;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .ad-11 h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1.3;
+        }
+        .ad-11 .money {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ff6b6b;
+            margin: 16px 0;
+        }
+
+        /* ========== 광고 12: 간단함 강조 ========== */
+        .ad-12 {
+            background: linear-gradient(135deg, #0a1a2e 0%, #0a0a0a 100%);
+        }
+        .ad-12 .steps {
+            display: flex;
+            gap: 20px;
+            margin: 24px 0;
+        }
+        .ad-12 .step {
+            text-align: center;
+        }
+        .ad-12 .step-num {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #56e4fd 0%, #055dfe 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: #0a0a0a;
+            margin: 0 auto 8px;
+        }
+        .ad-12 .step-text {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+        }
+        .ad-12 h2 {
+            font-size: 1.6rem;
+            font-weight: 900;
+        }
+
+        /* ========== 광고 13: 무료 강조 ========== */
+        .ad-13 {
+            background: linear-gradient(135deg, #055dfe 0%, #56e4fd 100%);
+        }
+        .ad-13 h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: white;
+        }
+        .ad-13 .free-badge {
+            background: white;
+            color: #055dfe;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin: 20px 0;
+        }
+        .ad-13 p {
+            color: rgba(255,255,255,0.9);
+        }
+        .ad-13 .cta-btn {
+            background: white;
+            color: #055dfe;
+        }
+
+        /* ========== 광고 14: 경쟁 심리 ========== */
+        .ad-14 {
+            background: linear-gradient(135deg, #0a0a0a 0%, #2e1a0a 100%);
+        }
+        .ad-14 h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+        .ad-14 .versus {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 24px 0;
+        }
+        .ad-14 .them, .ad-14 .you {
+            flex: 1;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .ad-14 .them {
+            background: rgba(34, 197, 94, 0.2);
+            border: 2px solid #22c55e;
+        }
+        .ad-14 .you {
+            background: rgba(255, 107, 107, 0.2);
+            border: 2px solid #ff6b6b;
+        }
+        .ad-14 .vs {
+            font-weight: 900;
+            color: #56e4fd;
+        }
+
+        /* ========== 광고 15: 리스크 제거 ========== */
+        .ad-15 {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0a1a0a 100%);
+        }
+        .ad-15 .shield {
+            font-size: 5rem;
+            margin-bottom: 16px;
+        }
+        .ad-15 h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+        .ad-15 .guarantee {
+            background: rgba(34, 197, 94, 0.2);
+            border: 2px solid #22c55e;
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-top: 20px;
+            color: #22c55e;
+            font-weight: 700;
+        }
+
+        /* ========== 광고 16: 시간 절약 ========== */
+        .ad-16 {
+            background: linear-gradient(135deg, #1a0a2e 0%, #0a1a2e 100%);
+        }
+        .ad-16 .clock {
+            font-size: 4rem;
+            margin-bottom: 16px;
+        }
+        .ad-16 h2 {
+            font-size: 1.6rem;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+        .ad-16 .time-saved {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #56e4fd;
+            margin: 16px 0;
+        }
+        .ad-16 p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ========== 광고 17: 타겟 특화 - 대표님 ========== */
+        .ad-17 {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0a0a2e 100%);
+        }
+        .ad-17 .target {
+            background: rgba(86, 228, 253, 0.2);
+            border: 1px solid #56e4fd;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #56e4fd;
+            margin-bottom: 20px;
+        }
+        .ad-17 h2 {
+            font-size: 1.7rem;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+        .ad-17 p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: 16px;
+        }
+
+        /* ========== 광고 18: 스토리텔링 ========== */
+        .ad-18 {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        .ad-18 .story {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            text-align: left;
+        }
+        .ad-18 .story span {
+            color: #56e4fd;
+            font-weight: 700;
+        }
+
+        /* ========== 광고 19: 카운트다운 ========== */
+        .ad-19 {
+            background: linear-gradient(135deg, #2e0a0a 0%, #0a0a0a 100%);
+            border: 3px solid #ff6b6b;
+        }
+        .ad-19 .countdown {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .ad-19 .countdown-item {
+            background: rgba(255, 107, 107, 0.2);
+            padding: 15px 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .ad-19 .countdown-num {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ff6b6b;
+        }
+        .ad-19 .countdown-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+        }
+        .ad-19 h2 {
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        /* ========== 광고 20: 최종 CTA ========== */
+        .ad-20 {
+            background: linear-gradient(135deg, #055dfe 0%, #0a0a2e 100%);
+        }
+        .ad-20 h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+        .ad-20 .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .ad-20 .feature {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        .ad-20 .cta-btn {
+            background: white;
+            color: #055dfe;
+            font-size: 1.1rem;
+            padding: 16px 32px;
+        }
+
+        /* 다운로드 안내 */
+        .download-guide {
+            max-width: 800px;
+            margin: 60px auto 0;
+            background: #111;
+            border-radius: 16px;
+            padding: 30px;
+        }
+        .download-guide h3 {
+            margin-bottom: 16px;
+            color: #56e4fd;
+        }
+        .download-guide p {
+            color: #888;
+            line-height: 1.8;
+        }
+        .download-guide code {
+            background: #222;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #56e4fd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Meta 광고 소재 20종</h1>
+    <p class="info">1:1 정사각형 (1080x1080) | 각 소재를 스크린샷하여 사용하세요</p>
+
+    <div class="ads-grid">
+        <!-- 광고 1: 고통 자극 - 야근 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 1 | <span>고통 자극형</span></p>
+            <div class="ad ad-1">
+                <div class="ad-content">
+                    <h2>"또 야근이야..."<br>그 말,<br><span class="highlight">이제 끝입니다</span></h2>
+                    <p>반복 업무 때문에 야근하는<br>직원들, 더 이상 보지 마세요</p>
+                    <div class="cta-btn">무료 진단받기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 2: 숫자 강조 - ROI -->
+        <div class="ad-container">
+            <p class="ad-label">광고 2 | <span>ROI 강조형</span></p>
+            <div class="ad ad-2">
+                <div class="ad-content">
+                    <div class="big-number">70%</div>
+                    <h2>업무시간 단축</h2>
+                    <p>150개 기업 평균 결과</p>
+                    <div class="cta-btn">무료로 계산해보기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 3: Before/After -->
+        <div class="ad-container">
+            <p class="ad-label">광고 3 | <span>Before/After</span></p>
+            <div class="ad ad-3">
+                <div class="split">
+                    <div class="before">
+                        <span class="label">BEFORE</span>
+                        <div class="time">4시간</div>
+                        <p class="desc">매일 반복<br>수작업</p>
+                    </div>
+                    <div class="after">
+                        <span class="label">AFTER</span>
+                        <div class="time">3분</div>
+                        <p class="desc">버튼 한 번<br>자동 완료</p>
+                    </div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 4: FOMO -->
+        <div class="ad-container">
+            <p class="ad-label">광고 4 | <span>FOMO/긴급성</span></p>
+            <div class="ad ad-4">
+                <div class="ad-content">
+                    <span class="urgent-badge">⚠️ 이번 달 3자리 남음</span>
+                    <h2>경쟁사는<br><span class="highlight">이미 도입했습니다</span></h2>
+                    <p class="small-text">당신만 모르는 업무 자동화의 비밀</p>
+                    <div class="cta-btn">지금 확인하기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 5: 질문형 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 5 | <span>질문형</span></p>
+            <div class="ad ad-5">
+                <div class="ad-content">
+                    <h2>아직도 엑셀에<br>복붙하고 계세요?</h2>
+                    <p>그 시간에 월급이<br>낭비되고 있습니다</p>
+                    <div class="cta-btn">낭비 비용 계산하기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 6: 사회적 증거 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 6 | <span>사회적 증거</span></p>
+            <div class="ad ad-6">
+                <div class="ad-content">
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">도입 기업</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">재계약률</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4.9</div>
+                            <div class="stat-label">만족도</div>
+                        </div>
+                    </div>
+                    <h2>150개 기업이<br>선택한 이유</h2>
+                    <div class="cta-btn">무료 상담받기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 7: 비교 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 7 | <span>비교형</span></p>
+            <div class="ad ad-7">
+                <div class="ad-content">
+                    <h3>직원 1명 vs 자동화</h3>
+                    <div class="compare">
+                        <div class="compare-row">
+                            <span class="compare-label">월 비용</span>
+                            <span class="compare-bad">350만원</span>
+                            <span class="compare-good">50만원</span>
+                        </div>
+                        <div class="compare-row">
+                            <span class="compare-label">실수 확률</span>
+                            <span class="compare-bad">있음</span>
+                            <span class="compare-good">0%</span>
+                        </div>
+                        <div class="compare-row">
+                            <span class="compare-label">퇴사 리스크</span>
+                            <span class="compare-bad">높음</span>
+                            <span class="compare-good">없음</span>
+                        </div>
+                        <div class="compare-row">
+                            <span class="compare-label">24시간 작동</span>
+                            <span class="compare-bad">불가</span>
+                            <span class="compare-good">가능</span>
+                        </div>
+                    </div>
+                    <div class="cta-btn">자동화 상담받기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 8: 후기 스타일 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 8 | <span>후기/증언</span></p>
+            <div class="ad ad-8">
+                <div class="ad-content">
+                    <span class="quote">"</span>
+                    <p class="testimonial">"사람 한 명 더 뽑으려다<br>자동화를 선택했는데,<br>연 4천만원을 아꼈습니다"</p>
+                    <p class="author">박지현 이사 | 스마트HR</p>
+                    <div class="result">→ ROI 800% 달성</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 9: 문제 강조 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 9 | <span>문제 강조형</span></p>
+            <div class="ad ad-9">
+                <div class="ad-content">
+                    <div class="icon">😰</div>
+                    <h2>매일 3시간씩<br>엑셀만 만지고 계세요?</h2>
+                    <p>1년이면 780시간.<br>시급 2만원이면 <span class="highlight-danger">1,560만원 낭비.</span></p>
+                    <div class="cta-btn">손실 비용 계산하기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 10: 해결책 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 10 | <span>해결책 제시</span></p>
+            <div class="ad ad-10">
+                <div class="ad-content">
+                    <div class="icon">🚀</div>
+                    <h2>귀사 맞춤<br>업무 자동화</h2>
+                    <div class="benefits">
+                        <div class="benefit"><span class="check">✓</span> 엑셀 데이터 자동 수집/정리</div>
+                        <div class="benefit"><span class="check">✓</span> 보고서 자동 생성</div>
+                        <div class="benefit"><span class="check">✓</span> 이메일/알림 자동 발송</div>
+                        <div class="benefit"><span class="check">✓</span> 100% 환불 보장</div>
+                    </div>
+                    <div class="cta-btn">무료 진단받기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 11: 긴급성 + 숫자 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 11 | <span>손실 강조형</span></p>
+            <div class="ad ad-11">
+                <div class="ad-content">
+                    <span class="badge">⚠️ 지금 확인하세요</span>
+                    <h2>반복 업무에<br>버리는 돈</h2>
+                    <div class="money">연 1,200만원</div>
+                    <p class="small-text">직원 1명 기준, 하루 3시간 반복 업무 시</p>
+                    <div class="cta-btn">우리 회사 계산하기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 12: 간단함 강조 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 12 | <span>프로세스 강조</span></p>
+            <div class="ad ad-12">
+                <div class="ad-content">
+                    <h2>딱 4단계면 끝</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-text">무료<br>진단</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-text">맞춤<br>제안</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-text">개발<br>진행</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">4</div>
+                            <div class="step-text">배포<br>완료</div>
+                        </div>
+                    </div>
+                    <p class="small-text">복잡한 절차? 없습니다.</p>
+                    <div class="cta-btn">무료 진단 시작</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 13: 무료 강조 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 13 | <span>무료 강조형</span></p>
+            <div class="ad ad-13">
+                <div class="ad-content">
+                    <h2>업무 자동화<br>진단</h2>
+                    <div class="free-badge">100% 무료</div>
+                    <p>30분이면 연간 절감액을<br>정확히 알 수 있습니다</p>
+                    <div class="cta-btn">무료로 시작하기</div>
+                </div>
+                <span class="logo" style="color: white; -webkit-text-fill-color: white;">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 14: 경쟁 심리 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 14 | <span>경쟁 심리형</span></p>
+            <div class="ad ad-14">
+                <div class="ad-content">
+                    <h2>옆 회사는<br>6시에 퇴근합니다</h2>
+                    <div class="versus">
+                        <div class="them">
+                            <div style="font-size: 2rem;">😎</div>
+                            <div style="margin-top: 8px; font-weight: 600; color: #22c55e;">자동화 O</div>
+                        </div>
+                        <span class="vs">VS</span>
+                        <div class="you">
+                            <div style="font-size: 2rem;">😫</div>
+                            <div style="margin-top: 8px; font-weight: 600; color: #ff6b6b;">수작업 X</div>
+                        </div>
+                    </div>
+                    <div class="cta-btn">우리 회사도 바꾸기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 15: 리스크 제거 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 15 | <span>리스크 제거형</span></p>
+            <div class="ad ad-15">
+                <div class="ad-content">
+                    <div class="shield">🛡️</div>
+                    <h2>결과 불만족 시<br><span class="highlight">100% 환불</span></h2>
+                    <div class="guarantee">계약서에 명시 | 위험 부담 제로</div>
+                    <div class="cta-btn">부담없이 상담받기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 16: 시간 절약 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 16 | <span>시간 절약형</span></p>
+            <div class="ad ad-16">
+                <div class="ad-content">
+                    <div class="clock">⏰</div>
+                    <h2>월 80시간<br>되찾으세요</h2>
+                    <div class="time-saved">= 10일</div>
+                    <p>자동화로 절약되는 시간</p>
+                    <div class="cta-btn">시간 절약 시작</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 17: 타겟 특화 - 대표님 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 17 | <span>타겟 특화형</span></p>
+            <div class="ad ad-17">
+                <div class="ad-content">
+                    <span class="target">중소기업 대표님께</span>
+                    <h2>직원 월급으로<br><span class="highlight-danger">반복 업무</span><br>시키고 계세요?</h2>
+                    <p>그 돈이면 자동화 8개 돌립니다</p>
+                    <div class="cta-btn">비용 비교하기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 18: 스토리텔링 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 18 | <span>스토리텔링형</span></p>
+            <div class="ad ad-18">
+                <div class="ad-content">
+                    <p class="story">
+                        처음엔 반신반의했습니다.<br><br>
+                        그런데 도입 <span>첫 주</span>부터<br>
+                        야근이 사라졌습니다.<br><br>
+                        <span>월 80시간</span>을 되찾았습니다.
+                    </p>
+                    <div class="cta-btn">성공 사례 보기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 19: 카운트다운 -->
+        <div class="ad-container">
+            <p class="ad-label">광고 19 | <span>카운트다운형</span></p>
+            <div class="ad ad-19">
+                <div class="ad-content">
+                    <h2>무료 진단 마감까지</h2>
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-num">0</div>
+                            <div class="countdown-label">일</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-num">23</div>
+                            <div class="countdown-label">시간</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-num">59</div>
+                            <div class="countdown-label">분</div>
+                        </div>
+                    </div>
+                    <p class="small-text">품질 유지를 위해<br>이번 달 3곳만 진행합니다</p>
+                    <div class="cta-btn">마감 전 신청하기</div>
+                </div>
+                <span class="logo">DevAuto</span>
+            </div>
+        </div>
+
+        <!-- 광고 20: 최종 CTA -->
+        <div class="ad-container">
+            <p class="ad-label">광고 20 | <span>종합형</span></p>
+            <div class="ad ad-20">
+                <div class="ad-content">
+                    <h2>업무 자동화,<br>지금 시작하세요</h2>
+                    <div class="features">
+                        <span class="feature">✓ 무료 진단</span>
+                        <span class="feature">✓ 맞춤 개발</span>
+                        <span class="feature">✓ 100% 환불보장</span>
+                        <span class="feature">✓ 1개월 무상 A/S</span>
+                    </div>
+                    <div class="cta-btn">30초 만에 신청하기</div>
+                    <p class="small-text">150개 기업이 선택했습니다</p>
+                </div>
+                <span class="logo" style="color: white; -webkit-text-fill-color: white;">DevAuto</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="download-guide">
+        <h3>📥 광고 소재 다운로드 방법</h3>
+        <p>
+            1. 각 광고 소재를 <code>400x400</code> 크기로 스크린샷<br>
+            2. 또는 브라우저 개발자 도구에서 각 <code>.ad</code> 요소를 우클릭 → "캡처 노드 스크린샷"<br>
+            3. 메타 광고 관리자에서 1080x1080 해상도로 업로드 시 자동 확대됨<br><br>
+            <strong>팁:</strong> A/B 테스트를 위해 2-3개씩 그룹으로 테스트하세요.<br>
+            - 고통 자극형 (1, 9, 11) vs ROI 강조형 (2, 6, 7)<br>
+            - FOMO형 (4, 14, 19) vs 혜택 강조형 (10, 13, 15)
+        </p>
+    </div>
+</body>
+</html>
