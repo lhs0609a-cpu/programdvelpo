@@ -36,6 +36,17 @@
             --warning: #f59e0b;
             --glow-primary: 0 0 40px rgba(0, 212, 255, 0.3);
             --glow-accent: 0 0 40px rgba(168, 85, 247, 0.3);
+
+            /* Border Radius Scale */
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
+            --radius-pill: 50px;
+
+            /* Section Padding */
+            --section-padding: 120px;
+            --section-padding-sm: 80px;
         }
 
         html {
@@ -174,6 +185,98 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        /* Utility Classes */
+        .text-danger {
+            color: var(--danger);
+        }
+
+        .text-primary-color {
+            color: var(--primary);
+        }
+
+        .text-primary-light {
+            color: var(--primary-light);
+        }
+
+        .text-success {
+            color: var(--success);
+        }
+
+        .text-bold {
+            font-weight: 700;
+        }
+
+        .cta-micro {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: -20px;
+            margin-bottom: 32px;
+        }
+
+        .urgency-box {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: var(--radius-sm);
+            padding: 16px 24px;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .urgency-box p {
+            margin: 0;
+            color: var(--danger);
+            font-weight: 700;
+        }
+
+        .icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-box svg {
+            width: 28px;
+            height: 28px;
+            stroke-width: 1.5;
+        }
+
+        /* Guarantee & Exit Popup Icon Containers */
+        .guarantee-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .guarantee-icon svg {
+            width: 40px;
+            height: 40px;
+            color: var(--primary);
+        }
+
+        .exit-popup-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(168, 85, 247, 0.08) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .exit-popup-icon svg {
+            width: 36px;
+            height: 36px;
+            color: var(--primary);
         }
 
         /* Navigation - Glassmorphism */
@@ -405,7 +508,7 @@
             background: var(--gradient);
             color: var(--bg-dark);
             padding: 20px 40px;
-            border-radius: 14px;
+            border-radius: var(--radius-sm);
             text-decoration: none;
             font-weight: 800;
             font-size: 1.15rem;
@@ -447,7 +550,7 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
             color: var(--text-primary);
             padding: 16px 32px;
-            border-radius: 12px;
+            border-radius: var(--radius-sm);
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
@@ -483,7 +586,7 @@
 
         .hero-card {
             background: linear-gradient(135deg, rgba(15, 15, 25, 0.9) 0%, rgba(25, 25, 45, 0.8) 100%);
-            border-radius: 24px;
+            border-radius: var(--radius-xl);
             padding: 36px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
@@ -520,10 +623,10 @@
             position: absolute;
             top: -12px;
             right: 20px;
-            background: var(--danger);
-            color: white;
+            background: var(--gradient);
+            color: var(--bg-dark);
             padding: 6px 14px;
-            border-radius: 20px;
+            border-radius: var(--radius-pill);
             font-size: 0.8rem;
             font-weight: 700;
         }
@@ -613,7 +716,7 @@
         .logo-item {
             background: linear-gradient(135deg, rgba(15, 15, 25, 0.8) 0%, rgba(25, 25, 45, 0.6) 100%);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
+            border-radius: var(--radius-lg);
             padding: 28px 24px;
             text-align: center;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -671,7 +774,7 @@
 
         /* Demo Video Section - Premium */
         .demo {
-            padding: 140px 0;
+            padding: var(--section-padding) 0;
             background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(15, 15, 25, 0.5) 50%, var(--bg-dark) 100%);
             position: relative;
         }
@@ -840,7 +943,7 @@
             gap: 20px;
             padding: 28px;
             background: linear-gradient(135deg, rgba(15, 15, 25, 0.8) 0%, rgba(25, 25, 45, 0.6) 100%);
-            border-radius: 18px;
+            border-radius: var(--radius-lg);
             border: 1px solid rgba(255, 255, 255, 0.06);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
@@ -896,7 +999,7 @@
 
         /* ROI Calculator Section - Premium */
         .calculator {
-            padding: 140px 0;
+            padding: var(--section-padding) 0;
             background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(10, 10, 20, 0.8) 50%, var(--bg-dark) 100%);
             position: relative;
         }
@@ -927,7 +1030,7 @@
         .calculator-box {
             background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(20, 20, 40, 0.9) 100%);
             border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 28px;
+            border-radius: var(--radius-xl);
             padding: 50px;
             position: relative;
             overflow: hidden;
@@ -1089,7 +1192,7 @@
 
         /* Problem Section */
         .problem {
-            padding: 120px 0;
+            padding: var(--section-padding) 0;
         }
 
         .problem-header {
@@ -1107,7 +1210,7 @@
         .problem-card {
             background: linear-gradient(135deg, rgba(20, 15, 18, 0.9) 0%, rgba(30, 20, 25, 0.8) 100%);
             border: 1px solid rgba(244, 63, 94, 0.15);
-            border-radius: 20px;
+            border-radius: var(--radius-lg);
             padding: 36px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -1186,7 +1289,7 @@
 
         /* Solution Section */
         .solution {
-            padding: 120px 0;
+            padding: var(--section-padding) 0;
             background: var(--bg-card);
         }
 
@@ -1205,7 +1308,7 @@
         .solution-card {
             background: linear-gradient(135deg, rgba(10, 10, 20, 0.9) 0%, rgba(20, 20, 40, 0.8) 100%);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 24px;
+            border-radius: var(--radius-xl);
             padding: 44px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -1256,7 +1359,7 @@
         }
 
         .solution-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 12px;
             font-weight: 700;
         }
@@ -1304,7 +1407,7 @@
 
         /* Comparison Section */
         .comparison {
-            padding: 120px 0;
+            padding: var(--section-padding) 0;
         }
 
         .comparison-header {
@@ -1317,14 +1420,14 @@
             max-width: 900px;
             margin: 0 auto;
             background: var(--bg-card);
-            border-radius: 20px;
+            border-radius: var(--radius-lg);
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .comparison-row {
             display: grid;
-            grid-template-columns: 1.2fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -1374,7 +1477,7 @@
 
         /* Testimonials Section - 강화 */
         .testimonials {
-            padding: 120px 0;
+            padding: var(--section-padding) 0;
             background: var(--bg-card);
         }
 
@@ -1394,7 +1497,7 @@
         .testimonial-card {
             background: var(--bg-dark);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
+            border-radius: var(--radius-lg);
             padding: 32px;
             position: relative;
             transition: all 0.3s;
@@ -1420,8 +1523,8 @@
             position: absolute;
             top: 16px;
             left: 16px;
-            background: var(--danger);
-            color: white;
+            background: var(--gradient);
+            color: var(--bg-dark);
             padding: 4px 10px;
             border-radius: 20px;
             font-size: 0.7rem;
@@ -1532,7 +1635,8 @@
 
         /* Process Section */
         .process {
-            padding: 120px 0;
+            padding: var(--section-padding) 0;
+            background: var(--bg-card);
         }
 
         .process-header {
@@ -1619,9 +1723,7 @@
             margin: 0 auto;
         }
 
-        .guarantee-icon {
-            font-size: 5rem;
-        }
+        /* .guarantee-icon is defined in utility section above */
 
         .guarantee-text h3 {
             font-size: 1.8rem;
@@ -1637,7 +1739,7 @@
 
         /* Anti-Anxiety Section - 불안 해소 */
         .anti-anxiety {
-            padding: 120px 0;
+            padding: var(--section-padding) 0;
             background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(255, 107, 107, 0.05) 50%, var(--bg-dark) 100%);
         }
 
@@ -1658,7 +1760,7 @@
         .worry-box {
             background: var(--bg-card);
             border: 1px solid rgba(255, 107, 107, 0.2);
-            border-radius: 20px;
+            border-radius: var(--radius-lg);
             padding: 36px;
             transition: all 0.3s;
             position: relative;
@@ -1697,9 +1799,9 @@
             font-size: 0.9rem;
         }
 
-        /* Price Anchor Section - 가격 앵커링 */
+        /* Price Anchor Section - 개발비 + 월 관리 구독 */
         .price-anchor {
-            padding: 120px 0;
+            padding: var(--section-padding) 0;
             background: var(--bg-card);
         }
 
@@ -1709,109 +1811,280 @@
             margin: 0 auto 60px;
         }
 
-        .price-compare {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
+        /* 상단 비용 비교 바 */
+        .price-compare-bar {
+            display: flex;
+            justify-content: center;
             align-items: center;
-        }
-
-        .price-option {
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            padding: 32px 40px;
             background: var(--bg-dark);
             border-radius: 20px;
-            padding: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .price-option.bad {
-            border-color: rgba(255, 107, 107, 0.3);
+        .compare-item {
+            text-align: center;
         }
 
-        .price-option.good {
-            border-color: rgba(86, 228, 253, 0.5);
+        .compare-item .compare-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .compare-item .compare-value {
+            font-size: 1.8rem;
+            font-weight: 900;
+        }
+
+        .compare-item .compare-value.bad {
+            color: var(--danger);
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .compare-item .compare-value.good {
+            color: var(--success);
+        }
+
+        .compare-vs {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .compare-item .compare-sub {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* 개발비 안내 */
+        .dev-cost-info {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            padding: 28px 32px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 16px;
+        }
+
+        .dev-cost-info h3 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: var(--primary-light);
+        }
+
+        .dev-cost-info p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .dev-cost-info .dev-price {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 8px 0;
+        }
+
+        /* 구독 플랜 섹션 타이틀 */
+        .plan-section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .plan-section-title h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .plan-section-title p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* 3-Tier 플랜 카드 */
+        .plan-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .plan-card {
+            background: var(--bg-dark);
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
+            border: 2px solid rgba(255, 255, 255, 0.08);
             position: relative;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
 
-        .price-option.good::before {
-            content: '추천';
+        .plan-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .plan-card.recommended {
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .plan-card.recommended::before {
+            content: '가장 인기';
             position: absolute;
-            top: -12px;
+            top: -13px;
             left: 50%;
             transform: translateX(-50%);
             background: var(--gradient);
             color: var(--bg-dark);
-            padding: 6px 20px;
+            padding: 6px 22px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
+            white-space: nowrap;
         }
 
-        .price-option h4 {
-            font-size: 1.3rem;
+        .plan-card .plan-name {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .plan-card .plan-price {
+            font-size: 2.4rem;
+            font-weight: 900;
+            margin-bottom: 4px;
+        }
+
+        .plan-card .plan-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .plan-card .plan-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
             margin-bottom: 24px;
-            text-align: center;
+            line-height: 1.5;
         }
 
-        .price-option ul {
+        .plan-card ul {
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
-        .price-option ul li {
-            padding: 12px 0;
+        .plan-card ul li {
+            padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
             display: flex;
-            justify-content: space-between;
-            font-size: 0.95rem;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
         }
 
-        .price-option ul li:last-child {
+        .plan-card ul li:last-child {
             border-bottom: none;
         }
 
-        .price-option .total {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        .plan-card ul li .check {
+            color: var(--success);
+            font-weight: 700;
+            flex-shrink: 0;
         }
 
-        .price-option .total span {
-            font-size: 2.5rem;
-            font-weight: 900;
+        .plan-card ul li .x-mark {
+            color: rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
         }
 
-        .price-option .total small {
+        .plan-card .plan-cta {
             display: block;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 8px;
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
         }
 
-        .price-vs {
-            font-size: 2.5rem;
-            font-weight: 900;
+        .plan-card .plan-cta:hover {
+            transform: translateY(-2px);
+        }
+
+        .plan-card .plan-cta.outline {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+        }
+
+        .plan-card .plan-cta.outline:hover {
+            border-color: var(--primary);
             color: var(--primary);
+        }
+
+        .plan-card .plan-cta.primary {
+            background: var(--gradient);
+            color: var(--bg-dark);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .plan-card .plan-cta.primary:hover {
+            box-shadow: 0 6px 30px rgba(0, 212, 255, 0.5);
+        }
+
+        /* 구독 하단 안내 */
+        .plan-footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.8;
+        }
+
+        .plan-footer strong {
+            color: var(--primary-light);
         }
 
         @media (max-width: 992px) {
             .worry-grid {
                 grid-template-columns: 1fr;
             }
-            .price-compare {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .price-compare-bar {
+                flex-direction: column;
+                gap: 20px;
+                padding: 24px 20px;
             }
-            .price-vs {
+            .compare-vs {
                 transform: rotate(90deg);
+            }
+            .plan-cards {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+            }
+            .plan-card.recommended {
+                order: -1;
             }
         }
 
         /* FAQ Section */
         .faq {
-            padding: 120px 0;
-            background: var(--bg-card);
+            padding: var(--section-padding) 0;
         }
 
         .faq-header {
@@ -1828,7 +2101,7 @@
         .faq-item {
             background: var(--bg-dark);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            border-radius: var(--radius-sm);
             margin-bottom: 16px;
             overflow: hidden;
             transition: border-color 0.3s;
@@ -1881,7 +2154,7 @@
 
         /* CTA Section */
         .cta-section {
-            padding: 100px 0;
+            padding: var(--section-padding-sm) 0;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -1934,7 +2207,7 @@
 
         /* Contact Section */
         .contact {
-            padding: 120px 0;
+            padding: var(--section-padding) 0;
             background: var(--bg-card);
             position: relative;
             overflow: hidden;
@@ -2025,7 +2298,7 @@
         .contact-form {
             background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(20, 20, 40, 0.9) 100%);
             border: 1px solid rgba(0, 212, 255, 0.1);
-            border-radius: 24px;
+            border-radius: var(--radius-xl);
             padding: 48px;
             position: relative;
             backdrop-filter: blur(20px);
@@ -2303,6 +2576,33 @@
 
         .floating-urgency {
             animation: urgencyPulse 1.5s infinite;
+            font-size: 0.75rem;
+            color: var(--danger);
+            margin-bottom: 6px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .floating-micro {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        .demo-video-meta {
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        .video-modal-sub {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+        }
+
+        .comparison-cell.brand {
+            color: var(--primary);
         }
 
         /* Video Modal */
@@ -2413,10 +2713,7 @@
             color: var(--text-primary);
         }
 
-        .exit-popup-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-        }
+        /* .exit-popup-icon is defined in utility section above */
 
         .exit-popup h3 {
             font-size: 1.8rem;
@@ -2506,30 +2803,15 @@
             }
 
             .comparison-row {
-                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-columns: 1fr;
                 text-align: center;
-                font-size: 0.8rem;
-            }
-
-            .comparison-row.header {
-                grid-template-columns: 1fr 1fr 1fr;
-            }
-
-            .comparison-row.header .comparison-cell:first-child {
-                display: none;
             }
 
             .comparison-cell:first-child {
-                grid-column: 1 / -1;
                 justify-content: center;
                 text-align: center;
                 font-weight: 700;
                 background: rgba(255, 255, 255, 0.03);
-            }
-
-            .comparison-cell {
-                padding: 12px 8px;
-                font-size: 0.75rem;
             }
 
             .guarantee-content {
@@ -2544,8 +2826,7 @@
 
         @media (max-width: 576px) {
             .hero h1 {
-                font-size: 1.6rem;
-                line-height: 1.4;
+                font-size: 2rem;
             }
 
             .section-title {
@@ -2613,7 +2894,7 @@
             <div class="logo">DevAuto</div>
             <a href="#contact" class="nav-cta">
                 <span class="pulse-dot"></span>
-                🔥 이번 주 상담 가능 - 무료 진단
+                무료 업무 진단 신청
             </a>
         </div>
     </nav>
@@ -2625,45 +2906,44 @@
                 <div class="hero-text">
                     <span class="hero-badge">
                         <span class="dot"></span>
-                        이번 주 상담 가능 - 월/수/금 오전만 진행
+                        이번 달 3자리 남음 - 선착순 마감
                     </span>
 
                     <!-- A/B Test Headlines - CRO 최적화 -->
                     <div id="headline-container">
                         <div class="headline-variant active" data-variant="A">
                             <h1>
-                                직원 3명이 하루 종일 하는 일,<br>
-                                프로그램 하나가 <span class="highlight">27분</span>에 끝냅니다<br>
-                                <span class="highlight-danger">→ 연간 1,200만원 절감. 150개 기업이 증명.</span>
+                                엑셀 복붙하다 야근하는 직원,<br>
+                                <span class="highlight-danger">1년에 1,200만원</span> 버리는 겁니다<br>
+                                <span class="highlight">→ 27분 만에 끝나는 자동화</span>
                             </h1>
                         </div>
                         <div class="headline-variant" data-variant="B">
                             <h1>
-                                지금 이 순간에도<br>
-                                경쟁사는 <span class="highlight">70% 더 빨리</span> 일하고 있습니다<br>
-                                <span class="highlight-danger">당신 회사의 연간 손실: 최소 1,200만원</span>
+                                옆 회사는 <span class="highlight">6시 칼퇴</span>하는데<br>
+                                우리만 아직도 수작업?<br>
+                                <span class="highlight-danger">150개 기업이 선택한 그 비밀</span>
                             </h1>
                         </div>
                         <div class="headline-variant" data-variant="C">
                             <h1>
-                                월급 <span class="highlight-danger">405만원</span> 직원 1명 뽑을 돈으로<br>
-                                <span class="highlight">24시간 무휴 자동화 시스템</span> 8개 운영<br>
-                                150개 기업이 이미 선택했습니다
+                                월급 <span class="highlight-danger">400만원</span> 직원 1명 vs<br>
+                                월 <span class="highlight">15만원~</span> 자동화 관리<br>
+                                당신의 선택은?
                             </h1>
                         </div>
                         <div class="headline-variant" data-variant="D">
                             <h1>
-                                매일 <span class="highlight-danger">3시간</span>씩, 매년 <span class="highlight-danger">720시간</span><br>
-                                복사-붙여넣기에 갈아 넣는 시간<br>
-                                <span class="highlight">→ 버튼 하나로 끝내는 회사들의 비결</span>
+                                <span class="highlight-danger">경쟁사는 이미 도입했습니다</span><br>
+                                당신만 모르는<br>
+                                <span class="highlight">업무 자동화의 비밀</span>
                             </h1>
                         </div>
                     </div>
 
                     <p class="hero-subtitle">
-                        매일 3시간씩, 매달 60시간, 매년 720시간.<br>
-                        당신 직원들이 복사-붙여넣기에 갈아 넣는 시간입니다.<br>
-                        <strong style="color: var(--primary);">150개 기업</strong>이 이 시간을 되찾았습니다. <strong style="color: var(--danger);">다음은 당신 차례.</strong>
+                        <strong class="text-danger">3시간 → 27분.</strong> 이게 실제 자동화 도입 후 변화입니다.<br>
+                        지금 이 순간에도 경쟁사는 자동화로 앞서 나가는 중. <strong class="text-primary-color">150개 기업</strong>이 검증 완료.
                     </p>
                     <div class="hero-proof">
                         <div class="hero-proof-avatars">
@@ -2673,20 +2953,20 @@
                             <div class="hero-proof-avatar">+</div>
                         </div>
                         <div class="hero-proof-text">
-                            <strong>147개 기업</strong>이 이미 업무 자동화에 성공했습니다
+                            <strong>150개 기업</strong>이 이미 업무 자동화에 성공했습니다
                         </div>
                     </div>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn-primary">
-                            🔥 우리 회사 연간 절감액 무료로 받기
+                            내 회사 낭비 비용 확인하기
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
                         </a>
-                        <a href="#calculator" class="btn-secondary">📊 30초만에 ROI 계산하기</a>
+                        <a href="#calculator" class="btn-secondary">ROI 직접 계산해보기</a>
                     </div>
-                    <p class="cta-micro" style="font-size: 0.85rem; color: var(--text-secondary); margin-top: -20px; margin-bottom: 32px;">
-                        ✓ 폼 작성 30초 · ✓ 24시간 내 맞춤 견적 · ✓ 안 맞으면 100% 환불
+                    <p class="cta-micro">
+                        ✓ 30초 신청 완료 · ✓ 영업 전화 없음 · ✓ 100% 무료
                     </p>
                     <div class="hero-guarantee">
                         <span>
@@ -2750,31 +3030,31 @@
             </div>
             <div class="logos-grid">
                 <div class="logo-item">
-                    <div class="logo-icon">🏭</div>
+                    <div class="logo-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
                     <div class="logo-name">한성정밀</div>
                     <div class="logo-industry">제조업 / 직원 120명</div>
                     <div class="logo-result">업무시간 65% 단축</div>
                 </div>
                 <div class="logo-item">
-                    <div class="logo-icon">🛒</div>
+                    <div class="logo-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg></div>
                     <div class="logo-name">마켓플러스</div>
                     <div class="logo-industry">유통업 / 직원 45명</div>
                     <div class="logo-result">월 80시간 절감</div>
                 </div>
                 <div class="logo-item">
-                    <div class="logo-icon">💼</div>
+                    <div class="logo-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
                     <div class="logo-name">스마트HR</div>
                     <div class="logo-industry">HR 서비스 / 직원 30명</div>
                     <div class="logo-result">인건비 40% 절감</div>
                 </div>
                 <div class="logo-item">
-                    <div class="logo-icon">📦</div>
+                    <div class="logo-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
                     <div class="logo-name">퀵로지스</div>
                     <div class="logo-industry">물류업 / 직원 80명</div>
                     <div class="logo-result">오류율 99% 감소</div>
                 </div>
                 <div class="logo-item">
-                    <div class="logo-icon">🏥</div>
+                    <div class="logo-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
                     <div class="logo-name">메디케어랩</div>
                     <div class="logo-industry">의료기기 / 직원 55명</div>
                     <div class="logo-result">보고서 자동화 100%</div>
@@ -2783,51 +3063,64 @@
         </div>
     </section>
 
-    <!-- Problem Section (PAS: Problem First) -->
-    <section class="problem">
+    <!-- Demo Video Section - 신규 -->
+    <section class="demo" id="demo">
         <div class="container">
-            <div class="problem-header">
-                <span class="section-badge danger">⚠️ 경고: 당신의 회사도 해당됩니다</span>
+            <div class="demo-header">
+                <span class="section-badge">실제 화면 공개</span>
                 <h2 class="section-title">
-                    이 중 하나라도 해당되면<br><span class="highlight-danger">매달 돈이 새고 있습니다</span>
+                    4시간 → 3분<br>
+                    <span class="highlight">직접 눈으로 확인하세요</span>
                 </h2>
                 <p class="section-subtitle">
-                    대부분의 회사가 모르고 있습니다. 아래 상황에 <strong style="color: var(--danger);">연간 수천만 원</strong>이 낭비되고 있다는 것을.
+                    "에이, 과장이겠지" 하셨죠? 실제 고객사 적용 사례입니다.<br>
+                    <strong class="text-primary-color">버튼 한 번</strong>으로 4시간 업무가 3분에 끝납니다.
                 </p>
             </div>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="problem-icon">💸</div>
-                    <h3>"또 사람 뽑자는 품의서..."</h3>
-                    <p>업무량이 1.5배 늘었다고 인원을 1.5배 충원할 순 없습니다. 채용 공고 → 면접 → 온보딩 → 퇴사. 이 사이클에 매번 수백만 원이 소멸됩니다.</p>
-                    <div class="problem-stat">
-                        <div class="problem-stat-number">연 4,860만원</div>
-                        <div class="problem-stat-label">신입 1명 실제 비용 (월급+4대보험+퇴직금+교육)</div>
+            <div class="demo-content">
+                <div class="demo-video">
+                    <div class="demo-video-placeholder" onclick="openVideoModal()">
+                        <div class="demo-play-btn">
+                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                        <p><span>클릭하여 데모 영상 보기</span></p>
+                        <p class="demo-video-meta">2분 15초 | 실제 사용 화면</p>
                     </div>
                 </div>
-                <div class="problem-card">
-                    <div class="problem-icon">🤯</div>
-                    <h3>"이 보고서, 숫자가 또 틀렸잖아"</h3>
-                    <p>사람이 수동으로 다루는 데이터는 반드시 틀립니다. 엑셀 한 셀의 오타가 수천만 원짜리 발주 실수로 이어진 실제 사례가 있습니다.</p>
-                    <div class="problem-stat">
-                        <div class="problem-stat-number">평균 3.6%</div>
-                        <div class="problem-stat-label">수작업 데이터 오류율 (IBM 리서치)</div>
+                <div class="demo-features">
+                    <div class="demo-feature">
+                        <div class="demo-feature-icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div class="demo-feature-content">
+                            <h4>Before: 4시간 걸리던 작업</h4>
+                            <p>수동으로 10개 사이트에서 데이터 수집, 엑셀 정리, 보고서 작성</p>
+                        </div>
                     </div>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon">🚨</div>
-                    <h3>"핵심 담당자가 퇴사하면 끝"</h3>
-                    <p>김 대리만 아는 엑셀 매크로, 박 과장만 돌릴 줄 아는 정산 시스템. 그 사람이 없으면 회사가 멈춥니다. 이게 진짜 리스크입니다.</p>
-                    <div class="problem-stat">
-                        <div class="problem-stat-number">평균 2.3개월</div>
-                        <div class="problem-stat-label">담당자 퇴사 시 업무 공백 기간</div>
+                    <div class="demo-feature">
+                        <div class="demo-feature-icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <div class="demo-feature-content">
+                            <h4>After: 버튼 한 번, 3분 완료</h4>
+                            <p>자동 수집 → 자동 정리 → 자동 보고서 생성 → 이메일 발송까지</p>
+                        </div>
+                    </div>
+                    <div class="demo-feature">
+                        <div class="demo-feature-icon">
+                            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                        </div>
+                        <div class="demo-feature-content">
+                            <h4>결과: 월 80시간 × 12개월 = 960시간</h4>
+                            <p>시급 2만원 기준 연간 1,920만원 절감 효과</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ROI Calculator Section (PAS: Agitation - 고통을 숫자로) -->
+    <!-- ROI Calculator Section - 신규 -->
     <section class="calculator" id="calculator">
         <div class="container">
             <div class="calculator-header">
@@ -2883,7 +3176,57 @@
         </div>
     </section>
 
-    <!-- Solution Section (PAS: Solution) -->
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <div class="problem-header">
+                <span class="section-badge danger">경고: 당신의 회사도 해당됩니다</span>
+                <h2 class="section-title">
+                    이 중 하나라도 해당되면<br><span class="highlight-danger">매달 돈이 새고 있습니다</span>
+                </h2>
+                <p class="section-subtitle">
+                    대부분의 회사가 모르고 있습니다. 아래 상황에 <strong class="text-danger">연간 수천만 원</strong>이 낭비되고 있다는 것을.
+                </p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3>"또 야근이야..."</h3>
+                    <p>매일 똑같은 엑셀 작업, 데이터 복붙, 보고서 정리... 직원들은 지쳐가고 정작 중요한 일에 집중할 시간이 없습니다.</p>
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">월 60시간</div>
+                        <div class="problem-stat-label">단순 반복 업무에 낭비되는 시간</div>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3>"사람을 더 뽑아야 하나..."</h3>
+                    <p>업무량은 늘어나는데 자동화 없이 사람만 충원하면? 인건비는 기하급수적으로 증가합니다.</p>
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">월 350만원</div>
+                        <div class="problem-stat-label">신입 1명 채용 시 실제 비용</div>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                    </div>
+                    <h3>"이 파일이 최신 버전 맞아?"</h3>
+                    <p>엑셀 파일 버전 관리 실패, 데이터 불일치, 담당자 퇴사 시 업무 마비... 매번 반복되는 혼란.</p>
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">연 23%</div>
+                        <div class="problem-stat-label">데이터 오류로 인한 손실률</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
     <section class="solution" id="solution">
         <div class="container">
             <div class="solution-header">
@@ -2892,128 +3235,81 @@
                     "그래서 어떻게<br>해결해 주시는 건가요?"
                 </h2>
                 <p class="section-subtitle">
-                    범용 소프트웨어 NO. 오직 <strong style="color: var(--primary);">귀사만을 위한</strong> 맞춤 솔루션으로<br>
+                    범용 소프트웨어 NO. 오직 <strong class="text-primary-color">귀사만을 위한</strong> 맞춤 솔루션으로<br>
                     업무 효율을 극대화합니다.
                 </p>
             </div>
             <div class="solution-grid">
                 <div class="solution-card">
-                    <div class="solution-icon">⚡</div>
+                    <div class="solution-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
                     <h3>업무 자동화 프로그램</h3>
-                    <p>3시간짜리 반복 작업, 버튼 하나로 끝내세요.</p>
+                    <p>클릭 몇 번으로 하루 종일 걸리던 작업을 끝내세요.</p>
                     <ul class="solution-benefits">
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            3시간짜리 엑셀 정리 → 버튼 하나로 3분 완료
+                            엑셀 데이터 자동 수집/정리/분석
                         </li>
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            매일 아침 9시, 보고서가 대표님 메일함에 자동 도착
+                            일일/주간/월간 보고서 자동 생성
                         </li>
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            납기 지연, 재고 부족? 알아서 알림 → 실수 제로
+                            이메일/알림 자동 발송 시스템
                         </li>
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            경쟁사 가격/재고를 24시간 자동 모니터링
+                            웹사이트 데이터 자동 수집
                         </li>
                     </ul>
                     <div class="solution-result">
-                        <p>→ 평균 업무시간 70% 단축, 연간 960시간 확보</p>
+                        <p>→ 평균 업무시간 70% 단축 효과</p>
                     </div>
                 </div>
                 <div class="solution-card">
-                    <div class="solution-icon">🔧</div>
+                    <div class="solution-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
                     <h3>맞춤 사내 프로그램</h3>
-                    <p>범용 솔루션은 결국 안 씁니다. 귀사 전용으로 만듭니다.</p>
+                    <p>귀사의 업무 방식에 100% 맞춘 전용 시스템을 구축합니다.</p>
                     <ul class="solution-benefits">
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            우리 회사 프로세스 그대로 → 교육 없이 바로 사용
+                            사내 전용 관리 시스템 (ERP/CRM)
                         </li>
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            재고/주문/고객, 흩어진 데이터를 한 화면에서 관리
+                            재고/주문/고객 통합 관리
                         </li>
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            실시간 대시보드로 의사결정 속도 3배 향상
+                            실시간 데이터 대시보드
                         </li>
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            기존 시스템(엑셀/ERP/쇼핑몰)과 자동 연동
+                            기존 시스템과 완벽 연동
                         </li>
                     </ul>
                     <div class="solution-result">
-                        <p>→ 데이터 정확도 99.9%, 담당자 퇴사해도 업무 중단 제로</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Demo Video Section (증거) -->
-    <section class="demo" id="demo">
-        <div class="container">
-            <div class="demo-header">
-                <span class="section-badge">👀 실제 화면 공개</span>
-                <h2 class="section-title">
-                    4시간 → 3분<br>
-                    <span class="highlight">직접 눈으로 확인하세요</span>
-                </h2>
-                <p class="section-subtitle">
-                    "에이, 과장이겠지" 하셨죠? 실제 고객사 적용 사례입니다.<br>
-                    <strong style="color: var(--primary);">버튼 한 번</strong>으로 4시간 업무가 3분에 끝납니다.
-                </p>
-            </div>
-            <div class="demo-content">
-                <div class="demo-video">
-                    <div class="demo-video-placeholder" onclick="openVideoModal()">
-                        <div class="demo-play-btn">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
-                        <p><span>클릭하여 데모 영상 보기</span></p>
-                        <p style="font-size: 0.85rem; margin-top: 8px;">2분 15초 | 실제 사용 화면</p>
-                    </div>
-                </div>
-                <div class="demo-features">
-                    <div class="demo-feature">
-                        <div class="demo-feature-icon">⚡</div>
-                        <div class="demo-feature-content">
-                            <h4>Before: 4시간 걸리던 작업</h4>
-                            <p>수동으로 10개 사이트에서 데이터 수집, 엑셀 정리, 보고서 작성</p>
-                        </div>
-                    </div>
-                    <div class="demo-feature">
-                        <div class="demo-feature-icon">🚀</div>
-                        <div class="demo-feature-content">
-                            <h4>After: 버튼 한 번, 3분 완료</h4>
-                            <p>자동 수집 → 자동 정리 → 자동 보고서 생성 → 이메일 발송까지</p>
-                        </div>
-                    </div>
-                    <div class="demo-feature">
-                        <div class="demo-feature-icon">💰</div>
-                        <div class="demo-feature-content">
-                            <h4>결과: 월 80시간 × 12개월 = 960시간</h4>
-                            <p>시급 2만원 기준 연간 1,920만원 절감 효과</p>
-                        </div>
+                        <p>→ 데이터 정확도 99.9% 달성</p>
                     </div>
                 </div>
             </div>
@@ -3026,63 +3322,45 @@
             <div class="comparison-header">
                 <span class="section-badge">비교</span>
                 <h2 class="section-title">
-                    사람 채용 vs 범용 툴 vs DevAuto<br>뭐가 진짜 이득일까요?
+                    왜 DevAuto를<br>선택해야 할까요?
                 </h2>
             </div>
             <div class="comparison-table">
                 <div class="comparison-row header">
                     <div class="comparison-cell"></div>
-                    <div class="comparison-cell">사람 채용</div>
-                    <div class="comparison-cell">범용 솔루션</div>
-                    <div class="comparison-cell" style="color: var(--primary);">DevAuto 맞춤 개발</div>
+                    <div class="comparison-cell">일반 외주 개발사</div>
+                    <div class="comparison-cell brand">DevAuto</div>
                 </div>
                 <div class="comparison-row">
-                    <div class="comparison-cell">월 비용</div>
-                    <div class="comparison-cell bad">405만원+</div>
-                    <div class="comparison-cell">10~50만원/월</div>
-                    <div class="comparison-cell good">50만원~ (1회)</div>
+                    <div class="comparison-cell">견적 응답 속도</div>
+                    <div class="comparison-cell bad">3-7일</div>
+                    <div class="comparison-cell good">24시간 이내</div>
                 </div>
                 <div class="comparison-row comparison-highlight">
-                    <div class="comparison-cell">우리 업무 적합도</div>
-                    <div class="comparison-cell">높음</div>
-                    <div class="comparison-cell bad">낮음 (범용)</div>
-                    <div class="comparison-cell good">100% 맞춤</div>
+                    <div class="comparison-cell">요구사항 반영</div>
+                    <div class="comparison-cell bad">표준 템플릿 적용</div>
+                    <div class="comparison-cell good">100% 맞춤 개발</div>
                 </div>
                 <div class="comparison-row">
-                    <div class="comparison-cell">퇴사/중단 리스크</div>
-                    <div class="comparison-cell bad">높음</div>
-                    <div class="comparison-cell bad">서비스 종료 리스크</div>
-                    <div class="comparison-cell good">없음 (영구 소유)</div>
+                    <div class="comparison-cell">커뮤니케이션</div>
+                    <div class="comparison-cell bad">이메일만</div>
+                    <div class="comparison-cell good">실시간 진행 공유</div>
                 </div>
                 <div class="comparison-row comparison-highlight">
-                    <div class="comparison-cell">실수율</div>
-                    <div class="comparison-cell bad">인간 평균 3.6%</div>
-                    <div class="comparison-cell">설정 오류 가능</div>
-                    <div class="comparison-cell good">0%</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="comparison-cell">24시간 가동</div>
-                    <div class="comparison-cell bad">불가</div>
-                    <div class="comparison-cell good">가능</div>
-                    <div class="comparison-cell good">가능</div>
-                </div>
-                <div class="comparison-row comparison-highlight">
-                    <div class="comparison-cell">교육/온보딩</div>
-                    <div class="comparison-cell bad">1~3개월</div>
-                    <div class="comparison-cell bad">직원 교육 필요</div>
-                    <div class="comparison-cell good">1일</div>
+                    <div class="comparison-cell">개발 후 지원</div>
+                    <div class="comparison-cell bad">추가 비용 발생</div>
+                    <div class="comparison-cell good">월 관리 구독으로 지속 관리</div>
                 </div>
                 <div class="comparison-row">
                     <div class="comparison-cell">환불 정책</div>
                     <div class="comparison-cell bad">불가</div>
-                    <div class="comparison-cell bad">환불 불가</div>
                     <div class="comparison-cell good">100% 환불 보장</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section (Social Proof - 남들도 했다) -->
+    <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="container">
             <div class="testimonials-header">
@@ -3094,12 +3372,16 @@
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
+                    <span class="testimonial-video-badge">
+                        <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        영상 후기
+                    </span>
                     <div class="testimonial-rating">★★★★★</div>
                     <p class="testimonial-text">
-                        "솔직히 처음엔 '이 가격에 될까?' 의심했습니다. 그런데 매일 4시간씩 걸리던 매출 정산이 이제 <strong>버튼 하나</strong>로 끝납니다. 도입 첫 주부터 효과가 바로 나타났어요. 직원들이 야근에서 해방됐습니다."
+                        "매일 4시간씩 걸리던 일일 매출 정산 작업이 이제 <strong>버튼 하나</strong>로 끝납니다. 직원들이 야근에서 해방됐어요. 처음엔 반신반의했는데, 도입 첫 주부터 효과가 바로 나타났습니다."
                     </p>
                     <div class="testimonial-result">
-                        <p>→ 월 80시간 단축 · 연 960시간 확보 · <strong>시급 2만원 기준 연 1,920만원 절감</strong></p>
+                        <p>→ 월 80시간 업무시간 단축, 야근 제로</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">K</div>
@@ -3126,9 +3408,13 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
+                    <span class="testimonial-video-badge">
+                        <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        영상 후기
+                    </span>
                     <div class="testimonial-rating">★★★★★</div>
                     <p class="testimonial-text">
-                        "사람 한 명 더 뽑으려다 자동화를 선택했는데, <strong>인건비 연 4천만 원</strong>을 아꼈습니다. 최고의 결정이었어요. 다른 부서에서도 '우리도 해달라'고 요청이 쏟아지고 있습니다."
+                        "사람 한 명 더 뽑으려다 자동화를 선택했는데, <strong>인건비 연 4천만 원</strong>을 아꼈습니다. 최고의 결정이었어요. 다른 부서에도 확대 적용 중입니다."
                     </p>
                     <div class="testimonial-result">
                         <p>→ 연간 인건비 4,000만원 절감, ROI 800%</p>
@@ -3151,7 +3437,7 @@
                 </div>
                 <div class="stats-bar-item">
                     <div class="stats-bar-number">98%</div>
-                    <div class="stats-bar-label">재계약률</div>
+                    <div class="stats-bar-label">구독 유지율</div>
                 </div>
                 <div class="stats-bar-item">
                     <div class="stats-bar-number">70%</div>
@@ -3165,117 +3451,27 @@
         </div>
     </section>
 
-    <!-- Price Anchor Section (가격 저항 제거) -->
-    <section class="price-anchor">
-        <div class="container">
-            <div class="price-anchor-header">
-                <span class="section-badge">비용 비교</span>
-                <h2 class="section-title">
-                    직원 반 달 월급으로<br>영구 자동화 시스템을 구축합니다
-                </h2>
-                <p class="section-subtitle">
-                    신입 1명 연봉 4,860만원 vs 자동화 프로그램 50만원. 숫자가 답합니다.
-                </p>
-            </div>
-            <div class="price-compare">
-                <div class="price-option bad">
-                    <h4>👤 신입 직원 1명 채용 시</h4>
-                    <ul>
-                        <li><span>월급</span><span style="color: var(--danger);">300만원</span></li>
-                        <li><span>4대보험</span><span style="color: var(--danger);">30만원</span></li>
-                        <li><span>교육/온보딩 비용</span><span style="color: var(--danger);">50만원</span></li>
-                        <li><span>퇴직금 적립</span><span style="color: var(--danger);">25만원</span></li>
-                        <li><span>실수로 인한 손실</span><span style="color: var(--danger);">연 평균 340만원</span></li>
-                        <li><span>퇴사 리스크</span><span style="color: var(--danger);">재채용 비용 200만원+</span></li>
-                    </ul>
-                    <div class="total">
-                        월 <span style="color: var(--danger);">405만원+</span>
-                        <small>연 4,860만원 + 관리 부담 + 퇴사 리스크</small>
-                    </div>
-                </div>
-                <div class="price-vs">VS</div>
-                <div class="price-option good">
-                    <h4>🤖 맞춤 자동화 프로그램</h4>
-                    <ul>
-                        <li><span>24시간 무휴 작동</span><span style="color: var(--success);">✓</span></li>
-                        <li><span>실수 확률</span><span style="color: var(--success);">0%</span></li>
-                        <li><span>퇴사 걱정</span><span style="color: var(--success);">없음</span></li>
-                        <li><span>교육 필요</span><span style="color: var(--success);">없음</span></li>
-                        <li><span>1개월 무상 유지보수</span><span style="color: var(--success);">포함</span></li>
-                        <li><span>소스코드 소유</span><span style="color: var(--success);">영구 사용</span></li>
-                    </ul>
-                    <div class="total">
-                        <span style="color: var(--success);">50만원부터</span>
-                        <small>직원 반 달 월급으로 영구 자동화 시스템 구축</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Anti-Anxiety Section (마지막 의심 제거) -->
-    <section class="anti-anxiety">
-        <div class="container">
-            <div class="anti-anxiety-header">
-                <span class="section-badge danger">솔직한 의문</span>
-                <h2 class="section-title">
-                    "솔직히 이런 걱정<br>되시죠?"
-                </h2>
-                <p class="section-subtitle">
-                    당신의 의심, 저희도 압니다. 그래서 미리 답변 준비했습니다.
-                </p>
-            </div>
-            <div class="worry-grid">
-                <div class="worry-box">
-                    <h4>❓ "이 가격에 제대로 된 걸 만들어 준다고?"</h4>
-                    <p>대기업은 같은 프로젝트에 5,000만 원 씁니다. 저희가 1/10 비용으로 가능한 이유: 150건 납품에서 축적된 자동화 템플릿. 처음부터 만드는 게 아니라, 검증된 모듈을 조합하고 귀사에 맞게 커스터마이징합니다.</p>
-                    <div class="answer">
-                        <p>✅ 납품물 코드 품질 평가 평균 4.8/5.0 · 소스코드 100% 귀사 소유</p>
-                    </div>
-                </div>
-                <div class="worry-box">
-                    <h4>❓ "우리 회사엔 안 맞을 것 같은데..."</h4>
-                    <p>범용 솔루션 도입했다가 결국 안 쓰게 된 경험, 있으시죠? 저희는 귀사 업무 프로세스를 직접 분석해서 1:1 맞춤 개발합니다. 150개 기업, 150개 서로 다른 프로그램.</p>
-                    <div class="answer">
-                        <p>✅ 도입 후 실사용률 96% · 98% 재계약률이 증거입니다</p>
-                    </div>
-                </div>
-                <div class="worry-box">
-                    <h4>❓ "만들고 나서 버그 나면?"</h4>
-                    <p>개발 후 연락 두절? 저희는 다릅니다. 1개월 무상 유지보수 + 평일 핫라인 운영. 심지어 결과물이 마음에 안 들면 100% 환불. 계약서에 명시합니다.</p>
-                    <div class="answer">
-                        <p>✅ 1개월 무상 A/S + 2시간 내 대응 보장 + 불만족 시 전액 환불</p>
-                    </div>
-                </div>
-                <div class="worry-box">
-                    <h4>❓ "개발 과정이 복잡하지 않을까?"</h4>
-                    <p>전문 용어로 소통하는 개발사 아닙니다. "이 엑셀 작업 자동으로 해주세요"라고 말씀하시면 됩니다. 기술적인 건 저희가 알아서 처리합니다.</p>
-                    <div class="answer">
-                        <p>✅ 30분 무료 진단 → 24시간 내 맞춤 견적 → 1~4주 완성</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Guarantee Section (리스크 제로) -->
+    <!-- Guarantee Section -->
     <section class="guarantee">
         <div class="container">
             <div class="guarantee-content">
-                <div class="guarantee-icon">🛡️</div>
+                <div class="guarantee-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
                 <div class="guarantee-text">
-                    <h3>결과 불만족 시 <span style="color: var(--primary);">100% 환불</span></h3>
+                    <h3>개발비 <span class="text-primary-color">100% 환불</span> + 구독 <span class="text-primary-color">위약금 0원</span></h3>
                     <p>
                         "돈만 받고 도망가면 어떡하지?" 걱정하지 마세요.<br>
-                        <strong style="color: var(--danger);">합의된 결과물이 안 나오면 전액 환불.</strong> 계약서에 명시합니다.<br>
-                        이게 저희가 150개 기업에서 <strong style="color: var(--primary);">98% 재계약률</strong>을 유지하는 비결입니다.
+                        <strong class="text-danger">합의된 결과물이 안 나오면 개발비 전액 환불.</strong> 계약서에 명시합니다.<br>
+                        월 관리 구독은 <strong class="text-primary-color">언제든 해지 가능</strong>, 위약금 없습니다.<br>
+                        이게 저희가 150개 기업에서 <strong class="text-primary-color">98% 구독 유지율</strong>을 기록하는 비결입니다.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section (쉬운 다음 단계) -->
+    <!-- Process Section -->
     <section class="process">
         <div class="container">
             <div class="process-header">
@@ -3306,10 +3502,153 @@
                 </div>
                 <div class="process-step">
                     <div class="process-number">4</div>
-                    <h4>배포 & 교육</h4>
-                    <p>완성된 솔루션 배포 및<br>사용법 교육까지</p>
+                    <h4>배포 & 관리 시작</h4>
+                    <p>완성된 솔루션 배포, 사용법 교육<br>월 관리 구독으로 안심 운영</p>
                     <span class="process-duration">1일</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anti-Anxiety Section -->
+    <section class="anti-anxiety">
+        <div class="container">
+            <div class="anti-anxiety-header">
+                <span class="section-badge danger">솔직한 의문</span>
+                <h2 class="section-title">
+                    "솔직히 이런 걱정<br>되시죠?"
+                </h2>
+                <p class="section-subtitle">
+                    당신의 의심, 저희도 압니다. 그래서 미리 답변 준비했습니다.
+                </p>
+            </div>
+            <div class="worry-grid">
+                <div class="worry-box">
+                    <h4>"싸구려 프로그램 아니야?"</h4>
+                    <p>저가 외주 맡겼다가 낭패 본 경험 있으시죠? 저희는 대기업 SI 출신 시니어 개발자가 직접 개발합니다.</p>
+                    <div class="answer">
+                        <p>→네이버/카카오/삼성SDS 출신 개발자 100%</p>
+                    </div>
+                </div>
+                <div class="worry-box">
+                    <h4>"우리 회사엔 안 맞을 것 같은데..."</h4>
+                    <p>범용 솔루션은 결국 안 씁니다. 저희는 귀사 업무 프로세스를 분석해서 1:1 맞춤 개발합니다.</p>
+                    <div class="answer">
+                        <p>→150개 기업 × 150개 맞춤 프로그램</p>
+                    </div>
+                </div>
+                <div class="worry-box">
+                    <h4>"만들고 나서 버그 나면?"</h4>
+                    <p>개발 후 연락 두절? 저희는 다릅니다. 월 관리 구독으로 지속 관리 + 평일 핫라인 운영합니다.</p>
+                    <div class="answer">
+                        <p>→월 관리 구독 중 무상 A/S + 2시간 내 대응 보장 (Pro)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Section -->
+    <section class="price-anchor" id="pricing">
+        <div class="container">
+            <div class="price-anchor-header">
+                <span class="section-badge">요금 안내</span>
+                <h2 class="section-title">
+                    개발은 한 번,<br>관리는 매달 안심
+                </h2>
+                <p class="section-subtitle">
+                    맞춤 프로그램 개발 후, 월 관리 구독으로 항상 최상의 상태를 유지합니다.
+                </p>
+            </div>
+
+            <!-- 직원 vs DevAuto 비교 바 -->
+            <div class="price-compare-bar">
+                <div class="compare-item">
+                    <div class="compare-label">신입 직원 1명 채용 시</div>
+                    <div class="compare-value bad">월 405만원+</div>
+                    <div class="compare-sub">월급+4대보험+교육+퇴직금+퇴사리스크</div>
+                </div>
+                <div class="compare-vs">VS</div>
+                <div class="compare-item">
+                    <div class="compare-label">DevAuto 자동화 도입 시</div>
+                    <div class="compare-value good">월 15만원~</div>
+                    <div class="compare-sub">24시간 무휴, 실수 0%, 퇴사 걱정 없음</div>
+                </div>
+            </div>
+
+            <!-- 개발비 안내 -->
+            <div class="dev-cost-info">
+                <h3>STEP 1. 맞춤 프로그램 개발 (일회성)</h3>
+                <div class="dev-price">300만원 ~ 2,000만원</div>
+                <p>
+                    귀사 업무에 딱 맞는 자동화 프로그램을 개발합니다.<br>
+                    프로그램 소유권은 100% 고객님께 귀속됩니다. 무료 상담에서 정확한 견적을 안내드립니다.
+                </p>
+            </div>
+
+            <!-- 월 관리 플랜 -->
+            <div class="plan-section-title">
+                <h3>STEP 2. 월 관리 구독 플랜</h3>
+                <p>프로그램이 멈추지 않고 계속 잘 돌아가도록 관리합니다</p>
+            </div>
+
+            <div class="plan-cards">
+                <!-- Basic -->
+                <div class="plan-card">
+                    <div class="plan-name">Basic</div>
+                    <div class="plan-price">15만원 <span>/월</span></div>
+                    <div class="plan-desc">프로그램이 안정적으로 돌아가는 것만 필요한 분</div>
+                    <ul>
+                        <li><span class="check">&#10003;</span> 24시간 모니터링 & 장애 알림</li>
+                        <li><span class="check">&#10003;</span> 월 1회 정기 점검</li>
+                        <li><span class="check">&#10003;</span> 버그 수정 무상 처리</li>
+                        <li><span class="check">&#10003;</span> 카카오톡/이메일 기술 지원</li>
+                        <li><span class="x-mark">&#10005;</span> 외부 변경 대응 (사이트/API)</li>
+                        <li><span class="x-mark">&#10005;</span> 기능 수정/추가</li>
+                        <li><span class="x-mark">&#10005;</span> 월간 절감 리포트</li>
+                    </ul>
+                    <a href="#contact" class="plan-cta outline">상담 신청하기</a>
+                </div>
+
+                <!-- Standard (추천) -->
+                <div class="plan-card recommended">
+                    <div class="plan-name">Standard</div>
+                    <div class="plan-price">30만원 <span>/월</span></div>
+                    <div class="plan-desc">변화에 대응하고 꾸준히 개선하고 싶은 분</div>
+                    <ul>
+                        <li><span class="check">&#10003;</span> Basic 전체 포함</li>
+                        <li><span class="check">&#10003;</span> 외부 변경 대응 (사이트/API)</li>
+                        <li><span class="check">&#10003;</span> 월 2시간 기능 수정/추가</li>
+                        <li><span class="check">&#10003;</span> 월간 절감 리포트 발송</li>
+                        <li><span class="check">&#10003;</span> 데이터 백업</li>
+                        <li><span class="x-mark">&#10005;</span> 우선 대응 (2시간 내)</li>
+                        <li><span class="x-mark">&#10005;</span> 분기별 최적화 미팅</li>
+                    </ul>
+                    <a href="#contact" class="plan-cta primary">가장 인기 플랜 시작하기</a>
+                </div>
+
+                <!-- Pro -->
+                <div class="plan-card">
+                    <div class="plan-name">Pro</div>
+                    <div class="plan-price">50만원 <span>/월</span></div>
+                    <div class="plan-desc">전담 관리로 프로그램을 매달 더 좋게 만들고 싶은 분</div>
+                    <ul>
+                        <li><span class="check">&#10003;</span> Standard 전체 포함</li>
+                        <li><span class="check">&#10003;</span> 월 5시간 기능 추가/개선</li>
+                        <li><span class="check">&#10003;</span> 우선 대응 (2시간 내)</li>
+                        <li><span class="check">&#10003;</span> 분기별 최적화 미팅</li>
+                        <li><span class="check">&#10003;</span> 전담 매니저 배정</li>
+                        <li><span class="check">&#10003;</span> 신규 자동화 개발 20% 할인</li>
+                        <li><span class="check">&#10003;</span> 연간 계약 시 2개월 무료</li>
+                    </ul>
+                    <a href="#contact" class="plan-cta outline">맞춤 상담 받기</a>
+                </div>
+            </div>
+
+            <div class="plan-footer">
+                <strong>구독을 해지해도 프로그램은 그대로 사용 가능합니다.</strong><br>
+                단, 해지 후 발생하는 오류 수정은 건당 별도 견적 (시간당 10만원~)이 적용됩니다.<br>
+                월 관리비는 프로그램이 멈추지 않게 지켜주는 <strong>보험</strong>입니다.
             </div>
         </div>
     </section>
@@ -3324,11 +3663,20 @@
             <div class="faq-list">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>비용이 많이 들지 않을까요?</span>
+                        <span>개발비와 월 관리비, 왜 따로인가요?</span>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>직원 1명 월급(약 350만원)보다 저렴한 비용으로 시작할 수 있습니다. 게다가 한 번 개발하면 계속 사용 가능하니 장기적으로 보면 인건비 대비 훨씬 경제적입니다. 무료 상담에서 예상 ROI를 계산해 드립니다.</p>
+                        <p>개발비는 귀사 맞춤 프로그램을 만드는 일회성 비용이고, 월 관리비는 프로그램이 문제없이 계속 돌아가도록 유지하는 비용입니다. 건물을 지으면 관리비가 필요하듯, 프로그램도 외부 환경 변화(사이트 구조 변경, API 업데이트 등)에 대응하려면 지속적인 관리가 필요합니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>월 관리 구독을 해지하면 프로그램은 어떻게 되나요?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>프로그램 소유권은 고객님께 있으므로 해지 후에도 그대로 사용 가능합니다. 다만, 해지 이후 발생하는 오류 수정이나 외부 변경 대응은 건당 별도 견적(시간당 10만원~)이 적용됩니다. 갑자기 프로그램이 멈췄을 때 긴급 수정비가 월 관리비보다 훨씬 비쌀 수 있어, 대부분의 고객이 관리 구독을 유지하십니다.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -3351,11 +3699,11 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>개발 후 문제가 생기면 어떻게 하나요?</span>
+                        <span>월 관리비가 부담됩니다. 꼭 가입해야 하나요?</span>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>개발 완료 후 1개월간 무상 유지보수를 제공합니다. 이 기간 동안 발생하는 모든 버그 수정, 기능 조정은 무료입니다. 이후에도 합리적인 비용으로 지속적인 지원을 받으실 수 있습니다.</p>
+                        <p>필수는 아닙니다. 하지만 자동화 프로그램은 외부 사이트 변경, OS 업데이트, API 정책 변경 등으로 언제든 멈출 수 있습니다. 관리 없이 프로그램이 1주일 멈추면 직원 수작업 복귀 비용만 30만원 이상이고, 긴급 수정비는 별도입니다. Basic 15만원은 이런 리스크를 막아주는 보험이라고 생각하시면 됩니다.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -3364,7 +3712,7 @@
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>100% 환불 보장합니다. 합의된 요구사항대로 개발했음에도 만족하지 못하시면 전액 환불해 드립니다. 저희는 그만큼 결과물에 자신 있습니다.</p>
+                        <p>개발비 100% 환불 보장합니다. 합의된 요구사항대로 개발했음에도 만족하지 못하시면 전액 환불해 드립니다. 월 관리 구독은 언제든 해지 가능하며, 위약금이 없습니다.</p>
                     </div>
                 </div>
             </div>
@@ -3376,28 +3724,27 @@
         <div class="container">
             <div class="cta-content">
                 <h2>
-                    이 페이지를 읽는 <span class="highlight-danger">5분 동안</span><br>
-                    당신 회사에서 <span class="highlight-danger">25,000원</span>이 낭비됐습니다
+                    <span class="highlight-danger">경쟁사는 이미 자동화했습니다</span><br>
+                    당신은 언제까지 수작업 하실 건가요?
                 </h2>
                 <p>
-                    시급 2만원 × 직원 3명 × 5분 = 5,000원.<br>
-                    이게 반복 업무의 실제 비용입니다. 매일, 매달, 매년.<br>
-                    <strong style="color: var(--primary);">30분 무료 진단 하나</strong>로 이 숫자를 0에 가깝게 만들 수 있습니다.
+                    이 페이지를 보는 동안에도 반복 업무로 <strong class="text-danger">돈이 새고 있습니다.</strong><br>
+                    30분 무료 진단 하나로, 연간 수천만 원을 아낄 수 있습니다.
                 </p>
-                <div style="background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.3); border-radius: 12px; padding: 16px 24px; margin-bottom: 30px; display: inline-block;">
-                    <p style="margin: 0; color: var(--danger); font-weight: 700;">
-                        ⚠️ 이번 주 상담 가능: 월/수/금 오전 10시~12시 (품질 유지를 위해 주 6건만 진행)
+                <div class="urgency-box">
+                    <p>
+                        이번 달 무료 진단 가능 기업: <strong>3곳</strong> (품질 유지를 위해 제한)
                     </p>
                 </div>
                 <div class="cta-buttons">
                     <a href="#contact" class="btn-primary">
-                        🔥 우리 회사 연간 절감액 무료로 받기
+                        지금 바로 무료 진단받기
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
                     </a>
                 </div>
-                <p class="cta-note">✓ 폼 작성 30초 · ✓ 24시간 내 맞춤 견적 · ✓ 안 맞으면 100% 환불</p>
+                <p class="cta-note">✓ 30초 신청 · ✓ 영업 전화 없음 · ✓ 상담 100% 무료 · ✓ 구독 해지 위약금 0원</p>
             </div>
         </div>
     </section>
@@ -3408,12 +3755,12 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <h2>
-                        30초만 투자하면<br>
+                        이 폼 제출하면<br>
                         <span class="highlight">연간 절감액</span> 바로 알려드립니다
                     </h2>
                     <p>
-                        <strong style="color: var(--danger);">"우리 회사도 자동화 가능할까?"</strong><br>
-                        3가지만 적어주세요. 24시간 내 맞춤 견적을 보내드립니다.
+                        <strong class="text-danger">"우리 회사도 자동화 가능할까?"</strong><br>
+                        30분 무료 진단으로 정확히 알려드립니다. 강매 절대 없습니다.
                     </p>
                     <div class="contact-benefits">
                         <div class="contact-benefit">
@@ -3432,7 +3779,7 @@
                             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            <span>24시간 내 맞춤 견적 제공</span>
+                            <span>24시간 내 개발비 + 관리 플랜 견적 제공</span>
                         </div>
                         <div class="contact-benefit">
                             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -3442,15 +3789,17 @@
                         </div>
                     </div>
                     <div class="contact-urgency">
-                        <div class="contact-urgency-icon">⚡</div>
+                        <div class="contact-urgency-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
                         <div class="contact-urgency-text">
-                            <p><strong>이번 주 상담 가능: 월/수/금 오전 10시~12시</strong></p>
-                            <p>품질 유지를 위해 주 6건만 진행합니다</p>
+                            <p><strong>품질 유지를 위해 월 10개 프로젝트만 진행합니다</strong></p>
+                            <p>빠른 상담을 원하시면 지금 신청해 주세요</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <span class="form-badge">상담 비용 0원 · 폼 작성 30초</span>
+                    <span class="form-badge">상담 비용 0원</span>
                     <form id="inquiryForm">
                         <div class="form-group">
                             <label>회사명 <span>*</span></label>
@@ -3461,21 +3810,36 @@
                             <input type="text" name="name" required placeholder="예) 홍길동">
                         </div>
                         <div class="form-group">
-                            <label>연락처 (전화 또는 이메일) <span>*</span></label>
-                            <input type="text" name="phone" required placeholder="예) 010-1234-5678 또는 contact@company.com">
+                            <label>연락처 <span>*</span></label>
+                            <input type="tel" name="phone" required placeholder="예) 010-1234-5678">
                         </div>
                         <div class="form-group">
-                            <label>자동화하고 싶은 업무 <span style="color: var(--text-secondary); font-weight: 400;">(선택)</span></label>
-                            <textarea name="message" placeholder="예) 매일 여러 사이트에서 가격 정보를 수집해서 엑셀로 정리하는 작업 (없으면 비워두셔도 됩니다)"></textarea>
+                            <label>이메일 <span>*</span></label>
+                            <input type="email" name="email" required placeholder="예) contact@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label>관심 서비스 <span>*</span></label>
+                            <select name="type" required>
+                                <option value="">선택해 주세요</option>
+                                <option value="업무 자동화">업무 자동화 (엑셀/보고서/데이터)</option>
+                                <option value="사내 프로그램">사내 전용 프로그램 개발</option>
+                                <option value="시스템 연동">기존 시스템 연동/통합</option>
+                                <option value="데이터 대시보드">데이터 분석/대시보드</option>
+                                <option value="기타/잘 모르겠음">기타/잘 모르겠음 (상담 필요)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>자동화하고 싶은 업무 <span>*</span></label>
+                            <textarea name="message" required placeholder="예) 매일 여러 사이트에서 가격 정보를 수집해서 엑셀로 정리하는 작업이 있는데, 직원 1명이 하루 3시간씩 소요됩니다."></textarea>
                         </div>
                         <button type="submit" class="submit-btn">
-                            🔥 우리 회사 연간 절감액 무료로 받기
+                            내 회사 낭비 비용 확인하기
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
                         </button>
                         <p class="form-note">
-                            ✓ 24시간 내 맞춤 견적 · ✓ 강매 절대 없음 · ✓ 안 맞으면 100% 환불
+                            ✓ 24시간 내 연락 · ✓ 강매 절대 없음 · ✓ 만족 못하면 100% 환불
                         </p>
                     </form>
                 </div>
@@ -3507,18 +3871,12 @@
 
     <!-- Floating CTA - 긴급성 강화 -->
     <div class="floating-cta" id="floatingCta">
-        <div class="floating-urgency" style="font-size: 0.75rem; color: var(--danger); margin-bottom: 6px; text-align: center; font-weight: 700;">
-            🔥 이번 주 상담 가능: 월/수/금 오전
-        </div>
         <a href="#contact">
-            <span>연간 절감액 무료로 받기</span>
+            <span>무료 업무 진단 신청</span>
             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
         </a>
-        <div class="floating-micro" style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 6px; text-align: center;">
-            ✓ 폼 작성 30초 ✓ 24시간 내 견적 ✓ 100% 환불 보장
-        </div>
     </div>
 
     <!-- Video Modal -->
@@ -3527,7 +3885,7 @@
             <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
             <div class="video-modal-placeholder">
                 <p>데모 영상 준비 중입니다</p>
-                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">
+                <p class="video-modal-sub">
                     실제 서비스 시 영상이 표시됩니다
                 </p>
             </div>
@@ -3538,18 +3896,19 @@
     <div class="exit-popup" id="exitPopup">
         <div class="exit-popup-content">
             <button class="exit-popup-close" onclick="closeExitPopup()">&times;</button>
-            <div class="exit-popup-icon">⏰</div>
-            <h3>잠깐, 이것만 확인하세요</h3>
+            <div class="exit-popup-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3>잠깐만요!</h3>
             <p>
-                당신 회사에서 <strong style="color: var(--danger);">매년 1,200만원 이상</strong>이<br>
-                반복 업무에 낭비되고 있을 수 있습니다.<br>
-                <strong style="color: var(--primary);">30분 무료 진단</strong>으로 정확한 절감액을 알려드립니다.
+                <strong class="text-danger">무료 진단</strong> 받지 않고 가시면<br>
+                연간 <strong class="text-primary-color">수천만 원</strong> 절감 기회를 놓치실 수 있어요.
             </p>
             <a href="#contact" class="btn-primary" onclick="closeExitPopup()">
-                🔥 연간 절감액 무료로 받기
+                30초만에 무료 진단 신청하기
             </a>
             <p class="popup-note">
-                ✓ 폼 작성 30초 · ✓ 24시간 내 맞춤 견적 · ✓ 안 맞으면 100% 환불
+                ✓ 강매 없음 · ✓ 100% 무료 · ✓ 24시간 내 연락
             </p>
         </div>
     </div>
