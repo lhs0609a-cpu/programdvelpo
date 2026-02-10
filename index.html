@@ -773,13 +773,13 @@
         }
 
         /* Demo Video Section - Premium */
-        .demo {
+        .portfolio {
             padding: var(--section-padding) 0;
             background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(15, 15, 25, 0.5) 50%, var(--bg-dark) 100%);
             position: relative;
         }
 
-        .demo::before {
+        .portfolio::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -791,7 +791,7 @@
             pointer-events: none;
         }
 
-        .demo-header {
+        .portfolio-header {
             text-align: center;
             max-width: 700px;
             margin: 0 auto 60px;
@@ -868,132 +868,130 @@
             margin: 0 auto;
         }
 
-        .demo-content {
+        .portfolio-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        .portfolio-item {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 50px;
             align-items: center;
         }
 
-        .demo-video {
+        .portfolio-item:nth-child(even) {
+            grid-template-columns: 1fr 1.4fr;
+        }
+
+        .portfolio-item:nth-child(even) .portfolio-screenshot {
+            order: 2;
+        }
+
+        .portfolio-item:nth-child(even) .portfolio-info {
+            order: 1;
+        }
+
+        .portfolio-screenshot {
             position: relative;
-            border-radius: 20px;
+            border-radius: var(--radius-xl);
             overflow: hidden;
             background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 212, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .demo-video-placeholder {
-            aspect-ratio: 16/9;
-            background: linear-gradient(135deg, var(--bg-card) 0%, #1a1a2e 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .demo-video-placeholder:hover {
-            background: linear-gradient(135deg, #1a1a2e 0%, var(--bg-card) 100%);
-        }
-
-        .demo-play-btn {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .demo-video-placeholder:hover .demo-play-btn {
-            transform: scale(1.1);
-            box-shadow: 0 0 40px rgba(86, 228, 253, 0.5);
-        }
-
-        .demo-play-btn svg {
-            width: 30px;
-            height: 30px;
-            fill: var(--bg-dark);
-            margin-left: 4px;
-        }
-
-        .demo-video-placeholder p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-        }
-
-        .demo-video-placeholder span {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .demo-features {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .demo-feature {
-            display: flex;
-            gap: 20px;
-            padding: 28px;
-            background: linear-gradient(135deg, rgba(15, 15, 25, 0.8) 0%, rgba(25, 25, 45, 0.6) 100%);
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .demo-feature::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .demo-feature:hover {
+        .portfolio-screenshot:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 212, 255, 0.1);
             border-color: rgba(0, 212, 255, 0.2);
-            transform: translateY(-4px) translateX(4px);
-            box-shadow: -8px 8px 30px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 212, 255, 0.05);
         }
 
-        .demo-feature:hover::before {
-            opacity: 1;
+        .portfolio-screenshot img {
+            width: 100%;
+            display: block;
         }
 
-        .demo-feature-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
-            border-radius: 14px;
+        .portfolio-info {
             display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .portfolio-category {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .portfolio-category::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: var(--gradient);
+            border-radius: 1px;
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+
+        .portfolio-info p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .portfolio-tag {
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-pill);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .portfolio-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 8px;
+        }
+
+        .portfolio-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .portfolio-stat-value {
             font-size: 1.5rem;
-            flex-shrink: 0;
-            border: 1px solid rgba(0, 212, 255, 0.1);
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .demo-feature-content h4 {
-            font-size: 1.1rem;
-            margin-bottom: 6px;
-            font-weight: 700;
-        }
-
-        .demo-feature-content p {
-            font-size: 0.9rem;
+        .portfolio-stat-label {
+            font-size: 0.8rem;
             color: var(--text-secondary);
         }
 
@@ -2590,73 +2588,8 @@
             text-align: center;
         }
 
-        .demo-video-meta {
-            font-size: 0.85rem;
-            margin-top: 8px;
-        }
-
-        .video-modal-sub {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-top: 10px;
-        }
-
         .comparison-cell.brand {
             color: var(--primary);
-        }
-
-        /* Video Modal */
-        .video-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-
-        .video-modal.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .video-modal-content {
-            width: 90%;
-            max-width: 900px;
-            position: relative;
-        }
-
-        .video-modal-close {
-            position: absolute;
-            top: -50px;
-            right: 0;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
-        .video-modal-placeholder {
-            aspect-ratio: 16/9;
-            background: var(--bg-card);
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .video-modal-placeholder p {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
         }
 
         /* Exit Intent Popup */
@@ -2756,10 +2689,24 @@
         /* Responsive */
         @media (max-width: 992px) {
             .hero-content,
-            .demo-content,
+            .portfolio-item,
+            .portfolio-item:nth-child(even),
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
+            }
+
+            .portfolio-item:nth-child(even) .portfolio-screenshot,
+            .portfolio-item:nth-child(even) .portfolio-info {
+                order: unset;
+            }
+
+            .portfolio-grid {
+                gap: 60px;
+            }
+
+            .portfolio-info h3 {
+                font-size: 1.5rem;
             }
 
             .hero h1 {
@@ -3063,56 +3010,98 @@
         </div>
     </section>
 
-    <!-- Demo Video Section - 신규 -->
-    <section class="demo" id="demo">
+    <!-- Portfolio Reference Section -->
+    <section class="portfolio" id="portfolio">
         <div class="container">
-            <div class="demo-header">
-                <span class="section-badge">실제 화면 공개</span>
+            <div class="portfolio-header">
+                <span class="section-badge">실제 구축 사례</span>
                 <h2 class="section-title">
-                    4시간 → 3분<br>
-                    <span class="highlight">직접 눈으로 확인하세요</span>
+                    직접 만든<br>
+                    <span class="highlight">실제 서비스들입니다</span>
                 </h2>
                 <p class="section-subtitle">
-                    "에이, 과장이겠지" 하셨죠? 실제 고객사 적용 사례입니다.<br>
-                    <strong class="text-primary-color">버튼 한 번</strong>으로 4시간 업무가 3분에 끝납니다.
+                    "정말 이런 걸 만들 수 있어?" 네, 가능합니다.<br>
+                    <strong class="text-primary-color">실제 운영 중인 서비스</strong>를 직접 확인하세요.
                 </p>
             </div>
-            <div class="demo-content">
-                <div class="demo-video">
-                    <div class="demo-video-placeholder" onclick="openVideoModal()">
-                        <div class="demo-play-btn">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <div class="portfolio-grid">
+                <!-- 1. Wing CS AI -->
+                <div class="portfolio-item">
+                    <div class="portfolio-screenshot">
+                        <img src="images/ref-wingcs.png" alt="Wing CS AI 대시보드" loading="lazy">
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">CS 자동화 시스템</span>
+                        <h3>AI 고객 응대<br>자동화 대시보드</h3>
+                        <p>쿠팡·네이버 등 멀티 플랫폼 CS를 AI가 자동 처리하는 SaaS. 실시간 자동모드, 계정별 통계, 자동 승인까지 올인원으로 구현했습니다.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">AI 자동응답</span>
+                            <span class="portfolio-tag">멀티 플랫폼</span>
+                            <span class="portfolio-tag">실시간 대시보드</span>
                         </div>
-                        <p><span>클릭하여 데모 영상 보기</span></p>
-                        <p class="demo-video-meta">2분 15초 | 실제 사용 화면</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <span class="portfolio-stat-value">100%</span>
+                                <span class="portfolio-stat-label">자동 승인률</span>
+                            </div>
+                            <div class="portfolio-stat">
+                                <span class="portfolio-stat-value">785건</span>
+                                <span class="portfolio-stat-label">자동 제출 완료</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="demo-features">
-                    <div class="demo-feature">
-                        <div class="demo-feature-icon">
-                            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+
+                <!-- 2. 블랭크 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-screenshot">
+                        <img src="images/ref-blankr.png" alt="블랭크 AI 블로그 분석" loading="lazy">
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">AI 분석 플랫폼</span>
+                        <h3>AI 블로그 분석<br>성장 전략 플랫폼</h3>
+                        <p>블로그 URL만 입력하면 11단계 레벨 분석, 키워드 경쟁력 진단, 상위 노출 전략까지 3초 만에 제공하는 AI 분석 서비스를 구축했습니다.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">AI 분석</span>
+                            <span class="portfolio-tag">SEO 최적화</span>
+                            <span class="portfolio-tag">실시간 데이터</span>
                         </div>
-                        <div class="demo-feature-content">
-                            <h4>Before: 4시간 걸리던 작업</h4>
-                            <p>수동으로 10개 사이트에서 데이터 수집, 엑셀 정리, 보고서 작성</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <span class="portfolio-stat-value">52,000+</span>
+                                <span class="portfolio-stat-label">누적 사용자</span>
+                            </div>
+                            <div class="portfolio-stat">
+                                <span class="portfolio-stat-value">3초</span>
+                                <span class="portfolio-stat-label">분석 완료</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="demo-feature">
-                        <div class="demo-feature-icon">
-                            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                        </div>
-                        <div class="demo-feature-content">
-                            <h4>After: 버튼 한 번, 3분 완료</h4>
-                            <p>자동 수집 → 자동 정리 → 자동 보고서 생성 → 이메일 발송까지</p>
-                        </div>
+                </div>
+
+                <!-- 3. 온고지신 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-screenshot">
+                        <img src="images/ref-ongojisin.png" alt="온고지신 AI 한의학 CDSS" loading="lazy">
                     </div>
-                    <div class="demo-feature">
-                        <div class="demo-feature-icon">
-                            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">AI 의료 시스템</span>
+                        <h3>AI 한의학<br>임상 의사결정 지원</h3>
+                        <p>4,300건의 실제 치험례를 학습한 AI가 증상 기반 처방 추천, 변증 분석, 치험례 검색까지 지원하는 한의학 전용 CDSS를 개발했습니다.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">AI 처방 추천</span>
+                            <span class="portfolio-tag">변증 분석</span>
+                            <span class="portfolio-tag">CDSS</span>
                         </div>
-                        <div class="demo-feature-content">
-                            <h4>결과: 월 80시간 × 12개월 = 960시간</h4>
-                            <p>시급 2만원 기준 연간 1,920만원 절감 효과</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <span class="portfolio-stat-value">94.2%</span>
+                                <span class="portfolio-stat-label">처방 채택률</span>
+                            </div>
+                            <div class="portfolio-stat">
+                                <span class="portfolio-stat-value">4,300+</span>
+                                <span class="portfolio-stat-label">학습된 치험례</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3854,7 +3843,7 @@
                 <div class="footer-logo">DevAuto</div>
                 <div class="footer-links">
                     <a href="#solution">서비스</a>
-                    <a href="#demo">데모</a>
+                    <a href="#portfolio">포트폴리오</a>
                     <a href="#contact">문의하기</a>
                 </div>
             </div>
@@ -3877,19 +3866,6 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
         </a>
-    </div>
-
-    <!-- Video Modal -->
-    <div class="video-modal" id="videoModal">
-        <div class="video-modal-content">
-            <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
-            <div class="video-modal-placeholder">
-                <p>데모 영상 준비 중입니다</p>
-                <p class="video-modal-sub">
-                    실제 서비스 시 영상이 표시됩니다
-                </p>
-            </div>
-        </div>
     </div>
 
     <!-- Exit Intent Popup -->
@@ -3987,34 +3963,6 @@
 
         // Initial calculation
         calculateROI();
-
-        // ========== Video Modal ==========
-        function openVideoModal() {
-            document.getElementById('videoModal').classList.add('show');
-            document.body.style.overflow = 'hidden';
-
-            // Track video view
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'video_open', {
-                    'video_name': 'demo_video'
-                });
-            }
-        }
-
-        function closeVideoModal() {
-            document.getElementById('videoModal').classList.remove('show');
-            document.body.style.overflow = '';
-        }
-
-        // Close modal on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeVideoModal();
-        });
-
-        // Close modal on background click
-        document.getElementById('videoModal').addEventListener('click', (e) => {
-            if (e.target === e.currentTarget) closeVideoModal();
-        });
 
         // ========== FAQ Accordion ==========
         document.querySelectorAll('.faq-question').forEach(question => {
