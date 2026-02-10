@@ -3340,6 +3340,384 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ========== Quote Simulator Section ========== */
+        .quote-sim {
+            padding: var(--section-padding) 0;
+            position: relative;
+        }
+
+        .quote-sim-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .quote-sim-grid {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Category Tabs */
+        .qs-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .qs-tab {
+            padding: 10px 18px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(255,255,255,0.1);
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Noto Sans KR', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .qs-tab:hover {
+            border-color: var(--primary);
+            color: var(--text-primary);
+        }
+
+        .qs-tab.active {
+            background: var(--gradient);
+            border-color: transparent;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .qs-tab-icon {
+            font-size: 1rem;
+        }
+
+        /* Check Items */
+        .qs-category {
+            display: none;
+        }
+
+        .qs-category.active {
+            display: block;
+        }
+
+        .qs-items {
+            display: grid;
+            gap: 12px;
+        }
+
+        .qs-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.3s;
+            user-select: none;
+        }
+
+        .qs-item:hover {
+            border-color: rgba(0,212,255,0.3);
+            background: var(--bg-card-hover);
+        }
+
+        .qs-item.checked {
+            border-color: var(--primary);
+            background: rgba(0,212,255,0.08);
+        }
+
+        .qs-checkbox {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            border: 2px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s;
+            font-size: 0.75rem;
+            color: transparent;
+        }
+
+        .qs-item.checked .qs-checkbox {
+            background: var(--gradient);
+            border-color: transparent;
+            color: #fff;
+        }
+
+        .qs-item-info {
+            flex: 1;
+        }
+
+        .qs-item-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .qs-item-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .qs-item-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Result Panel */
+        .qs-result {
+            position: sticky;
+            top: 100px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            backdrop-filter: blur(10px);
+        }
+
+        .qs-result-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .qs-result-count {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .qs-result-count strong {
+            color: var(--primary);
+        }
+
+        .qs-result-row {
+            margin-bottom: 20px;
+        }
+
+        .qs-result-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .qs-result-value {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.3;
+        }
+
+        .qs-result-value.small {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* Difficulty Bar */
+        .qs-difficulty-bar {
+            display: flex;
+            gap: 4px;
+            margin-top: 6px;
+        }
+
+        .qs-diff-seg {
+            flex: 1;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.08);
+            transition: background 0.4s;
+        }
+
+        .qs-diff-seg.filled-1 { background: var(--success); }
+        .qs-diff-seg.filled-2 { background: var(--primary); }
+        .qs-diff-seg.filled-3 { background: var(--warning); }
+        .qs-diff-seg.filled-4 { background: var(--danger); }
+
+        .qs-difficulty-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        /* Recommended Plan Badge */
+        .qs-plan-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-top: 6px;
+        }
+
+        .qs-plan-badge.basic {
+            background: rgba(16,185,129,0.15);
+            color: var(--success);
+            border: 1px solid rgba(16,185,129,0.3);
+        }
+
+        .qs-plan-badge.standard {
+            background: rgba(0,212,255,0.15);
+            color: var(--primary);
+            border: 1px solid rgba(0,212,255,0.3);
+        }
+
+        .qs-plan-badge.pro {
+            background: rgba(168,85,247,0.15);
+            color: var(--accent);
+            border: 1px solid rgba(168,85,247,0.3);
+        }
+
+        /* Discount Badge */
+        .qs-discount {
+            display: none;
+            margin-top: 16px;
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            background: rgba(251,191,36,0.1);
+            border: 1px solid rgba(251,191,36,0.25);
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .qs-discount.show {
+            display: block;
+        }
+
+        /* Result Divider */
+        .qs-result-divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin: 20px 0;
+        }
+
+        /* CTA Button */
+        .qs-cta {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: var(--radius-sm);
+            background: var(--gradient);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Noto Sans KR', sans-serif;
+            margin-top: 24px;
+        }
+
+        .qs-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-primary);
+        }
+
+        .qs-empty-state {
+            text-align: center;
+            padding: 20px 0 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ========== Quote Simulator Responsive 992px ========== */
+        @media (max-width: 992px) {
+            .quote-sim-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .qs-result {
+                position: static;
+                order: -1;
+            }
+
+            .qs-tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding-bottom: 4px;
+            }
+
+            .qs-tabs::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        /* ========== Quote Simulator Responsive 576px ========== */
+        @media (max-width: 576px) {
+            .quote-sim {
+                padding: var(--section-padding-sm) 0;
+            }
+
+            .quote-sim-grid {
+                gap: 24px;
+            }
+
+            .qs-result {
+                padding: 24px 20px;
+            }
+
+            .qs-result-value {
+                font-size: 1.3rem;
+            }
+
+            .qs-result-value.small {
+                font-size: 1rem;
+            }
+
+            .qs-item {
+                padding: 14px 16px;
+                gap: 10px;
+            }
+
+            .qs-item-meta {
+                flex-wrap: wrap;
+                gap: 6px 12px;
+            }
+
+            .qs-tab-icon {
+                display: none;
+            }
+
+            .qs-tab {
+                padding: 8px 14px;
+                font-size: 0.82rem;
+            }
+
+            .qs-cta {
+                padding: 14px;
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -4160,6 +4538,93 @@
         </div>
     </section>
 
+    <!-- Quote Simulator Section -->
+    <section class="quote-sim" id="quote-sim">
+        <div class="container">
+            <div class="quote-sim-header">
+                <span class="section-badge">맞춤 견적</span>
+                <h2 class="section-title">필요한 기능만 선택하고<br>예상 견적을 바로 확인하세요</h2>
+                <p class="section-subtitle">아래에서 원하는 기능을 체크하면 예상 개발비, 기간, 난이도가 실시간으로 계산됩니다.</p>
+            </div>
+
+            <div class="quote-sim-grid">
+                <!-- Left: Tabs + Checklist -->
+                <div class="qs-left">
+                    <div class="qs-tabs" role="tablist">
+                        <button class="qs-tab active" data-cat="automation"><span class="qs-tab-icon">⚙️</span> 업무 자동화</button>
+                        <button class="qs-tab" data-cat="webapp"><span class="qs-tab-icon">🌐</span> 웹/앱 개발</button>
+                        <button class="qs-tab" data-cat="ai"><span class="qs-tab-icon">🤖</span> AI/데이터</button>
+                        <button class="qs-tab" data-cat="integration"><span class="qs-tab-icon">🔗</span> 시스템 연동</button>
+                        <button class="qs-tab" data-cat="extra"><span class="qs-tab-icon">✨</span> 추가 옵션</button>
+                    </div>
+
+                    <!-- 업무 자동화 -->
+                    <div class="qs-category active" data-cat="automation">
+                        <div class="qs-items" id="qs-automation"></div>
+                    </div>
+                    <!-- 웹/앱 개발 -->
+                    <div class="qs-category" data-cat="webapp">
+                        <div class="qs-items" id="qs-webapp"></div>
+                    </div>
+                    <!-- AI/데이터 -->
+                    <div class="qs-category" data-cat="ai">
+                        <div class="qs-items" id="qs-ai"></div>
+                    </div>
+                    <!-- 시스템 연동 -->
+                    <div class="qs-category" data-cat="integration">
+                        <div class="qs-items" id="qs-integration"></div>
+                    </div>
+                    <!-- 추가 옵션 -->
+                    <div class="qs-category" data-cat="extra">
+                        <div class="qs-items" id="qs-extra"></div>
+                    </div>
+                </div>
+
+                <!-- Right: Sticky Result Panel -->
+                <div class="qs-result">
+                    <div class="qs-result-title">예상 견적 요약</div>
+                    <div class="qs-result-count">선택한 기능: <strong id="qs-count">0</strong>개</div>
+
+                    <div id="qs-empty" class="qs-empty-state">왼쪽에서 기능을 선택해 주세요</div>
+
+                    <div id="qs-details" style="display:none;">
+                        <div class="qs-result-row">
+                            <div class="qs-result-label">예상 개발비</div>
+                            <div class="qs-result-value" id="qs-cost">0 ~ 0만원</div>
+                        </div>
+
+                        <div class="qs-result-row">
+                            <div class="qs-result-label">예상 개발 기간</div>
+                            <div class="qs-result-value small" id="qs-period">0 ~ 0주</div>
+                        </div>
+
+                        <div class="qs-result-row">
+                            <div class="qs-result-label">개발 난이도</div>
+                            <div class="qs-difficulty-bar">
+                                <div class="qs-diff-seg" id="qs-d1"></div>
+                                <div class="qs-diff-seg" id="qs-d2"></div>
+                                <div class="qs-diff-seg" id="qs-d3"></div>
+                                <div class="qs-diff-seg" id="qs-d4"></div>
+                            </div>
+                            <div class="qs-difficulty-label" id="qs-diff-label">-</div>
+                        </div>
+
+                        <hr class="qs-result-divider">
+
+                        <div class="qs-result-row">
+                            <div class="qs-result-label">추천 관리 플랜</div>
+                            <span class="qs-plan-badge basic" id="qs-plan">Basic</span>
+                        </div>
+
+                        <div class="qs-discount" id="qs-discount"></div>
+
+                        <a href="#contact" class="qs-cta" id="qs-cta-btn">이 견적으로 무료 상담 신청</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
     <section class="faq">
         <div class="container">
@@ -4481,6 +4946,204 @@
 
         // Initial calculation
         calculateROI();
+
+        // ========== Quote Simulator ==========
+        (function() {
+            const QS_DATA = {
+                automation: [
+                    { id:'a1', name:'데이터 수집 자동화', desc:'웹/DB에서 데이터 자동 수집', minCost:100, maxCost:300, minW:1, maxW:3, diff:2 },
+                    { id:'a2', name:'엑셀 자동화', desc:'엑셀 입력·정리·변환 자동 처리', minCost:80, maxCost:200, minW:0.5, maxW:2, diff:1 },
+                    { id:'a3', name:'보고서 자동 생성', desc:'데이터 기반 리포트 자동 출력', minCost:150, maxCost:400, minW:1, maxW:3, diff:2 },
+                    { id:'a4', name:'이메일/알림 자동화', desc:'조건별 이메일·슬랙 알림 발송', minCost:50, maxCost:150, minW:0.5, maxW:1.5, diff:1 },
+                    { id:'a5', name:'문서 자동 생성', desc:'계약서·견적서 등 문서 자동화', minCost:120, maxCost:350, minW:1, maxW:3, diff:2 },
+                    { id:'a6', name:'재고 관리 자동화', desc:'입출고·재고 현황 자동 관리', minCost:200, maxCost:500, minW:2, maxW:4, diff:3 }
+                ],
+                webapp: [
+                    { id:'w1', name:'관리자 대시보드', desc:'핵심 지표 실시간 모니터링', minCost:300, maxCost:800, minW:2, maxW:5, diff:3 },
+                    { id:'w2', name:'고객 관리(CRM)', desc:'고객 정보·이력·상태 관리', minCost:250, maxCost:700, minW:2, maxW:5, diff:3 },
+                    { id:'w3', name:'주문/발주 관리', desc:'주문 접수·처리·이력 시스템', minCost:200, maxCost:600, minW:2, maxW:4, diff:2 },
+                    { id:'w4', name:'게시판/커뮤니티', desc:'공지사항·자료실·Q&A 게시판', minCost:100, maxCost:300, minW:1, maxW:3, diff:2 },
+                    { id:'w5', name:'예약 관리 시스템', desc:'일정·예약·캘린더 관리', minCost:200, maxCost:500, minW:1.5, maxW:4, diff:2 },
+                    { id:'w6', name:'견적/계약 시스템', desc:'견적 생성·승인·계약 관리', minCost:250, maxCost:600, minW:2, maxW:4, diff:3 }
+                ],
+                ai: [
+                    { id:'i1', name:'AI 챗봇', desc:'고객 문의 자동 응대 챗봇', minCost:300, maxCost:800, minW:2, maxW:5, diff:3 },
+                    { id:'i2', name:'데이터 분석/시각화', desc:'매출·성과 데이터 분석 대시보드', minCost:200, maxCost:600, minW:1.5, maxW:4, diff:3 },
+                    { id:'i3', name:'추천 시스템', desc:'고객 맞춤 상품·콘텐츠 추천', minCost:400, maxCost:1000, minW:3, maxW:6, diff:4 },
+                    { id:'i4', name:'자동 분류/태깅', desc:'텍스트·이미지 자동 카테고리 분류', minCost:200, maxCost:500, minW:1.5, maxW:4, diff:3 },
+                    { id:'i5', name:'매출 예측', desc:'과거 데이터 기반 매출 예측 모델', minCost:350, maxCost:800, minW:3, maxW:6, diff:4 }
+                ],
+                integration: [
+                    { id:'s1', name:'외부 API 연동', desc:'외부 서비스 데이터 연동', minCost:100, maxCost:300, minW:1, maxW:2, diff:2 },
+                    { id:'s2', name:'결제 시스템 연동', desc:'PG사 결제·정산 연동', minCost:200, maxCost:500, minW:1.5, maxW:3, diff:3 },
+                    { id:'s3', name:'소셜 로그인', desc:'카카오/네이버/구글 로그인', minCost:80, maxCost:200, minW:0.5, maxW:1.5, diff:1 },
+                    { id:'s4', name:'ERP 연동', desc:'SAP/더존 등 ERP 시스템 연동', minCost:300, maxCost:800, minW:2, maxW:5, diff:4 },
+                    { id:'s5', name:'메신저 연동', desc:'카카오톡/슬랙/텔레그램 연동', minCost:80, maxCost:250, minW:0.5, maxW:2, diff:2 },
+                    { id:'s6', name:'클라우드 인프라', desc:'AWS/GCP 서버·스토리지 구축', minCost:150, maxCost:400, minW:1, maxW:3, diff:3 }
+                ],
+                extra: [
+                    { id:'x1', name:'모바일 최적화', desc:'반응형 모바일 UI 구현', minCost:100, maxCost:300, minW:1, maxW:2, diff:1 },
+                    { id:'x2', name:'커스텀 디자인', desc:'브랜드 맞춤 UI/UX 디자인', minCost:150, maxCost:400, minW:1, maxW:3, diff:2 },
+                    { id:'x3', name:'교육/매뉴얼', desc:'사용자 매뉴얼·교육 영상 제작', minCost:50, maxCost:150, minW:0.5, maxW:1, diff:1 },
+                    { id:'x4', name:'보안 강화', desc:'접근 권한·암호화·보안 감사', minCost:200, maxCost:500, minW:1, maxW:3, diff:3 },
+                    { id:'x5', name:'다국어 지원', desc:'영어/일본어/중국어 다국어 처리', minCost:100, maxCost:300, minW:1, maxW:2, diff:2 },
+                    { id:'x6', name:'성능 최적화', desc:'로딩 속도·대용량 처리 최적화', minCost:150, maxCost:400, minW:1, maxW:3, diff:3 }
+                ]
+            };
+
+            const diffLabels = { 0:'-', 1:'하 (쉬움)', 2:'중하', 3:'중상', 4:'상 (복잡)' };
+            const diffColors = { 1:'var(--success)', 2:'var(--primary)', 3:'var(--warning)', 4:'var(--danger)' };
+            const checked = new Set();
+
+            // Render items
+            Object.keys(QS_DATA).forEach(cat => {
+                const container = document.getElementById('qs-' + cat);
+                if (!container) return;
+                QS_DATA[cat].forEach(item => {
+                    const el = document.createElement('div');
+                    el.className = 'qs-item';
+                    el.dataset.id = item.id;
+                    el.innerHTML =
+                        '<div class="qs-checkbox">&#10003;</div>' +
+                        '<div class="qs-item-info">' +
+                            '<div class="qs-item-name">' + item.name + '</div>' +
+                            '<div class="qs-item-meta">' +
+                                '<span>' + item.minCost + '~' + item.maxCost + '만원</span>' +
+                                '<span>' + item.minW + '~' + item.maxW + '주</span>' +
+                                '<span>난이도 ' + '●'.repeat(item.diff) + '○'.repeat(4 - item.diff) + '</span>' +
+                            '</div>' +
+                        '</div>';
+                    el.addEventListener('click', () => toggleItem(item.id, el));
+                    container.appendChild(el);
+                });
+            });
+
+            // Tab switching
+            document.querySelectorAll('.qs-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.qs-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.qs-category').forEach(c => c.classList.remove('active'));
+                    tab.classList.add('active');
+                    const cat = tab.dataset.cat;
+                    document.querySelector('.qs-category[data-cat="' + cat + '"]').classList.add('active');
+                });
+            });
+
+            function toggleItem(id, el) {
+                if (checked.has(id)) {
+                    checked.delete(id);
+                    el.classList.remove('checked');
+                } else {
+                    checked.add(id);
+                    el.classList.add('checked');
+                }
+                calculate();
+            }
+
+            function getAllItems() {
+                const all = [];
+                Object.values(QS_DATA).forEach(cat => cat.forEach(item => all.push(item)));
+                return all;
+            }
+
+            function calculate() {
+                const allItems = getAllItems();
+                const selected = allItems.filter(item => checked.has(item.id));
+                const count = selected.length;
+
+                document.getElementById('qs-count').textContent = count;
+                document.getElementById('qs-empty').style.display = count === 0 ? 'block' : 'none';
+                document.getElementById('qs-details').style.display = count === 0 ? 'none' : 'block';
+
+                if (count === 0) return;
+
+                // Cost
+                let minCost = 0, maxCost = 0;
+                selected.forEach(item => { minCost += item.minCost; maxCost += item.maxCost; });
+
+                let discountRate = 0;
+                let discountText = '';
+                if (count >= 8) { discountRate = 0.10; discountText = '8개 이상 선택 10% 할인 적용!'; }
+                else if (count >= 5) { discountRate = 0.05; discountText = '5개 이상 선택 5% 할인 적용!'; }
+
+                if (discountRate > 0) {
+                    minCost = Math.round(minCost * (1 - discountRate));
+                    maxCost = Math.round(maxCost * (1 - discountRate));
+                }
+
+                document.getElementById('qs-cost').textContent = minCost.toLocaleString() + ' ~ ' + maxCost.toLocaleString() + '만원';
+
+                // Period - first 3 full, rest 50%
+                const sorted = selected.slice().sort((a, b) => b.maxW - a.maxW);
+                let minWeeks = 0, maxWeeks = 0;
+                sorted.forEach((item, i) => {
+                    const factor = i < 3 ? 1 : 0.5;
+                    minWeeks += item.minW * factor;
+                    maxWeeks += item.maxW * factor;
+                });
+                minWeeks = Math.round(minWeeks * 10) / 10;
+                maxWeeks = Math.round(maxWeeks * 10) / 10;
+
+                document.getElementById('qs-period').textContent = minWeeks + ' ~ ' + maxWeeks + '주';
+
+                // Difficulty - max
+                let maxDiff = 0;
+                selected.forEach(item => { if (item.diff > maxDiff) maxDiff = item.diff; });
+
+                for (let i = 1; i <= 4; i++) {
+                    const seg = document.getElementById('qs-d' + i);
+                    seg.className = 'qs-diff-seg';
+                    if (i <= maxDiff) seg.classList.add('filled-' + maxDiff);
+                }
+                const diffLabel = document.getElementById('qs-diff-label');
+                diffLabel.textContent = diffLabels[maxDiff];
+                diffLabel.style.color = diffColors[maxDiff] || 'var(--text-secondary)';
+
+                // Recommended Plan
+                let plan, planClass;
+                if (maxDiff >= 4 || maxCost >= 1500) {
+                    plan = 'Pro'; planClass = 'pro';
+                } else if (maxDiff >= 3 || maxCost >= 500) {
+                    plan = 'Standard'; planClass = 'standard';
+                } else {
+                    plan = 'Basic'; planClass = 'basic';
+                }
+                const planBadge = document.getElementById('qs-plan');
+                planBadge.textContent = plan;
+                planBadge.className = 'qs-plan-badge ' + planClass;
+
+                // Discount
+                const discountEl = document.getElementById('qs-discount');
+                if (discountRate > 0) {
+                    discountEl.textContent = discountText;
+                    discountEl.classList.add('show');
+                } else {
+                    discountEl.classList.remove('show');
+                }
+            }
+
+            // CTA → fill contact form
+            document.getElementById('qs-cta-btn').addEventListener('click', function() {
+                const allItems = getAllItems();
+                const selected = allItems.filter(item => checked.has(item.id));
+                if (selected.length === 0) return;
+
+                const names = selected.map(item => item.name).join(', ');
+                const costText = document.getElementById('qs-cost').textContent;
+                const periodText = document.getElementById('qs-period').textContent;
+                const planText = document.getElementById('qs-plan').textContent;
+
+                const msg = '[견적 시뮬레이터 결과]\n' +
+                    '선택 기능: ' + names + '\n' +
+                    '예상 개발비: ' + costText + '\n' +
+                    '예상 기간: ' + periodText + '\n' +
+                    '추천 플랜: ' + planText + '\n\n' +
+                    '위 내용으로 상담 요청드립니다.';
+
+                const textarea = document.querySelector('#contact textarea[name="message"]');
+                if (textarea) textarea.value = msg;
+            });
+        })();
 
         // ========== FAQ Accordion ==========
         document.querySelectorAll('.faq-question').forEach(question => {
