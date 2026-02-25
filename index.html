@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>직원 3명이 하던 일, 프로그램 하나로 끝내세요 | DevPLT</title>
+    <title>직원 3명이 하던 일, 프로그램 하나로 끝내세요 | DevAuto</title>
     <meta name="description" content="매일 3시간씩 반복 작업에 낭비하고 계신가요? 귀사 맞춤 자동화 프로그램으로 업무시간 70% 단축. 150개 기업이 선택한 검증된 솔루션.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,17 +36,6 @@
             --warning: #f59e0b;
             --glow-primary: 0 0 40px rgba(0, 212, 255, 0.3);
             --glow-accent: 0 0 40px rgba(168, 85, 247, 0.3);
-
-            /* Border Radius Scale */
-            --radius-sm: 12px;
-            --radius-md: 16px;
-            --radius-lg: 20px;
-            --radius-xl: 24px;
-            --radius-pill: 50px;
-
-            /* Section Padding */
-            --section-padding: 120px;
-            --section-padding-sm: 80px;
         }
 
         html {
@@ -185,98 +174,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-        }
-
-        /* Utility Classes */
-        .text-danger {
-            color: var(--danger);
-        }
-
-        .text-primary-color {
-            color: var(--primary);
-        }
-
-        .text-primary-light {
-            color: var(--primary-light);
-        }
-
-        .text-success {
-            color: var(--success);
-        }
-
-        .text-bold {
-            font-weight: 700;
-        }
-
-        .cta-micro {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 0;
-            margin-bottom: 32px;
-        }
-
-        .urgency-box {
-            background: rgba(255, 107, 107, 0.1);
-            border: 1px solid rgba(255, 107, 107, 0.3);
-            border-radius: var(--radius-sm);
-            padding: 16px 24px;
-            margin-bottom: 30px;
-            display: inline-block;
-        }
-
-        .urgency-box p {
-            margin: 0;
-            color: var(--danger);
-            font-weight: 700;
-        }
-
-        .icon-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .icon-box svg {
-            width: 28px;
-            height: 28px;
-            stroke-width: 1.5;
-        }
-
-        /* Guarantee & Exit Popup Icon Containers */
-        .guarantee-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .guarantee-icon svg {
-            width: 40px;
-            height: 40px;
-            color: var(--primary);
-        }
-
-        .exit-popup-icon {
-            width: 72px;
-            height: 72px;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(168, 85, 247, 0.08) 100%);
-            border: 1px solid rgba(0, 212, 255, 0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-        }
-
-        .exit-popup-icon svg {
-            width: 36px;
-            height: 36px;
-            color: var(--primary);
         }
 
         /* Navigation - Glassmorphism */
@@ -501,14 +398,14 @@
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
-            margin-bottom: 12px;
+            margin-bottom: 32px;
         }
 
         .btn-primary {
             background: var(--gradient);
             color: var(--bg-dark);
             padding: 20px 40px;
-            border-radius: var(--radius-sm);
+            border-radius: 14px;
             text-decoration: none;
             font-weight: 800;
             font-size: 1.15rem;
@@ -550,7 +447,7 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
             color: var(--text-primary);
             padding: 16px 32px;
-            border-radius: var(--radius-sm);
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
@@ -586,7 +483,7 @@
 
         .hero-card {
             background: linear-gradient(135deg, rgba(15, 15, 25, 0.9) 0%, rgba(25, 25, 45, 0.8) 100%);
-            border-radius: var(--radius-xl);
+            border-radius: 24px;
             padding: 36px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
@@ -595,6 +492,7 @@
             box-shadow:
                 0 25px 50px rgba(0, 0, 0, 0.4),
                 inset 0 1px 1px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
         }
 
         .hero-card::before {
@@ -620,16 +518,14 @@
 
         .hero-card-badge {
             position: absolute;
-            top: -14px;
-            right: 24px;
-            background: var(--gradient);
-            color: var(--bg-dark);
-            padding: 6px 16px;
-            border-radius: var(--radius-pill);
+            top: -12px;
+            right: 20px;
+            background: var(--danger);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 700;
-            z-index: 2;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
         }
 
         .hero-card-header {
@@ -717,7 +613,7 @@
         .logo-item {
             background: linear-gradient(135deg, rgba(15, 15, 25, 0.8) 0%, rgba(25, 25, 45, 0.6) 100%);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: var(--radius-lg);
+            border-radius: 16px;
             padding: 28px 24px;
             text-align: center;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -773,14 +669,14 @@
             font-weight: 600;
         }
 
-        /* Portfolio Section */
-        .portfolio {
-            padding: var(--section-padding) 0;
+        /* Demo Video Section - Premium */
+        .demo {
+            padding: 140px 0;
             background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(15, 15, 25, 0.5) 50%, var(--bg-dark) 100%);
             position: relative;
         }
 
-        .portfolio::before {
+        .demo::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -792,7 +688,7 @@
             pointer-events: none;
         }
 
-        .portfolio-header {
+        .demo-header {
             text-align: center;
             max-width: 700px;
             margin: 0 auto 60px;
@@ -869,146 +765,138 @@
             margin: 0 auto;
         }
 
-        .portfolio-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 80px;
-        }
-
-        .portfolio-item {
+        .demo-content {
             display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
             align-items: center;
         }
 
-        .portfolio-item:nth-child(even) {
-            grid-template-columns: 1fr 1.4fr;
-        }
-
-        .portfolio-item:nth-child(even) .portfolio-screenshot {
-            order: 2;
-        }
-
-        .portfolio-item:nth-child(even) .portfolio-info {
-            order: 1;
-        }
-
-        .portfolio-screenshot {
+        .demo-video {
             position: relative;
-            border-radius: var(--radius-xl);
+            border-radius: 20px;
             overflow: hidden;
             background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 212, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .portfolio-screenshot:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 212, 255, 0.1);
-            border-color: rgba(0, 212, 255, 0.2);
+        .demo-video-placeholder {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--bg-card) 0%, #1a1a2e 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .portfolio-screenshot img {
-            width: 100%;
-            display: block;
-            border-radius: inherit;
+        .demo-video-placeholder:hover {
+            background: linear-gradient(135deg, #1a1a2e 0%, var(--bg-card) 100%);
         }
 
-        .portfolio-screenshot::after {
+        .demo-play-btn {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .demo-video-placeholder:hover .demo-play-btn {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(86, 228, 253, 0.5);
+        }
+
+        .demo-play-btn svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--bg-dark);
+            margin-left: 4px;
+        }
+
+        .demo-video-placeholder p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .demo-video-placeholder span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .demo-features {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .demo-feature {
+            display: flex;
+            gap: 20px;
+            padding: 28px;
+            background: linear-gradient(135deg, rgba(15, 15, 25, 0.8) 0%, rgba(25, 25, 45, 0.6) 100%);
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-feature::before {
             content: '';
             position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            box-shadow: inset 0 0 30px rgba(5, 5, 8, 0.4);
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
-        .portfolio-info {
+        .demo-feature:hover {
+            border-color: rgba(0, 212, 255, 0.2);
+            transform: translateY(-4px) translateX(4px);
+            box-shadow: -8px 8px 30px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 212, 255, 0.05);
+        }
+
+        .demo-feature:hover::before {
+            opacity: 1;
+        }
+
+        .demo-feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border-radius: 14px;
             display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .portfolio-category {
-            display: inline-flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .portfolio-category::before {
-            content: '';
-            width: 24px;
-            height: 2px;
-            background: var(--gradient);
-            border-radius: 1px;
-        }
-
-        .portfolio-info h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            line-height: 1.3;
-            letter-spacing: -0.02em;
-        }
-
-        .portfolio-info p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 4px;
-        }
-
-        .portfolio-tag {
-            padding: 6px 14px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: var(--radius-pill);
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .portfolio-stats {
-            display: flex;
-            gap: 32px;
-            margin-top: 8px;
-        }
-
-        .portfolio-stat {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .portfolio-stat-value {
+            justify-content: center;
             font-size: 1.5rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            flex-shrink: 0;
+            border: 1px solid rgba(0, 212, 255, 0.1);
         }
 
-        .portfolio-stat-label {
-            font-size: 0.8rem;
+        .demo-feature-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .demo-feature-content p {
+            font-size: 0.9rem;
             color: var(--text-secondary);
         }
 
         /* ROI Calculator Section - Premium */
         .calculator {
-            padding: var(--section-padding) 0;
+            padding: 140px 0;
             background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(10, 10, 20, 0.8) 50%, var(--bg-dark) 100%);
             position: relative;
         }
@@ -1039,7 +927,7 @@
         .calculator-box {
             background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(20, 20, 40, 0.9) 100%);
             border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: var(--radius-xl);
+            border-radius: 28px;
             padding: 50px;
             position: relative;
             overflow: hidden;
@@ -1201,7 +1089,7 @@
 
         /* Problem Section */
         .problem {
-            padding: var(--section-padding) 0;
+            padding: 120px 0;
         }
 
         .problem-header {
@@ -1219,7 +1107,7 @@
         .problem-card {
             background: linear-gradient(135deg, rgba(20, 15, 18, 0.9) 0%, rgba(30, 20, 25, 0.8) 100%);
             border: 1px solid rgba(244, 63, 94, 0.15);
-            border-radius: var(--radius-lg);
+            border-radius: 20px;
             padding: 36px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -1298,7 +1186,7 @@
 
         /* Solution Section */
         .solution {
-            padding: var(--section-padding) 0;
+            padding: 120px 0;
             background: var(--bg-card);
         }
 
@@ -1317,7 +1205,7 @@
         .solution-card {
             background: linear-gradient(135deg, rgba(10, 10, 20, 0.9) 0%, rgba(20, 20, 40, 0.8) 100%);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: var(--radius-xl);
+            border-radius: 24px;
             padding: 44px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -1368,7 +1256,7 @@
         }
 
         .solution-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin-bottom: 12px;
             font-weight: 700;
         }
@@ -1416,8 +1304,7 @@
 
         /* Comparison Section */
         .comparison {
-            padding: var(--section-padding) 0;
-            background: var(--bg-card);
+            padding: 120px 0;
         }
 
         .comparison-header {
@@ -1430,14 +1317,14 @@
             max-width: 900px;
             margin: 0 auto;
             background: var(--bg-card);
-            border-radius: var(--radius-lg);
+            border-radius: 20px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .comparison-row {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr 1fr 1fr;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -1487,7 +1374,8 @@
 
         /* Testimonials Section - 강화 */
         .testimonials {
-            padding: var(--section-padding) 0;
+            padding: 120px 0;
+            background: var(--bg-card);
         }
 
         .testimonials-header {
@@ -1506,7 +1394,7 @@
         .testimonial-card {
             background: var(--bg-dark);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
+            border-radius: 16px;
             padding: 32px;
             position: relative;
             transition: all 0.3s;
@@ -1532,8 +1420,8 @@
             position: absolute;
             top: 16px;
             left: 16px;
-            background: var(--gradient);
-            color: var(--bg-dark);
+            background: var(--danger);
+            color: white;
             padding: 4px 10px;
             border-radius: 20px;
             font-size: 0.7rem;
@@ -1644,8 +1532,7 @@
 
         /* Process Section */
         .process {
-            padding: var(--section-padding) 0;
-            background: var(--bg-card);
+            padding: 120px 0;
         }
 
         .process-header {
@@ -1732,7 +1619,9 @@
             margin: 0 auto;
         }
 
-        /* .guarantee-icon is defined in utility section above */
+        .guarantee-icon {
+            font-size: 5rem;
+        }
 
         .guarantee-text h3 {
             font-size: 1.8rem;
@@ -1748,7 +1637,7 @@
 
         /* Anti-Anxiety Section - 불안 해소 */
         .anti-anxiety {
-            padding: var(--section-padding) 0;
+            padding: 120px 0;
             background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(255, 107, 107, 0.05) 50%, var(--bg-dark) 100%);
         }
 
@@ -1769,7 +1658,7 @@
         .worry-box {
             background: var(--bg-card);
             border: 1px solid rgba(255, 107, 107, 0.2);
-            border-radius: var(--radius-lg);
+            border-radius: 20px;
             padding: 36px;
             transition: all 0.3s;
             position: relative;
@@ -1808,9 +1697,9 @@
             font-size: 0.9rem;
         }
 
-        /* Price Anchor Section - 개발비 + 월 관리 구독 */
+        /* Price Anchor Section - 가격 앵커링 */
         .price-anchor {
-            padding: var(--section-padding) 0;
+            padding: 120px 0;
             background: var(--bg-card);
         }
 
@@ -1820,280 +1709,547 @@
             margin: 0 auto 60px;
         }
 
-        /* 상단 비용 비교 바 */
-        .price-compare-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .price-compare {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
             gap: 40px;
-            max-width: 800px;
-            margin: 0 auto 60px;
-            padding: 32px 40px;
-            background: var(--bg-dark);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: center;
         }
 
-        .compare-item {
+        .price-option {
+            background: var(--bg-dark);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price-option.bad {
+            border-color: rgba(255, 107, 107, 0.3);
+        }
+
+        .price-option.good {
+            border-color: rgba(86, 228, 253, 0.5);
+            position: relative;
+        }
+
+        .price-option.good::before {
+            content: '추천';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: var(--bg-dark);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .price-option h4 {
+            font-size: 1.3rem;
+            margin-bottom: 24px;
             text-align: center;
         }
 
-        .compare-item .compare-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
+        .price-option ul {
+            list-style: none;
+            margin-bottom: 30px;
         }
 
-        .compare-item .compare-value {
-            font-size: 1.8rem;
+        .price-option ul li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .price-option ul li:last-child {
+            border-bottom: none;
+        }
+
+        .price-option .total {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price-option .total span {
+            font-size: 2.5rem;
             font-weight: 900;
         }
 
-        .compare-item .compare-value.bad {
-            color: var(--danger);
-            text-decoration: line-through;
-            opacity: 0.7;
+        .price-option .total small {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 8px;
         }
 
-        .compare-item .compare-value.good {
-            color: var(--success);
-        }
-
-        .compare-vs {
-            font-size: 1.5rem;
+        .price-vs {
+            font-size: 2.5rem;
             font-weight: 900;
             color: var(--primary);
         }
 
-        .compare-item .compare-sub {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 4px;
+        /* ===== Development Cost Calculator (Checklist) ===== */
+        .cost-calc-section {
+            padding: 140px 0;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(8, 8, 18, 0.9) 50%, var(--bg-dark) 100%);
+            position: relative;
         }
 
-        /* 개발비 안내 */
-        .dev-cost-info {
+        .cost-calc-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cost-calc-header {
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            padding: 28px 32px;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
-            border: 1px solid rgba(0, 212, 255, 0.15);
-            border-radius: 16px;
+            max-width: 750px;
+            margin: 0 auto 60px;
         }
 
-        .dev-cost-info h3 {
-            font-size: 1.15rem;
-            margin-bottom: 8px;
-            color: var(--primary-light);
+        .cost-calc-layout {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 30px;
+            align-items: start;
         }
 
-        .dev-cost-info p {
+        .cost-calc-box {
+            background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(20, 20, 40, 0.9) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 28px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 212, 255, 0.05);
+        }
+
+        .cost-calc-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .cost-checklist-group {
+            margin-bottom: 32px;
+        }
+
+        .cost-checklist-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .cost-group-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cost-group-title .group-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .group-icon.green { background: rgba(16, 185, 129, 0.15); }
+        .group-icon.blue { background: rgba(0, 212, 255, 0.15); }
+        .group-icon.yellow { background: rgba(251, 191, 36, 0.15); }
+        .group-icon.red { background: rgba(244, 63, 94, 0.15); }
+
+        .cost-group-badge {
+            margin-left: auto;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
             color: var(--text-secondary);
-            font-size: 0.92rem;
-            line-height: 1.7;
+        }
+        .cost-group-badge.easy { background: rgba(16, 185, 129, 0.12); color: var(--success); }
+        .cost-group-badge.medium { background: rgba(0, 212, 255, 0.12); color: var(--primary); }
+        .cost-group-badge.hard { background: rgba(251, 191, 36, 0.12); color: var(--warning); }
+        .cost-group-badge.expert { background: rgba(244, 63, 94, 0.12); color: var(--danger); }
+
+        .cost-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
-        .dev-cost-info .dev-price {
-            font-size: 1.6rem;
+        .cost-check-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: rgba(15, 15, 30, 0.5);
+            border: 1.5px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+        }
+
+        .cost-check-item:hover {
+            border-color: rgba(0, 212, 255, 0.25);
+            background: rgba(20, 20, 40, 0.7);
+        }
+
+        .cost-check-item.checked {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(168, 85, 247, 0.06) 100%);
+        }
+
+        .cost-check-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .cost-checkbox {
+            width: 22px;
+            height: 22px;
+            border-radius: 7px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.25s;
+        }
+
+        .cost-check-item.checked .cost-checkbox {
+            background: var(--gradient);
+            border-color: transparent;
+        }
+
+        .cost-checkbox svg {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.2s;
+        }
+
+        .cost-check-item.checked .cost-checkbox svg {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .cost-check-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .cost-check-name {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .cost-check-desc {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .cost-check-price {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .cost-check-market {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            display: block;
+            text-align: right;
+        }
+
+        /* Sticky Result Panel */
+        .cost-result-sticky {
+            position: sticky;
+            top: 100px;
+        }
+
+        .cost-result-panel {
+            background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(20, 20, 40, 0.9) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 24px;
+            padding: 36px 28px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .cost-result-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .cost-result-title {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* Difficulty Meter */
+        .cost-difficulty-meter {
+            margin-bottom: 24px;
+        }
+
+        .cost-diff-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cost-diff-label span {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        .cost-diff-level {
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 3px 12px;
+            border-radius: 20px;
+        }
+
+        .cost-diff-level.easy { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+        .cost-diff-level.medium { background: rgba(0, 212, 255, 0.15); color: var(--primary); }
+        .cost-diff-level.hard { background: rgba(251, 191, 36, 0.15); color: var(--warning); }
+        .cost-diff-level.expert { background: rgba(244, 63, 94, 0.15); color: var(--danger); }
+
+        .cost-diff-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .cost-diff-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%;
+        }
+
+        .cost-diff-fill.easy { background: var(--success); width: 25%; }
+        .cost-diff-fill.medium { background: var(--primary); width: 50%; }
+        .cost-diff-fill.hard { background: var(--warning); width: 75%; }
+        .cost-diff-fill.expert { background: var(--danger); width: 100%; }
+
+        /* Selected items list */
+        .cost-selected-list {
+            text-align: left;
+            margin-bottom: 24px;
+            max-height: 180px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .cost-selected-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        .cost-selected-list::-webkit-scrollbar-thumb {
+            background: rgba(0, 212, 255, 0.3);
+            border-radius: 2px;
+        }
+
+        .cost-selected-empty {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            padding: 20px 0;
+        }
+
+        .cost-selected-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.82rem;
+        }
+
+        .cost-selected-item:last-child {
+            border-bottom: none;
+        }
+
+        .cost-selected-item .name {
+            color: var(--text-secondary);
+        }
+
+        .cost-selected-item .price {
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        /* Price display */
+        .cost-price-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent);
+            margin: 20px 0;
+        }
+
+        .cost-market-price {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+
+        .cost-our-price {
+            font-size: 2.8rem;
             font-weight: 900;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin: 8px 0;
-        }
-
-        /* 구독 플랜 섹션 타이틀 */
-        .plan-section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .plan-section-title h3 {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-        }
-
-        .plan-section-title p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* 3-Tier 플랜 카드 */
-        .plan-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .plan-card {
-            background: var(--bg-dark);
-            border-radius: var(--radius-lg);
-            padding: 36px 28px;
-            border: 2px solid rgba(255, 255, 255, 0.08);
-            position: relative;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .plan-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .plan-card.recommended {
-            border-color: rgba(0, 212, 255, 0.5);
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.1);
-        }
-
-        .plan-card.recommended::before {
-            content: '가장 인기';
-            position: absolute;
-            top: -13px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gradient);
-            color: var(--bg-dark);
-            padding: 6px 22px;
-            border-radius: 20px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .plan-card .plan-name {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            font-weight: 600;
+            line-height: 1.2;
             margin-bottom: 4px;
         }
 
-        .plan-card .plan-price {
-            font-size: 2.4rem;
-            font-weight: 900;
-            margin-bottom: 4px;
-        }
-
-        .plan-card .plan-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--text-secondary);
-        }
-
-        .plan-card .plan-desc {
+        .cost-save-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.08) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--success);
             font-size: 0.85rem;
+            font-weight: 700;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .cost-timeline {
+            font-size: 0.88rem;
             color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .cost-timeline strong {
+            color: var(--primary-light);
+        }
+
+        .cost-include-list {
+            text-align: left;
             margin-bottom: 24px;
+        }
+
+        .cost-include-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            padding: 5px 0;
+        }
+
+        .cost-include-item svg {
+            color: var(--success);
+            flex-shrink: 0;
+        }
+
+        .cost-cta-btn {
+            display: block;
+            width: 100%;
+            padding: 16px 24px;
+            background: var(--gradient);
+            border: none;
+            border-radius: 14px;
+            color: #000;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-family: inherit;
+            text-align: center;
+        }
+
+        .cost-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-primary);
+        }
+
+        .cost-note {
+            margin-top: 12px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
             line-height: 1.5;
         }
 
-        .plan-card ul {
-            list-style: none;
-            margin-bottom: 28px;
-        }
-
-        .plan-card ul li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-secondary);
-        }
-
-        .plan-card ul li:last-child {
-            border-bottom: none;
-        }
-
-        .plan-card ul li .check {
-            color: var(--success);
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .plan-card ul li .x-mark {
-            color: rgba(255, 255, 255, 0.2);
-            flex-shrink: 0;
-        }
-
-        .plan-card .plan-cta {
-            display: block;
-            width: 100%;
-            padding: 14px;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            text-align: center;
-            cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: none;
-        }
-
-        .plan-card .plan-cta:hover {
-            transform: translateY(-2px);
-        }
-
-        .plan-card .plan-cta.outline {
-            background: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            color: var(--text-primary);
-        }
-
-        .plan-card .plan-cta.outline:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .plan-card .plan-cta.primary {
-            background: var(--gradient);
-            color: var(--bg-dark);
-            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
-        }
-
-        .plan-card .plan-cta.primary:hover {
-            box-shadow: 0 6px 30px rgba(0, 212, 255, 0.5);
-        }
-
-        /* 구독 하단 안내 */
-        .plan-footer {
-            text-align: center;
-            margin-top: 40px;
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-            line-height: 1.8;
-        }
-
-        .plan-footer strong {
+        .cost-count-badge {
+            font-size: 0.82rem;
             color: var(--primary-light);
+            margin-bottom: 16px;
+            font-weight: 600;
         }
 
         @media (max-width: 992px) {
             .worry-grid {
                 grid-template-columns: 1fr;
             }
-            .price-compare-bar {
-                flex-direction: column;
-                gap: 20px;
-                padding: 24px 20px;
+            .price-compare {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
-            .compare-vs {
+            .price-vs {
                 transform: rotate(90deg);
             }
-            .plan-cards {
+
+            .cost-calc-layout {
                 grid-template-columns: 1fr;
-                max-width: 420px;
             }
-            .plan-card.recommended {
-                order: -1;
+
+            .cost-result-sticky {
+                position: static;
             }
         }
 
         /* FAQ Section */
         .faq {
-            padding: var(--section-padding) 0;
+            padding: 120px 0;
+            background: var(--bg-card);
         }
 
         .faq-header {
@@ -2110,7 +2266,7 @@
         .faq-item {
             background: var(--bg-dark);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-sm);
+            border-radius: 12px;
             margin-bottom: 16px;
             overflow: hidden;
             transition: border-color 0.3s;
@@ -2163,7 +2319,7 @@
 
         /* CTA Section */
         .cta-section {
-            padding: var(--section-padding-sm) 0;
+            padding: 100px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -2216,7 +2372,7 @@
 
         /* Contact Section */
         .contact {
-            padding: var(--section-padding) 0;
+            padding: 120px 0;
             background: var(--bg-card);
             position: relative;
             overflow: hidden;
@@ -2307,7 +2463,7 @@
         .contact-form {
             background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(20, 20, 40, 0.9) 100%);
             border: 1px solid rgba(0, 212, 255, 0.1);
-            border-radius: var(--radius-xl);
+            border-radius: 24px;
             padding: 48px;
             position: relative;
             backdrop-filter: blur(20px);
@@ -2585,22 +2741,60 @@
 
         .floating-urgency {
             animation: urgencyPulse 1.5s infinite;
-            font-size: 0.75rem;
-            color: var(--danger);
-            margin-bottom: 6px;
-            text-align: center;
-            font-weight: 700;
         }
 
-        .floating-micro {
-            font-size: 0.7rem;
+        /* Video Modal */
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .video-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-modal-content {
+            width: 90%;
+            max-width: 900px;
+            position: relative;
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .video-modal-placeholder {
+            aspect-ratio: 16/9;
+            background: var(--bg-card);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-modal-placeholder p {
             color: var(--text-secondary);
-            margin-top: 6px;
-            text-align: center;
-        }
-
-        .comparison-cell.brand {
-            color: var(--primary);
+            font-size: 1.2rem;
         }
 
         /* Exit Intent Popup */
@@ -2657,7 +2851,10 @@
             color: var(--text-primary);
         }
 
-        /* .exit-popup-icon is defined in utility section above */
+        .exit-popup-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
 
         .exit-popup h3 {
             font-size: 1.8rem;
@@ -2697,32 +2894,13 @@
             display: none;
         }
 
-        /* Responsive - Tablet */
+        /* Responsive */
         @media (max-width: 992px) {
-            :root {
-                --section-padding: 80px;
-                --section-padding-sm: 60px;
-            }
-
             .hero-content,
-            .portfolio-item,
-            .portfolio-item:nth-child(even),
+            .demo-content,
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
-            }
-
-            .portfolio-item:nth-child(even) .portfolio-screenshot,
-            .portfolio-item:nth-child(even) .portfolio-info {
-                order: unset;
-            }
-
-            .portfolio-grid {
-                gap: 60px;
-            }
-
-            .portfolio-info h3 {
-                font-size: 1.5rem;
             }
 
             .hero h1 {
@@ -2733,10 +2911,6 @@
                 font-size: 2.2rem;
             }
 
-            .section-subtitle {
-                font-size: 1.05rem;
-            }
-
             .logos-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -2745,14 +2919,6 @@
             .problem-grid,
             .testimonials-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .solution-card {
-                padding: 32px;
-            }
-
-            .problem-card {
-                padding: 28px;
             }
 
             .calculator-inputs {
@@ -2778,467 +2944,71 @@
             }
 
             .comparison-row {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
                 text-align: center;
+                font-size: 0.8rem;
+            }
+
+            .comparison-row.header {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .comparison-row.header .comparison-cell:first-child {
+                display: none;
             }
 
             .comparison-cell:first-child {
+                grid-column: 1 / -1;
                 justify-content: center;
                 text-align: center;
                 font-weight: 700;
                 background: rgba(255, 255, 255, 0.03);
             }
 
+            .comparison-cell {
+                padding: 12px 8px;
+                font-size: 0.75rem;
+            }
+
             .guarantee-content {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .guarantee-text h3 {
-                font-size: 1.5rem;
-            }
-
             .stats-bar {
                 grid-template-columns: 1fr 1fr;
             }
-
-            .contact-info h2 {
-                font-size: 2rem;
-            }
-
-            .contact-form {
-                padding: 36px 28px;
-            }
-
-            .cta-content h2 {
-                font-size: 2rem;
-            }
         }
 
-        /* Responsive - Mobile */
         @media (max-width: 576px) {
-            :root {
-                --section-padding: 60px;
-                --section-padding-sm: 48px;
-            }
-
-            .container {
-                padding: 0 16px;
-            }
-
-            /* Navigation */
-            .nav-container {
-                padding: 12px 16px;
-            }
-
-            .logo {
-                font-size: 1.3rem;
-            }
-
-            .nav-cta {
-                padding: 10px 18px;
-                font-size: 0.85rem;
-                gap: 6px;
-            }
-
-            .nav-cta .pulse-dot {
-                width: 6px;
-                height: 6px;
-            }
-
-            /* Hero */
-            .hero {
-                min-height: auto;
-                padding-top: 80px;
-                padding-bottom: 40px;
-            }
-
             .hero h1 {
-                font-size: 1.75rem;
-                margin-bottom: 20px;
+                font-size: 1.6rem;
+                line-height: 1.4;
             }
 
-            .hero-badge {
-                font-size: 0.8rem;
-                padding: 8px 14px;
+            .section-title {
+                font-size: 1.8rem;
             }
 
-            .hero-subtitle {
-                font-size: 1rem;
-                margin-bottom: 16px;
-            }
-
-            .hero-proof {
-                padding: 12px 14px;
-                gap: 10px;
-            }
-
-            .hero-proof-text {
-                font-size: 0.85rem;
-            }
-
-            .hero-proof-avatar {
-                width: 30px;
-                height: 30px;
-                font-size: 0.7rem;
+            .logos-grid {
+                grid-template-columns: 1fr 1fr;
             }
 
             .hero-buttons {
                 flex-direction: column;
             }
 
-            .btn-primary {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-                padding: 16px 28px;
-                font-size: 1rem;
-            }
-
+            .btn-primary,
             .btn-secondary {
                 width: 100%;
                 text-align: center;
                 justify-content: center;
-                padding: 14px 24px;
-                font-size: 0.95rem;
             }
 
-            .cta-micro {
-                font-size: 0.78rem;
-            }
-
-            .hero-guarantee {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-                font-size: 0.82rem;
-            }
-
-            /* Hero Card */
-            .hero-card {
-                padding: 24px 20px;
-                border-radius: var(--radius-lg);
-            }
-
-            .hero-card-badge {
-                top: -11px;
-                right: 16px;
-                padding: 5px 12px;
-                font-size: 0.72rem;
-            }
-
-            .hero-card-header .big-number {
-                font-size: 3rem;
-            }
-
-            .hero-card-header h3 {
-                font-size: 0.95rem;
-            }
-
-            .hero-stat {
-                padding: 14px 10px;
-            }
-
-            .hero-stat-number {
-                font-size: 1.4rem;
-            }
-
-            .hero-stat-label {
-                font-size: 0.75rem;
-            }
-
-            /* Logos */
-            .logos {
-                padding: 48px 0;
-            }
-
-            .logos-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-
-            .logo-item {
-                padding: 20px 14px;
-            }
-
-            .logo-item .logo-name {
-                font-size: 0.9rem;
-            }
-
-            .logo-item .logo-industry {
-                font-size: 0.72rem;
-            }
-
-            .logo-item .logo-result {
-                font-size: 0.78rem;
-            }
-
-            /* Portfolio */
-            .portfolio-grid {
-                gap: 48px;
-            }
-
-            .portfolio-info h3 {
-                font-size: 1.3rem;
-            }
-
-            .portfolio-info p {
-                font-size: 0.9rem;
-            }
-
-            .portfolio-category {
-                font-size: 0.72rem;
-            }
-
-            .portfolio-stats {
-                gap: 24px;
-            }
-
-            .portfolio-stat-value {
-                font-size: 1.2rem;
-            }
-
-            .portfolio-tag {
-                font-size: 0.72rem;
-                padding: 5px 10px;
-            }
-
-            /* Section common */
-            .section-title {
-                font-size: 1.6rem;
-            }
-
-            .section-subtitle {
-                font-size: 0.95rem;
-            }
-
-            .section-badge {
-                font-size: 0.78rem;
-                padding: 8px 16px;
-            }
-
-            /* Problem */
-            .problem-card {
-                padding: 24px;
-            }
-
-            .problem-card h3 {
-                font-size: 1.15rem;
-            }
-
-            .problem-stat-number {
-                font-size: 1.6rem;
-            }
-
-            /* Solution */
-            .solution-card {
-                padding: 28px 22px;
-            }
-
-            .solution-icon {
-                width: 56px;
-                height: 56px;
-                border-radius: 14px;
-            }
-
-            /* Comparison */
-            .comparison-cell {
-                padding: 14px 16px;
-                font-size: 0.9rem;
-            }
-
-            .comparison-row.header .comparison-cell {
-                font-size: 0.95rem;
-            }
-
-            /* Testimonials */
-            .testimonial-card {
-                padding: 24px;
-            }
-
-            .testimonial-text {
-                font-size: 0.92rem;
-            }
-
-            .stats-bar {
-                grid-template-columns: 1fr 1fr;
-                padding: 24px 16px;
-                gap: 16px;
-            }
-
-            .stats-bar-number {
-                font-size: 1.8rem;
-            }
-
-            .stats-bar-label {
-                font-size: 0.78rem;
-            }
-
-            /* Guarantee */
-            .guarantee {
-                padding: 48px 0;
-            }
-
-            .guarantee-content {
-                gap: 32px;
-            }
-
-            .guarantee-text h3 {
-                font-size: 1.3rem;
-            }
-
-            .guarantee-text p {
-                font-size: 0.95rem;
-            }
-
-            .guarantee-icon {
-                width: 64px;
-                height: 64px;
-            }
-
-            .guarantee-icon svg {
-                width: 32px;
-                height: 32px;
-            }
-
-            /* Process */
             .process-timeline {
                 grid-template-columns: 1fr;
-                gap: 32px;
             }
 
-            .process-number {
-                width: 72px;
-                height: 72px;
-                font-size: 1.4rem;
-                border-width: 3px;
-            }
-
-            .process-step h4 {
-                font-size: 1.1rem;
-            }
-
-            .process-step p {
-                font-size: 0.88rem;
-            }
-
-            /* Pricing */
-            .price-compare-bar {
-                padding: 20px 16px;
-                gap: 16px;
-            }
-
-            .compare-item .compare-value {
-                font-size: 1.4rem;
-            }
-
-            .plan-card {
-                padding: 28px 20px;
-            }
-
-            .plan-card .plan-price {
-                font-size: 2rem;
-            }
-
-            /* Calculator */
-            .calculator-box {
-                padding: 24px 16px;
-            }
-
-            .calculator-result {
-                padding: 28px 16px;
-            }
-
-            .result-item .amount {
-                font-size: 1.6rem;
-            }
-
-            .result-savings .big-savings {
-                font-size: 2.2rem;
-            }
-
-            .result-savings p {
-                font-size: 0.82rem;
-            }
-
-            /* CTA */
-            .cta-content h2 {
-                font-size: 1.5rem;
-            }
-
-            .cta-content > p {
-                font-size: 1rem;
-            }
-
-            .cta-note {
-                font-size: 0.78rem;
-            }
-
-            .urgency-box {
-                padding: 12px 16px;
-            }
-
-            .urgency-box p {
-                font-size: 0.88rem;
-            }
-
-            /* FAQ */
-            .faq-question {
-                padding: 18px 16px;
-                font-size: 0.95rem;
-            }
-
-            .faq-answer p {
-                padding: 0 16px 18px;
-                font-size: 0.9rem;
-            }
-
-            /* Contact */
-            .contact-info h2 {
-                font-size: 1.6rem;
-            }
-
-            .contact-info > p {
-                font-size: 0.95rem;
-            }
-
-            .contact-form {
-                padding: 32px 20px;
-                border-radius: var(--radius-lg);
-            }
-
-            .form-badge {
-                font-size: 0.78rem;
-                padding: 8px 18px;
-            }
-
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                padding: 14px 16px;
-                font-size: 0.95rem;
-            }
-
-            .submit-btn {
-                padding: 16px;
-                font-size: 1.05rem;
-            }
-
-            .contact-benefit {
-                padding: 12px 14px;
-                font-size: 0.88rem;
-            }
-
-            .contact-urgency {
-                padding: 14px;
-                gap: 12px;
-            }
-
-            .contact-urgency-text p {
-                font-size: 0.85rem;
-            }
-
-            /* Footer */
             .footer-content {
                 flex-direction: column;
                 gap: 20px;
@@ -3247,475 +3017,35 @@
             .footer-links {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 16px;
-            }
-
-            .footer-bottom {
-                font-size: 0.8rem;
-            }
-
-            footer {
-                padding: 48px 0 28px;
-            }
-
-            /* Floating CTA */
-            .floating-cta {
-                bottom: 16px;
-                padding: 12px 16px;
-                border-radius: 20px;
-                width: calc(100% - 32px);
-                max-width: 400px;
-            }
-
-            .floating-cta a {
-                padding: 14px 24px;
-                font-size: 0.9rem;
-                justify-content: center;
-                width: 100%;
-            }
-
-            /* Exit Popup */
-            .exit-popup-content {
-                padding: 32px 24px;
-                margin: 0 16px;
-                border-radius: var(--radius-lg);
-            }
-
-            .exit-popup h3 {
-                font-size: 1.4rem;
-            }
-
-            .exit-popup p {
-                font-size: 0.9rem;
-            }
-
-            .exit-popup .btn-primary {
-                padding: 16px;
-                font-size: 1rem;
-            }
-
-            .exit-popup-icon {
-                width: 56px;
-                height: 56px;
-            }
-
-            .exit-popup-icon svg {
-                width: 28px;
-                height: 28px;
-            }
-
-            /* Toast */
-            .toast {
-                left: 16px;
-                right: 16px;
-                bottom: 16px;
-                padding: 14px 18px;
-                font-size: 0.88rem;
-            }
-        }
-
-        /* Responsive - Extra small */
-        @media (max-width: 380px) {
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero-card-header .big-number {
-                font-size: 2.5rem;
-            }
-
-            .hero-stat-number {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 1.4rem;
             }
 
             .stats-bar {
                 grid-template-columns: 1fr;
             }
 
-            .logos-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ========== Quote Simulator Section ========== */
-        .quote-sim {
-            padding: var(--section-padding) 0;
-            position: relative;
-        }
-
-        .quote-sim-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-
-        .quote-sim-grid {
-            display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 40px;
-            align-items: start;
-        }
-
-        /* Category Tabs */
-        .qs-tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-
-        .qs-tab {
-            padding: 10px 18px;
-            border-radius: var(--radius-pill);
-            border: 1px solid rgba(255,255,255,0.1);
-            background: transparent;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Noto Sans KR', sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            white-space: nowrap;
-        }
-
-        .qs-tab:hover {
-            border-color: var(--primary);
-            color: var(--text-primary);
-        }
-
-        .qs-tab.active {
-            background: var(--gradient);
-            border-color: transparent;
-            color: #fff;
-            font-weight: 600;
-        }
-
-        .qs-tab-icon {
-            font-size: 1rem;
-        }
-
-        /* Check Items */
-        .qs-category {
-            display: none;
-        }
-
-        .qs-category.active {
-            display: block;
-        }
-
-        .qs-items {
-            display: grid;
-            gap: 12px;
-        }
-
-        .qs-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 16px 20px;
-            background: var(--bg-card);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            transition: all 0.3s;
-            user-select: none;
-        }
-
-        .qs-item:hover {
-            border-color: rgba(0,212,255,0.3);
-            background: var(--bg-card-hover);
-        }
-
-        .qs-item.checked {
-            border-color: var(--primary);
-            background: rgba(0,212,255,0.08);
-        }
-
-        .qs-checkbox {
-            width: 22px;
-            height: 22px;
-            border-radius: 6px;
-            border: 2px solid rgba(255,255,255,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: all 0.3s;
-            font-size: 0.75rem;
-            color: transparent;
-        }
-
-        .qs-item.checked .qs-checkbox {
-            background: var(--gradient);
-            border-color: transparent;
-            color: #fff;
-        }
-
-        .qs-item-info {
-            flex: 1;
-        }
-
-        .qs-item-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 2px;
-        }
-
-        .qs-item-meta {
-            display: flex;
-            gap: 12px;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-
-        .qs-item-meta span {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        /* Result Panel */
-        .qs-result {
-            position: sticky;
-            top: 100px;
-            background: var(--bg-card);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--radius-lg);
-            padding: 32px 28px;
-            backdrop-filter: blur(10px);
-        }
-
-        .qs-result-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .qs-result-count {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .qs-result-count strong {
-            color: var(--primary);
-        }
-
-        .qs-result-row {
-            margin-bottom: 20px;
-        }
-
-        .qs-result-label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .qs-result-value {
-            font-size: 1.6rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.3;
-        }
-
-        .qs-result-value.small {
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        /* Difficulty Bar */
-        .qs-difficulty-bar {
-            display: flex;
-            gap: 4px;
-            margin-top: 6px;
-        }
-
-        .qs-diff-seg {
-            flex: 1;
-            height: 8px;
-            border-radius: 4px;
-            background: rgba(255,255,255,0.08);
-            transition: background 0.4s;
-        }
-
-        .qs-diff-seg.filled-1 { background: var(--success); }
-        .qs-diff-seg.filled-2 { background: var(--primary); }
-        .qs-diff-seg.filled-3 { background: var(--warning); }
-        .qs-diff-seg.filled-4 { background: var(--danger); }
-
-        .qs-difficulty-label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 6px;
-        }
-
-        /* Recommended Plan Badge */
-        .qs-plan-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: var(--radius-pill);
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-top: 6px;
-        }
-
-        .qs-plan-badge.basic {
-            background: rgba(16,185,129,0.15);
-            color: var(--success);
-            border: 1px solid rgba(16,185,129,0.3);
-        }
-
-        .qs-plan-badge.standard {
-            background: rgba(0,212,255,0.15);
-            color: var(--primary);
-            border: 1px solid rgba(0,212,255,0.3);
-        }
-
-        .qs-plan-badge.pro {
-            background: rgba(168,85,247,0.15);
-            color: var(--accent);
-            border: 1px solid rgba(168,85,247,0.3);
-        }
-
-        /* Discount Badge */
-        .qs-discount {
-            display: none;
-            margin-top: 16px;
-            padding: 10px 16px;
-            border-radius: var(--radius-sm);
-            background: rgba(251,191,36,0.1);
-            border: 1px solid rgba(251,191,36,0.25);
-            font-size: 0.85rem;
-            color: var(--gold);
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .qs-discount.show {
-            display: block;
-        }
-
-        /* Result Divider */
-        .qs-result-divider {
-            border: none;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            margin: 20px 0;
-        }
-
-        /* CTA Button */
-        .qs-cta {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: var(--radius-sm);
-            background: var(--gradient);
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            font-family: 'Noto Sans KR', sans-serif;
-            margin-top: 24px;
-        }
-
-        .qs-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--glow-primary);
-        }
-
-        .qs-empty-state {
-            text-align: center;
-            padding: 20px 0 0;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* ========== Quote Simulator Responsive 992px ========== */
-        @media (max-width: 992px) {
-            .quote-sim-grid {
-                grid-template-columns: 1fr;
+            .hero-guarantee {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
-            .qs-result {
-                position: static;
-                order: -1;
+            .calculator-box {
+                padding: 30px 20px;
             }
 
-            .qs-tabs {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-                padding-bottom: 4px;
+            .cost-calc-box {
+                padding: 24px 18px;
             }
 
-            .qs-tabs::-webkit-scrollbar {
-                display: none;
-            }
-        }
-
-        /* ========== Quote Simulator Responsive 576px ========== */
-        @media (max-width: 576px) {
-            .quote-sim {
-                padding: var(--section-padding-sm) 0;
+            .cost-result-panel {
+                padding: 28px 20px;
             }
 
-            .quote-sim-grid {
-                gap: 24px;
+            .cost-our-price {
+                font-size: 2.2rem;
             }
 
-            .qs-result {
-                padding: 24px 20px;
-            }
-
-            .qs-result-value {
-                font-size: 1.3rem;
-            }
-
-            .qs-result-value.small {
-                font-size: 1rem;
-            }
-
-            .qs-item {
-                padding: 14px 16px;
-                gap: 10px;
-            }
-
-            .qs-item-meta {
-                flex-wrap: wrap;
-                gap: 6px 12px;
-            }
-
-            .qs-tab-icon {
-                display: none;
-            }
-
-            .qs-tab {
-                padding: 8px 14px;
-                font-size: 0.82rem;
-            }
-
-            .qs-cta {
-                padding: 14px;
-                font-size: 0.95rem;
+            .cost-check-item {
+                padding: 10px 12px;
             }
         }
     </style>
@@ -3734,10 +3064,10 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">DevPLT</div>
+            <div class="logo">DevAuto</div>
             <a href="#contact" class="nav-cta">
                 <span class="pulse-dot"></span>
-                무료 업무 진단 신청
+                🔥 이번 주 상담 가능 - 무료 진단
             </a>
         </div>
     </nav>
@@ -3749,44 +3079,45 @@
                 <div class="hero-text">
                     <span class="hero-badge">
                         <span class="dot"></span>
-                        이번 달 3자리 남음 - 선착순 마감
+                        이번 주 상담 가능 - 월/수/금 오전만 진행
                     </span>
 
                     <!-- A/B Test Headlines - CRO 최적화 -->
                     <div id="headline-container">
                         <div class="headline-variant active" data-variant="A">
                             <h1>
-                                엑셀 복붙하다 야근하는 직원,<br>
-                                <span class="highlight-danger">1년에 1,200만원</span> 버리는 겁니다<br>
-                                <span class="highlight">→ 27분 만에 끝나는 자동화</span>
+                                직원 3명이 하루 종일 하는 일,<br>
+                                프로그램 하나가 <span class="highlight">27분</span>에 끝냅니다<br>
+                                <span class="highlight-danger">→ 연간 1,200만원 절감. 150개 기업이 증명.</span>
                             </h1>
                         </div>
                         <div class="headline-variant" data-variant="B">
                             <h1>
-                                옆 회사는 <span class="highlight">6시 칼퇴</span>하는데<br>
-                                우리만 아직도 수작업?<br>
-                                <span class="highlight-danger">150개 기업이 선택한 그 비밀</span>
+                                지금 이 순간에도<br>
+                                경쟁사는 <span class="highlight">70% 더 빨리</span> 일하고 있습니다<br>
+                                <span class="highlight-danger">당신 회사의 연간 손실: 최소 1,200만원</span>
                             </h1>
                         </div>
                         <div class="headline-variant" data-variant="C">
                             <h1>
-                                월급 <span class="highlight-danger">400만원</span> 직원 1명 vs<br>
-                                월 <span class="highlight">15만원~</span> 자동화 관리<br>
-                                당신의 선택은?
+                                월급 <span class="highlight-danger">405만원</span> 직원 1명 뽑을 돈으로<br>
+                                <span class="highlight">24시간 무휴 자동화 시스템</span> 8개 운영<br>
+                                150개 기업이 이미 선택했습니다
                             </h1>
                         </div>
                         <div class="headline-variant" data-variant="D">
                             <h1>
-                                <span class="highlight-danger">경쟁사는 이미 도입했습니다</span><br>
-                                당신만 모르는<br>
-                                <span class="highlight">업무 자동화의 비밀</span>
+                                매일 <span class="highlight-danger">3시간</span>씩, 매년 <span class="highlight-danger">720시간</span><br>
+                                복사-붙여넣기에 갈아 넣는 시간<br>
+                                <span class="highlight">→ 버튼 하나로 끝내는 회사들의 비결</span>
                             </h1>
                         </div>
                     </div>
 
                     <p class="hero-subtitle">
-                        <strong class="text-danger">3시간 → 27분.</strong> 이게 실제 자동화 도입 후 변화입니다.<br>
-                        지금 이 순간에도 경쟁사는 자동화로 앞서 나가는 중. <strong class="text-primary-color">150개 기업</strong>이 검증 완료.
+                        매일 3시간씩, 매달 60시간, 매년 720시간.<br>
+                        당신 직원들이 복사-붙여넣기에 갈아 넣는 시간입니다.<br>
+                        <strong style="color: var(--primary);">150개 기업</strong>이 이 시간을 되찾았습니다. <strong style="color: var(--danger);">다음은 당신 차례.</strong>
                     </p>
                     <div class="hero-proof">
                         <div class="hero-proof-avatars">
@@ -3796,20 +3127,20 @@
                             <div class="hero-proof-avatar">+</div>
                         </div>
                         <div class="hero-proof-text">
-                            <strong>150개 기업</strong>이 이미 업무 자동화에 성공했습니다
+                            <strong>147개 기업</strong>이 이미 업무 자동화에 성공했습니다
                         </div>
                     </div>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn-primary">
-                            내 회사 낭비 비용 확인하기
+                            🔥 우리 회사 연간 절감액 무료로 받기
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
                         </a>
-                        <a href="#calculator" class="btn-secondary">ROI 직접 계산해보기</a>
+                        <a href="#calculator" class="btn-secondary">📊 30초만에 ROI 계산하기</a>
                     </div>
-                    <p class="cta-micro">
-                        ✓ 30초 신청 완료 · ✓ 영업 전화 없음 · ✓ 100% 무료
+                    <p class="cta-micro" style="font-size: 0.85rem; color: var(--text-secondary); margin-top: -20px; margin-bottom: 32px;">
+                        ✓ 폼 작성 30초 · ✓ 24시간 내 맞춤 견적 · ✓ 안 맞으면 100% 환불
                     </p>
                     <div class="hero-guarantee">
                         <span>
@@ -3869,36 +3200,36 @@
         <div class="container">
             <div class="logos-header">
                 <p>신뢰할 수 있는 파트너</p>
-                <h3>150개 이상의 기업이 DevPLT와 함께합니다</h3>
+                <h3>150개 이상의 기업이 DevAuto와 함께합니다</h3>
             </div>
             <div class="logos-grid">
                 <div class="logo-item">
-                    <div class="logo-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
-                    <div class="logo-name">H사</div>
+                    <div class="logo-icon">🏭</div>
+                    <div class="logo-name">한성정밀</div>
                     <div class="logo-industry">제조업 / 직원 120명</div>
                     <div class="logo-result">업무시간 65% 단축</div>
                 </div>
                 <div class="logo-item">
-                    <div class="logo-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg></div>
-                    <div class="logo-name">M사</div>
+                    <div class="logo-icon">🛒</div>
+                    <div class="logo-name">마켓플러스</div>
                     <div class="logo-industry">유통업 / 직원 45명</div>
                     <div class="logo-result">월 80시간 절감</div>
                 </div>
                 <div class="logo-item">
-                    <div class="logo-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-                    <div class="logo-name">S사</div>
+                    <div class="logo-icon">💼</div>
+                    <div class="logo-name">스마트HR</div>
                     <div class="logo-industry">HR 서비스 / 직원 30명</div>
                     <div class="logo-result">인건비 40% 절감</div>
                 </div>
                 <div class="logo-item">
-                    <div class="logo-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
-                    <div class="logo-name">Q사</div>
+                    <div class="logo-icon">📦</div>
+                    <div class="logo-name">퀵로지스</div>
                     <div class="logo-industry">물류업 / 직원 80명</div>
                     <div class="logo-result">오류율 99% 감소</div>
                 </div>
                 <div class="logo-item">
-                    <div class="logo-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
-                    <div class="logo-name">D사</div>
+                    <div class="logo-icon">🏥</div>
+                    <div class="logo-name">메디케어랩</div>
                     <div class="logo-industry">의료기기 / 직원 55명</div>
                     <div class="logo-result">보고서 자동화 100%</div>
                 </div>
@@ -3906,106 +3237,51 @@
         </div>
     </section>
 
-    <!-- Portfolio Reference Section -->
-    <section class="portfolio" id="portfolio">
+    <!-- Problem Section (PAS: Problem First) -->
+    <section class="problem">
         <div class="container">
-            <div class="portfolio-header">
-                <span class="section-badge">실제 구축 사례</span>
+            <div class="problem-header">
+                <span class="section-badge danger">⚠️ 경고: 당신의 회사도 해당됩니다</span>
                 <h2 class="section-title">
-                    직접 만든<br>
-                    <span class="highlight">실제 서비스들입니다</span>
+                    이 중 하나라도 해당되면<br><span class="highlight-danger">매달 돈이 새고 있습니다</span>
                 </h2>
                 <p class="section-subtitle">
-                    "정말 이런 걸 만들 수 있어?" 네, 가능합니다.<br>
-                    <strong class="text-primary-color">실제 운영 중인 서비스</strong>를 직접 확인하세요.
+                    대부분의 회사가 모르고 있습니다. 아래 상황에 <strong style="color: var(--danger);">연간 수천만 원</strong>이 낭비되고 있다는 것을.
                 </p>
             </div>
-            <div class="portfolio-grid">
-                <!-- 1. Wing CS AI -->
-                <div class="portfolio-item">
-                    <div class="portfolio-screenshot">
-                        <img src="images/ref-wingcs.png" alt="Wing CS AI 대시보드" loading="lazy">
-                    </div>
-                    <div class="portfolio-info">
-                        <span class="portfolio-category">CS 자동화 시스템</span>
-                        <h3>AI 고객 응대<br>자동화 대시보드</h3>
-                        <p>쿠팡·네이버 등 멀티 플랫폼 CS를 AI가 자동 처리하는 SaaS. 실시간 자동모드, 계정별 통계, 자동 승인까지 올인원으로 구현했습니다.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">AI 자동응답</span>
-                            <span class="portfolio-tag">멀티 플랫폼</span>
-                            <span class="portfolio-tag">실시간 대시보드</span>
-                        </div>
-                        <div class="portfolio-stats">
-                            <div class="portfolio-stat">
-                                <span class="portfolio-stat-value">100%</span>
-                                <span class="portfolio-stat-label">자동 승인률</span>
-                            </div>
-                            <div class="portfolio-stat">
-                                <span class="portfolio-stat-value">785건</span>
-                                <span class="portfolio-stat-label">자동 제출 완료</span>
-                            </div>
-                        </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>"또 사람 뽑자는 품의서..."</h3>
+                    <p>업무량이 1.5배 늘었다고 인원을 1.5배 충원할 순 없습니다. 채용 공고 → 면접 → 온보딩 → 퇴사. 이 사이클에 매번 수백만 원이 소멸됩니다.</p>
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">연 4,860만원</div>
+                        <div class="problem-stat-label">신입 1명 실제 비용 (월급+4대보험+퇴직금+교육)</div>
                     </div>
                 </div>
-
-                <!-- 2. 블랭크 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-screenshot">
-                        <img src="images/ref-blankr.png" alt="블랭크 AI 블로그 분석" loading="lazy">
-                    </div>
-                    <div class="portfolio-info">
-                        <span class="portfolio-category">AI 분석 플랫폼</span>
-                        <h3>AI 블로그 분석<br>성장 전략 플랫폼</h3>
-                        <p>블로그 URL만 입력하면 11단계 레벨 분석, 키워드 경쟁력 진단, 상위 노출 전략까지 3초 만에 제공하는 AI 분석 서비스를 구축했습니다.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">AI 분석</span>
-                            <span class="portfolio-tag">SEO 최적화</span>
-                            <span class="portfolio-tag">실시간 데이터</span>
-                        </div>
-                        <div class="portfolio-stats">
-                            <div class="portfolio-stat">
-                                <span class="portfolio-stat-value">52,000+</span>
-                                <span class="portfolio-stat-label">누적 사용자</span>
-                            </div>
-                            <div class="portfolio-stat">
-                                <span class="portfolio-stat-value">3초</span>
-                                <span class="portfolio-stat-label">분석 완료</span>
-                            </div>
-                        </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🤯</div>
+                    <h3>"이 보고서, 숫자가 또 틀렸잖아"</h3>
+                    <p>사람이 수동으로 다루는 데이터는 반드시 틀립니다. 엑셀 한 셀의 오타가 수천만 원짜리 발주 실수로 이어진 실제 사례가 있습니다.</p>
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">평균 3.6%</div>
+                        <div class="problem-stat-label">수작업 데이터 오류율 (IBM 리서치)</div>
                     </div>
                 </div>
-
-                <!-- 3. 온고지신 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-screenshot">
-                        <img src="images/ref-ongojisin.png" alt="온고지신 AI 한의학 CDSS" loading="lazy">
-                    </div>
-                    <div class="portfolio-info">
-                        <span class="portfolio-category">AI 의료 시스템</span>
-                        <h3>AI 한의학<br>임상 의사결정 지원</h3>
-                        <p>4,300건의 실제 치험례를 학습한 AI가 증상 기반 처방 추천, 변증 분석, 치험례 검색까지 지원하는 한의학 전용 CDSS를 개발했습니다.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">AI 처방 추천</span>
-                            <span class="portfolio-tag">변증 분석</span>
-                            <span class="portfolio-tag">CDSS</span>
-                        </div>
-                        <div class="portfolio-stats">
-                            <div class="portfolio-stat">
-                                <span class="portfolio-stat-value">94.2%</span>
-                                <span class="portfolio-stat-label">처방 채택률</span>
-                            </div>
-                            <div class="portfolio-stat">
-                                <span class="portfolio-stat-value">4,300+</span>
-                                <span class="portfolio-stat-label">학습된 치험례</span>
-                            </div>
-                        </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🚨</div>
+                    <h3>"핵심 담당자가 퇴사하면 끝"</h3>
+                    <p>김 대리만 아는 엑셀 매크로, 박 과장만 돌릴 줄 아는 정산 시스템. 그 사람이 없으면 회사가 멈춥니다. 이게 진짜 리스크입니다.</p>
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">평균 2.3개월</div>
+                        <div class="problem-stat-label">담당자 퇴사 시 업무 공백 기간</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ROI Calculator Section - 신규 -->
+    <!-- ROI Calculator Section (PAS: Agitation - 고통을 숫자로) -->
     <section class="calculator" id="calculator">
         <div class="container">
             <div class="calculator-header">
@@ -4061,57 +3337,7 @@
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="problem">
-        <div class="container">
-            <div class="problem-header">
-                <span class="section-badge danger">경고: 당신의 회사도 해당됩니다</span>
-                <h2 class="section-title">
-                    이 중 하나라도 해당되면<br><span class="highlight-danger">매달 돈이 새고 있습니다</span>
-                </h2>
-                <p class="section-subtitle">
-                    대부분의 회사가 모르고 있습니다. 아래 상황에 <strong class="text-danger">연간 수천만 원</strong>이 낭비되고 있다는 것을.
-                </p>
-            </div>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3>"또 야근이야..."</h3>
-                    <p>매일 똑같은 엑셀 작업, 데이터 복붙, 보고서 정리... 직원들은 지쳐가고 정작 중요한 일에 집중할 시간이 없습니다.</p>
-                    <div class="problem-stat">
-                        <div class="problem-stat-number">월 60시간</div>
-                        <div class="problem-stat-label">단순 반복 업무에 낭비되는 시간</div>
-                    </div>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3>"사람을 더 뽑아야 하나..."</h3>
-                    <p>업무량은 늘어나는데 자동화 없이 사람만 충원하면? 인건비는 기하급수적으로 증가합니다.</p>
-                    <div class="problem-stat">
-                        <div class="problem-stat-number">월 350만원</div>
-                        <div class="problem-stat-label">신입 1명 채용 시 실제 비용</div>
-                    </div>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                    </div>
-                    <h3>"이 파일이 최신 버전 맞아?"</h3>
-                    <p>엑셀 파일 버전 관리 실패, 데이터 불일치, 담당자 퇴사 시 업무 마비... 매번 반복되는 혼란.</p>
-                    <div class="problem-stat">
-                        <div class="problem-stat-number">연 23%</div>
-                        <div class="problem-stat-label">데이터 오류로 인한 손실률</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
+    <!-- Solution Section (PAS: Solution) -->
     <section class="solution" id="solution">
         <div class="container">
             <div class="solution-header">
@@ -4120,81 +3346,128 @@
                     "그래서 어떻게<br>해결해 주시는 건가요?"
                 </h2>
                 <p class="section-subtitle">
-                    범용 소프트웨어 NO. 오직 <strong class="text-primary-color">귀사만을 위한</strong> 맞춤 솔루션으로<br>
+                    범용 소프트웨어 NO. 오직 <strong style="color: var(--primary);">귀사만을 위한</strong> 맞춤 솔루션으로<br>
                     업무 효율을 극대화합니다.
                 </p>
             </div>
             <div class="solution-grid">
                 <div class="solution-card">
-                    <div class="solution-icon">
-                        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    </div>
+                    <div class="solution-icon">⚡</div>
                     <h3>업무 자동화 프로그램</h3>
-                    <p>클릭 몇 번으로 하루 종일 걸리던 작업을 끝내세요.</p>
+                    <p>3시간짜리 반복 작업, 버튼 하나로 끝내세요.</p>
                     <ul class="solution-benefits">
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            엑셀 데이터 자동 수집/정리/분석
+                            3시간짜리 엑셀 정리 → 버튼 하나로 3분 완료
                         </li>
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            일일/주간/월간 보고서 자동 생성
+                            매일 아침 9시, 보고서가 대표님 메일함에 자동 도착
                         </li>
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            이메일/알림 자동 발송 시스템
+                            납기 지연, 재고 부족? 알아서 알림 → 실수 제로
                         </li>
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            웹사이트 데이터 자동 수집
+                            경쟁사 가격/재고를 24시간 자동 모니터링
                         </li>
                     </ul>
                     <div class="solution-result">
-                        <p>→ 평균 업무시간 70% 단축 효과</p>
+                        <p>→ 평균 업무시간 70% 단축, 연간 960시간 확보</p>
                     </div>
                 </div>
                 <div class="solution-card">
-                    <div class="solution-icon">
-                        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    </div>
+                    <div class="solution-icon">🔧</div>
                     <h3>맞춤 사내 프로그램</h3>
-                    <p>귀사의 업무 방식에 100% 맞춘 전용 시스템을 구축합니다.</p>
+                    <p>범용 솔루션은 결국 안 씁니다. 귀사 전용으로 만듭니다.</p>
                     <ul class="solution-benefits">
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            사내 전용 관리 시스템 (ERP/CRM)
+                            우리 회사 프로세스 그대로 → 교육 없이 바로 사용
                         </li>
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            재고/주문/고객 통합 관리
+                            재고/주문/고객, 흩어진 데이터를 한 화면에서 관리
                         </li>
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            실시간 데이터 대시보드
+                            실시간 대시보드로 의사결정 속도 3배 향상
                         </li>
                         <li>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            기존 시스템과 완벽 연동
+                            기존 시스템(엑셀/ERP/쇼핑몰)과 자동 연동
                         </li>
                     </ul>
                     <div class="solution-result">
-                        <p>→ 데이터 정확도 99.9% 달성</p>
+                        <p>→ 데이터 정확도 99.9%, 담당자 퇴사해도 업무 중단 제로</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Video Section (증거) -->
+    <section class="demo" id="demo">
+        <div class="container">
+            <div class="demo-header">
+                <span class="section-badge">👀 실제 화면 공개</span>
+                <h2 class="section-title">
+                    4시간 → 3분<br>
+                    <span class="highlight">직접 눈으로 확인하세요</span>
+                </h2>
+                <p class="section-subtitle">
+                    "에이, 과장이겠지" 하셨죠? 실제 고객사 적용 사례입니다.<br>
+                    <strong style="color: var(--primary);">버튼 한 번</strong>으로 4시간 업무가 3분에 끝납니다.
+                </p>
+            </div>
+            <div class="demo-content">
+                <div class="demo-video">
+                    <div class="demo-video-placeholder" onclick="openVideoModal()">
+                        <div class="demo-play-btn">
+                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                        <p><span>클릭하여 데모 영상 보기</span></p>
+                        <p style="font-size: 0.85rem; margin-top: 8px;">2분 15초 | 실제 사용 화면</p>
+                    </div>
+                </div>
+                <div class="demo-features">
+                    <div class="demo-feature">
+                        <div class="demo-feature-icon">⚡</div>
+                        <div class="demo-feature-content">
+                            <h4>Before: 4시간 걸리던 작업</h4>
+                            <p>수동으로 10개 사이트에서 데이터 수집, 엑셀 정리, 보고서 작성</p>
+                        </div>
+                    </div>
+                    <div class="demo-feature">
+                        <div class="demo-feature-icon">🚀</div>
+                        <div class="demo-feature-content">
+                            <h4>After: 버튼 한 번, 3분 완료</h4>
+                            <p>자동 수집 → 자동 정리 → 자동 보고서 생성 → 이메일 발송까지</p>
+                        </div>
+                    </div>
+                    <div class="demo-feature">
+                        <div class="demo-feature-icon">💰</div>
+                        <div class="demo-feature-content">
+                            <h4>결과: 월 80시간 × 12개월 = 960시간</h4>
+                            <p>시급 2만원 기준 연간 1,920만원 절감 효과</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4207,45 +3480,63 @@
             <div class="comparison-header">
                 <span class="section-badge">비교</span>
                 <h2 class="section-title">
-                    왜 DevPLT를<br>선택해야 할까요?
+                    사람 채용 vs 범용 툴 vs DevAuto<br>뭐가 진짜 이득일까요?
                 </h2>
             </div>
             <div class="comparison-table">
                 <div class="comparison-row header">
                     <div class="comparison-cell"></div>
-                    <div class="comparison-cell">일반 외주 개발사</div>
-                    <div class="comparison-cell brand">DevPLT</div>
+                    <div class="comparison-cell">사람 채용</div>
+                    <div class="comparison-cell">범용 솔루션</div>
+                    <div class="comparison-cell" style="color: var(--primary);">DevAuto 맞춤 개발</div>
                 </div>
                 <div class="comparison-row">
-                    <div class="comparison-cell">견적 응답 속도</div>
-                    <div class="comparison-cell bad">3-7일</div>
-                    <div class="comparison-cell good">24시간 이내</div>
+                    <div class="comparison-cell">월 비용</div>
+                    <div class="comparison-cell bad">405만원+</div>
+                    <div class="comparison-cell">10~50만원/월</div>
+                    <div class="comparison-cell good">50만원~ (1회)</div>
                 </div>
                 <div class="comparison-row comparison-highlight">
-                    <div class="comparison-cell">요구사항 반영</div>
-                    <div class="comparison-cell bad">표준 템플릿 적용</div>
-                    <div class="comparison-cell good">100% 맞춤 개발</div>
+                    <div class="comparison-cell">우리 업무 적합도</div>
+                    <div class="comparison-cell">높음</div>
+                    <div class="comparison-cell bad">낮음 (범용)</div>
+                    <div class="comparison-cell good">100% 맞춤</div>
                 </div>
                 <div class="comparison-row">
-                    <div class="comparison-cell">커뮤니케이션</div>
-                    <div class="comparison-cell bad">이메일만</div>
-                    <div class="comparison-cell good">실시간 진행 공유</div>
+                    <div class="comparison-cell">퇴사/중단 리스크</div>
+                    <div class="comparison-cell bad">높음</div>
+                    <div class="comparison-cell bad">서비스 종료 리스크</div>
+                    <div class="comparison-cell good">없음 (영구 소유)</div>
                 </div>
                 <div class="comparison-row comparison-highlight">
-                    <div class="comparison-cell">개발 후 지원</div>
-                    <div class="comparison-cell bad">추가 비용 발생</div>
-                    <div class="comparison-cell good">월 관리 구독으로 지속 관리</div>
+                    <div class="comparison-cell">실수율</div>
+                    <div class="comparison-cell bad">인간 평균 3.6%</div>
+                    <div class="comparison-cell">설정 오류 가능</div>
+                    <div class="comparison-cell good">0%</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">24시간 가동</div>
+                    <div class="comparison-cell bad">불가</div>
+                    <div class="comparison-cell good">가능</div>
+                    <div class="comparison-cell good">가능</div>
+                </div>
+                <div class="comparison-row comparison-highlight">
+                    <div class="comparison-cell">교육/온보딩</div>
+                    <div class="comparison-cell bad">1~3개월</div>
+                    <div class="comparison-cell bad">직원 교육 필요</div>
+                    <div class="comparison-cell good">1일</div>
                 </div>
                 <div class="comparison-row">
                     <div class="comparison-cell">환불 정책</div>
                     <div class="comparison-cell bad">불가</div>
+                    <div class="comparison-cell bad">환불 불가</div>
                     <div class="comparison-cell good">100% 환불 보장</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section (Social Proof - 남들도 했다) -->
     <section class="testimonials">
         <div class="container">
             <div class="testimonials-header">
@@ -4257,22 +3548,18 @@
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <span class="testimonial-video-badge">
-                        <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        영상 후기
-                    </span>
                     <div class="testimonial-rating">★★★★★</div>
                     <p class="testimonial-text">
-                        "매일 4시간씩 걸리던 일일 매출 정산 작업이 이제 <strong>버튼 하나</strong>로 끝납니다. 직원들이 야근에서 해방됐어요. 처음엔 반신반의했는데, 도입 첫 주부터 효과가 바로 나타났습니다."
+                        "솔직히 처음엔 '이 가격에 될까?' 의심했습니다. 그런데 매일 4시간씩 걸리던 매출 정산이 이제 <strong>버튼 하나</strong>로 끝납니다. 도입 첫 주부터 효과가 바로 나타났어요. 직원들이 야근에서 해방됐습니다."
                     </p>
                     <div class="testimonial-result">
-                        <p>→ 월 80시간 업무시간 단축, 야근 제로</p>
+                        <p>→ 월 80시간 단축 · 연 960시간 확보 · <strong>시급 2만원 기준 연 1,920만원 절감</strong></p>
                     </div>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">K</div>
                         <div class="testimonial-info">
-                            <h4>김** 대표</h4>
-                            <p>M사 / 유통업 / 직원 45명</p>
+                            <h4>김영수 대표</h4>
+                            <p>마켓플러스 / 유통업 / 직원 45명</p>
                         </div>
                     </div>
                 </div>
@@ -4287,19 +3574,15 @@
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">L</div>
                         <div class="testimonial-info">
-                            <h4>이** 팀장</h4>
-                            <p>H사 / 제조업 / 직원 120명</p>
+                            <h4>이정민 팀장</h4>
+                            <p>한성정밀 / 제조업 / 직원 120명</p>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <span class="testimonial-video-badge">
-                        <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        영상 후기
-                    </span>
                     <div class="testimonial-rating">★★★★★</div>
                     <p class="testimonial-text">
-                        "사람 한 명 더 뽑으려다 자동화를 선택했는데, <strong>인건비 연 4천만 원</strong>을 아꼈습니다. 최고의 결정이었어요. 다른 부서에도 확대 적용 중입니다."
+                        "사람 한 명 더 뽑으려다 자동화를 선택했는데, <strong>인건비 연 4천만 원</strong>을 아꼈습니다. 최고의 결정이었어요. 다른 부서에서도 '우리도 해달라'고 요청이 쏟아지고 있습니다."
                     </p>
                     <div class="testimonial-result">
                         <p>→ 연간 인건비 4,000만원 절감, ROI 800%</p>
@@ -4307,8 +3590,8 @@
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">P</div>
                         <div class="testimonial-info">
-                            <h4>박** 이사</h4>
-                            <p>S사 / 서비스업 / 직원 30명</p>
+                            <h4>박지현 이사</h4>
+                            <p>스마트HR / 서비스업 / 직원 30명</p>
                         </div>
                     </div>
                 </div>
@@ -4322,7 +3605,7 @@
                 </div>
                 <div class="stats-bar-item">
                     <div class="stats-bar-number">98%</div>
-                    <div class="stats-bar-label">구독 유지율</div>
+                    <div class="stats-bar-label">재계약률</div>
                 </div>
                 <div class="stats-bar-item">
                     <div class="stats-bar-number">70%</div>
@@ -4336,27 +3619,397 @@
         </div>
     </section>
 
-    <!-- Guarantee Section -->
+    <!-- Price Anchor Section (가격 저항 제거) -->
+    <section class="price-anchor">
+        <div class="container">
+            <div class="price-anchor-header">
+                <span class="section-badge">비용 비교</span>
+                <h2 class="section-title">
+                    직원 반 달 월급으로<br>영구 자동화 시스템을 구축합니다
+                </h2>
+                <p class="section-subtitle">
+                    신입 1명 연봉 4,860만원 vs 자동화 프로그램 50만원. 숫자가 답합니다.
+                </p>
+            </div>
+            <div class="price-compare">
+                <div class="price-option bad">
+                    <h4>👤 신입 직원 1명 채용 시</h4>
+                    <ul>
+                        <li><span>월급</span><span style="color: var(--danger);">300만원</span></li>
+                        <li><span>4대보험</span><span style="color: var(--danger);">30만원</span></li>
+                        <li><span>교육/온보딩 비용</span><span style="color: var(--danger);">50만원</span></li>
+                        <li><span>퇴직금 적립</span><span style="color: var(--danger);">25만원</span></li>
+                        <li><span>실수로 인한 손실</span><span style="color: var(--danger);">연 평균 340만원</span></li>
+                        <li><span>퇴사 리스크</span><span style="color: var(--danger);">재채용 비용 200만원+</span></li>
+                    </ul>
+                    <div class="total">
+                        월 <span style="color: var(--danger);">405만원+</span>
+                        <small>연 4,860만원 + 관리 부담 + 퇴사 리스크</small>
+                    </div>
+                </div>
+                <div class="price-vs">VS</div>
+                <div class="price-option good">
+                    <h4>🤖 맞춤 자동화 프로그램</h4>
+                    <ul>
+                        <li><span>24시간 무휴 작동</span><span style="color: var(--success);">✓</span></li>
+                        <li><span>실수 확률</span><span style="color: var(--success);">0%</span></li>
+                        <li><span>퇴사 걱정</span><span style="color: var(--success);">없음</span></li>
+                        <li><span>교육 필요</span><span style="color: var(--success);">없음</span></li>
+                        <li><span>1개월 무상 유지보수</span><span style="color: var(--success);">포함</span></li>
+                        <li><span>소스코드 소유</span><span style="color: var(--success);">영구 사용</span></li>
+                    </ul>
+                    <div class="total">
+                        <span style="color: var(--success);">50만원부터</span>
+                        <small>직원 반 달 월급으로 영구 자동화 시스템 구축</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Cost Calculator (Checklist) -->
+    <section class="cost-calc-section" id="cost-calculator">
+        <div class="container">
+            <div class="cost-calc-header">
+                <span class="section-badge">견적 계산기</span>
+                <h2 class="section-title">
+                    필요한 기능만 체크하면<br><span class="highlight">견적이 바로</span> 나옵니다
+                </h2>
+                <p class="section-subtitle">
+                    원하는 기능을 체크하세요. 난이도와 예상 비용이 자동으로 계산됩니다.<br>
+                    Claude AI 기반 개발로 <strong style="color:var(--success);">시장가 대비 10~20% 저렴</strong>합니다.
+                </p>
+            </div>
+
+            <div class="cost-calc-layout">
+                <!-- Left: Feature Checklist -->
+                <div class="cost-calc-box">
+
+                    <!-- Group 1: Basic / Easy -->
+                    <div class="cost-checklist-group">
+                        <div class="cost-group-title">
+                            <span class="group-icon green">1</span>
+                            기본 기능
+                            <span class="cost-group-badge easy">난이도 낮음</span>
+                        </div>
+                        <div class="cost-checklist">
+                            <label class="cost-check-item" data-market="150000" data-price="120000" data-diff="1">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">데이터 자동 수집 / 크롤링</div>
+                                    <div class="cost-check-desc">웹사이트에서 데이터를 자동으로 수집</div>
+                                </div>
+                                <div><span class="cost-check-market">15만</span><span class="cost-check-price">12만</span></div>
+                            </label>
+                            <label class="cost-check-item" data-market="200000" data-price="170000" data-diff="1">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">엑셀 / CSV 자동 처리</div>
+                                    <div class="cost-check-desc">파일 읽기, 정리, 변환, 자동 저장</div>
+                                </div>
+                                <div><span class="cost-check-market">20만</span><span class="cost-check-price">17만</span></div>
+                            </label>
+                            <label class="cost-check-item" data-market="120000" data-price="100000" data-diff="1">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">이메일 / 알림 자동 발송</div>
+                                    <div class="cost-check-desc">조건에 따른 자동 메일/문자 전송</div>
+                                </div>
+                                <div><span class="cost-check-market">12만</span><span class="cost-check-price">10만</span></div>
+                            </label>
+                            <label class="cost-check-item" data-market="180000" data-price="150000" data-diff="1">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">기본 UI 화면 (입력 폼/목록)</div>
+                                    <div class="cost-check-desc">데이터 입력 화면, 목록 화면 구성</div>
+                                </div>
+                                <div><span class="cost-check-market">18만</span><span class="cost-check-price">15만</span></div>
+                            </label>
+                            <label class="cost-check-item" data-market="100000" data-price="80000" data-diff="1">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">파일 업로드 / 다운로드</div>
+                                    <div class="cost-check-desc">첨부파일 업로드 및 다운로드 기능</div>
+                                </div>
+                                <div><span class="cost-check-market">10만</span><span class="cost-check-price">8만</span></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Group 2: Medium -->
+                    <div class="cost-checklist-group">
+                        <div class="cost-group-title">
+                            <span class="group-icon blue">2</span>
+                            중급 기능
+                            <span class="cost-group-badge medium">난이도 보통</span>
+                        </div>
+                        <div class="cost-checklist">
+                            <label class="cost-check-item" data-market="350000" data-price="290000" data-diff="2">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">데이터베이스 설계 / 연동</div>
+                                    <div class="cost-check-desc">DB 테이블 설계, CRUD 구현</div>
+                                </div>
+                                <div><span class="cost-check-market">35만</span><span class="cost-check-price">29만</span></div>
+                            </label>
+                            <label class="cost-check-item" data-market="400000" data-price="330000" data-diff="2">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">관리자 대시보드</div>
+                                    <div class="cost-check-desc">매출/재고/고객 현황 시각화 화면</div>
+                                </div>
+                                <div><span class="cost-check-market">40만</span><span class="cost-check-price">33만</span></div>
+                            </label>
+                            <label class="cost-check-item" data-market="300000" data-price="250000" data-diff="2">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">회원가입 / 로그인 시스템</div>
+                                    <div class="cost-check-desc">이메일 인증, 비밀번호 암호화, 세션 관리</div>
+                                </div>
+                                <div><span class="cost-check-market">30만</span><span class="cost-check-price">25만</span></div>
+                            </label>
+                            <label class="cost-check-item" data-market="250000" data-price="200000" data-diff="2">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">검색 / 필터 / 정렬 기능</div>
+                                    <div class="cost-check-desc">다중 조건 검색, 동적 필터링</div>
+                                </div>
+                                <div><span class="cost-check-market">25만</span><span class="cost-check-price">20만</span></div>
+                            </label>
+                            <label class="cost-check-item" data-market="280000" data-price="230000" data-diff="2">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">반응형 디자인 (모바일 최적화)</div>
+                                    <div class="cost-check-desc">PC/태블릿/모바일 화면 대응</div>
+                                </div>
+                                <div><span class="cost-check-market">28만</span><span class="cost-check-price">23만</span></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Group 3: Hard -->
+                    <div class="cost-checklist-group">
+                        <div class="cost-group-title">
+                            <span class="group-icon yellow">3</span>
+                            고급 기능
+                            <span class="cost-group-badge hard">난이도 높음</span>
+                        </div>
+                        <div class="cost-checklist">
+                            <label class="cost-check-item" data-market="500000" data-price="420000" data-diff="3">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">외부 API 연동 (결제/지도/알림)</div>
+                                    <div class="cost-check-desc">PG 결제, 카카오맵, Slack/SMS 연동</div>
+                                </div>
+                                <div><span class="cost-check-market">50만</span><span class="cost-check-price">42만</span></div>
+                            </label>
+                            <label class="cost-check-item" data-market="450000" data-price="380000" data-diff="3">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">예약 / 스케줄링 시스템</div>
+                                    <div class="cost-check-desc">날짜/시간 예약, 캘린더, 자동 알림</div>
+                                </div>
+                                <div><span class="cost-check-market">45만</span><span class="cost-check-price">38만</span></div>
+                            </label>
+                            <label class="cost-check-item" data-market="400000" data-price="330000" data-diff="3">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">권한 관리 (관리자/일반 분리)</div>
+                                    <div class="cost-check-desc">역할별 접근 권한, 메뉴 제어</div>
+                                </div>
+                                <div><span class="cost-check-market">40만</span><span class="cost-check-price">33만</span></div>
+                            </label>
+                            <label class="cost-check-item" data-market="350000" data-price="290000" data-diff="3">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">실시간 알림 / 채팅</div>
+                                    <div class="cost-check-desc">WebSocket 기반 실시간 통신</div>
+                                </div>
+                                <div><span class="cost-check-market">35만</span><span class="cost-check-price">29만</span></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Group 4: Expert -->
+                    <div class="cost-checklist-group">
+                        <div class="cost-group-title">
+                            <span class="group-icon red">4</span>
+                            전문 기능
+                            <span class="cost-group-badge expert">난이도 매우 높음</span>
+                        </div>
+                        <div class="cost-checklist">
+                            <label class="cost-check-item" data-market="800000" data-price="650000" data-diff="4">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">AI 기능 (GPT/Claude 연동)</div>
+                                    <div class="cost-check-desc">AI 자동 분류, 요약, 추천, 챗봇</div>
+                                </div>
+                                <div><span class="cost-check-market">80만</span><span class="cost-check-price">65만</span></div>
+                            </label>
+                            <label class="cost-check-item" data-market="600000" data-price="500000" data-diff="4">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">자동 보고서 / PDF 생성</div>
+                                    <div class="cost-check-desc">데이터 기반 맞춤 보고서 자동 생성</div>
+                                </div>
+                                <div><span class="cost-check-market">60만</span><span class="cost-check-price">50만</span></div>
+                            </label>
+                            <label class="cost-check-item" data-market="700000" data-price="580000" data-diff="4">
+                                <input type="checkbox" name="feat">
+                                <div class="cost-checkbox"><svg width="14" height="14" fill="none" stroke="#000" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                                <div class="cost-check-info">
+                                    <div class="cost-check-name">멀티 시스템 통합 연동</div>
+                                    <div class="cost-check-desc">ERP/CRM/회계 등 외부 시스템 연결</div>
+                                </div>
+                                <div><span class="cost-check-market">70만</span><span class="cost-check-price">58만</span></div>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: Sticky Result Panel -->
+                <div class="cost-result-sticky">
+                    <div class="cost-result-panel" id="costResultPanel">
+                        <div class="cost-result-title">실시간 견적 계산</div>
+
+                        <div class="cost-count-badge" id="costCount">0개 기능 선택됨</div>
+
+                        <!-- Difficulty Meter -->
+                        <div class="cost-difficulty-meter">
+                            <div class="cost-diff-label">
+                                <span>자동 산정 난이도</span>
+                                <span class="cost-diff-level easy" id="costDiffLevel">선택 대기</span>
+                            </div>
+                            <div class="cost-diff-bar">
+                                <div class="cost-diff-fill" id="costDiffFill"></div>
+                            </div>
+                        </div>
+
+                        <!-- Selected items -->
+                        <div class="cost-selected-list" id="costSelectedList">
+                            <div class="cost-selected-empty">왼쪽에서 필요한 기능을 체크하세요</div>
+                        </div>
+
+                        <div class="cost-price-divider"></div>
+
+                        <!-- Price -->
+                        <div class="cost-market-price" id="costMarketPrice">시장가 ₩0</div>
+                        <div class="cost-our-price" id="costOurPrice">₩0</div>
+                        <div class="cost-save-badge" id="costSaveBadge" style="display:none;">절감 ₩0</div>
+
+                        <div class="cost-timeline" id="costTimeline">
+                            기능을 선택하면 예상 기간이 표시됩니다
+                        </div>
+
+                        <div class="cost-include-list">
+                            <div class="cost-include-item">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                소스코드 100% 제공
+                            </div>
+                            <div class="cost-include-item">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                1개월 무상 유지보수
+                            </div>
+                            <div class="cost-include-item">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                안 맞으면 100% 환불
+                            </div>
+                            <div class="cost-include-item">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                Claude AI 기반 고속 개발
+                            </div>
+                        </div>
+
+                        <a href="#contact" class="cost-cta-btn">
+                            이 견적으로 상담 신청 →
+                        </a>
+                        <p class="cost-note">* 실제 금액은 상세 요구사항에 따라 달라질 수 있습니다.<br>정확한 견적은 무료 상담에서 확인하세요.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anti-Anxiety Section (마지막 의심 제거) -->
+    <section class="anti-anxiety">
+        <div class="container">
+            <div class="anti-anxiety-header">
+                <span class="section-badge danger">솔직한 의문</span>
+                <h2 class="section-title">
+                    "솔직히 이런 걱정<br>되시죠?"
+                </h2>
+                <p class="section-subtitle">
+                    당신의 의심, 저희도 압니다. 그래서 미리 답변 준비했습니다.
+                </p>
+            </div>
+            <div class="worry-grid">
+                <div class="worry-box">
+                    <h4>❓ "이 가격에 제대로 된 걸 만들어 준다고?"</h4>
+                    <p>대기업은 같은 프로젝트에 5,000만 원 씁니다. 저희가 1/10 비용으로 가능한 이유: 150건 납품에서 축적된 자동화 템플릿. 처음부터 만드는 게 아니라, 검증된 모듈을 조합하고 귀사에 맞게 커스터마이징합니다.</p>
+                    <div class="answer">
+                        <p>✅ 납품물 코드 품질 평가 평균 4.8/5.0 · 소스코드 100% 귀사 소유</p>
+                    </div>
+                </div>
+                <div class="worry-box">
+                    <h4>❓ "우리 회사엔 안 맞을 것 같은데..."</h4>
+                    <p>범용 솔루션 도입했다가 결국 안 쓰게 된 경험, 있으시죠? 저희는 귀사 업무 프로세스를 직접 분석해서 1:1 맞춤 개발합니다. 150개 기업, 150개 서로 다른 프로그램.</p>
+                    <div class="answer">
+                        <p>✅ 도입 후 실사용률 96% · 98% 재계약률이 증거입니다</p>
+                    </div>
+                </div>
+                <div class="worry-box">
+                    <h4>❓ "만들고 나서 버그 나면?"</h4>
+                    <p>개발 후 연락 두절? 저희는 다릅니다. 1개월 무상 유지보수 + 평일 핫라인 운영. 심지어 결과물이 마음에 안 들면 100% 환불. 계약서에 명시합니다.</p>
+                    <div class="answer">
+                        <p>✅ 1개월 무상 A/S + 2시간 내 대응 보장 + 불만족 시 전액 환불</p>
+                    </div>
+                </div>
+                <div class="worry-box">
+                    <h4>❓ "개발 과정이 복잡하지 않을까?"</h4>
+                    <p>전문 용어로 소통하는 개발사 아닙니다. "이 엑셀 작업 자동으로 해주세요"라고 말씀하시면 됩니다. 기술적인 건 저희가 알아서 처리합니다.</p>
+                    <div class="answer">
+                        <p>✅ 30분 무료 진단 → 24시간 내 맞춤 견적 → 1~4주 완성</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section (리스크 제로) -->
     <section class="guarantee">
         <div class="container">
             <div class="guarantee-content">
-                <div class="guarantee-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                </div>
+                <div class="guarantee-icon">🛡️</div>
                 <div class="guarantee-text">
-                    <h3>개발비 <span class="text-primary-color">100% 환불</span> + 구독 <span class="text-primary-color">위약금 0원</span></h3>
+                    <h3>결과 불만족 시 <span style="color: var(--primary);">100% 환불</span></h3>
                     <p>
                         "돈만 받고 도망가면 어떡하지?" 걱정하지 마세요.<br>
-                        <strong class="text-danger">합의된 결과물이 안 나오면 개발비 전액 환불.</strong> 계약서에 명시합니다.<br>
-                        월 관리 구독은 <strong class="text-primary-color">언제든 해지 가능</strong>, 위약금 없습니다.<br>
-                        이게 저희가 150개 기업에서 <strong class="text-primary-color">98% 구독 유지율</strong>을 기록하는 비결입니다.
+                        <strong style="color: var(--danger);">합의된 결과물이 안 나오면 전액 환불.</strong> 계약서에 명시합니다.<br>
+                        이게 저희가 150개 기업에서 <strong style="color: var(--primary);">98% 재계약률</strong>을 유지하는 비결입니다.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
+    <!-- Process Section (쉬운 다음 단계) -->
     <section class="process">
         <div class="container">
             <div class="process-header">
@@ -4387,239 +4040,9 @@
                 </div>
                 <div class="process-step">
                     <div class="process-number">4</div>
-                    <h4>배포 & 관리 시작</h4>
-                    <p>완성된 솔루션 배포, 사용법 교육<br>월 관리 구독으로 안심 운영</p>
+                    <h4>배포 & 교육</h4>
+                    <p>완성된 솔루션 배포 및<br>사용법 교육까지</p>
                     <span class="process-duration">1일</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Anti-Anxiety Section -->
-    <section class="anti-anxiety">
-        <div class="container">
-            <div class="anti-anxiety-header">
-                <span class="section-badge danger">솔직한 의문</span>
-                <h2 class="section-title">
-                    "솔직히 이런 걱정<br>되시죠?"
-                </h2>
-                <p class="section-subtitle">
-                    당신의 의심, 저희도 압니다. 그래서 미리 답변 준비했습니다.
-                </p>
-            </div>
-            <div class="worry-grid">
-                <div class="worry-box">
-                    <h4>"싸구려 프로그램 아니야?"</h4>
-                    <p>저가 외주 맡겼다가 낭패 본 경험 있으시죠? 저희는 대기업 SI 출신 시니어 개발자가 직접 개발합니다.</p>
-                    <div class="answer">
-                        <p>→네이버/카카오/삼성SDS 출신 개발자 100%</p>
-                    </div>
-                </div>
-                <div class="worry-box">
-                    <h4>"우리 회사엔 안 맞을 것 같은데..."</h4>
-                    <p>범용 솔루션은 결국 안 씁니다. 저희는 귀사 업무 프로세스를 분석해서 1:1 맞춤 개발합니다.</p>
-                    <div class="answer">
-                        <p>→150개 기업 × 150개 맞춤 프로그램</p>
-                    </div>
-                </div>
-                <div class="worry-box">
-                    <h4>"만들고 나서 버그 나면?"</h4>
-                    <p>개발 후 연락 두절? 저희는 다릅니다. 월 관리 구독으로 지속 관리 + 평일 핫라인 운영합니다.</p>
-                    <div class="answer">
-                        <p>→월 관리 구독 중 무상 A/S + 2시간 내 대응 보장 (Pro)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Price Section -->
-    <section class="price-anchor" id="pricing">
-        <div class="container">
-            <div class="price-anchor-header">
-                <span class="section-badge">요금 안내</span>
-                <h2 class="section-title">
-                    개발은 한 번,<br>관리는 매달 안심
-                </h2>
-                <p class="section-subtitle">
-                    맞춤 프로그램 개발 후, 월 관리 구독으로 항상 최상의 상태를 유지합니다.
-                </p>
-            </div>
-
-            <!-- 직원 vs DevPLT 비교 바 -->
-            <div class="price-compare-bar">
-                <div class="compare-item">
-                    <div class="compare-label">신입 직원 1명 채용 시</div>
-                    <div class="compare-value bad">월 405만원+</div>
-                    <div class="compare-sub">월급+4대보험+교육+퇴직금+퇴사리스크</div>
-                </div>
-                <div class="compare-vs">VS</div>
-                <div class="compare-item">
-                    <div class="compare-label">DevPLT 자동화 도입 시</div>
-                    <div class="compare-value good">월 15만원~</div>
-                    <div class="compare-sub">24시간 무휴, 실수 0%, 퇴사 걱정 없음</div>
-                </div>
-            </div>
-
-            <!-- 개발비 안내 -->
-            <div class="dev-cost-info">
-                <h3>STEP 1. 맞춤 프로그램 개발 (일회성)</h3>
-                <div class="dev-price">300만원 ~ 2,000만원</div>
-                <p>
-                    귀사 업무에 딱 맞는 자동화 프로그램을 개발합니다.<br>
-                    프로그램 소유권은 100% 고객님께 귀속됩니다. 무료 상담에서 정확한 견적을 안내드립니다.
-                </p>
-            </div>
-
-            <!-- 월 관리 플랜 -->
-            <div class="plan-section-title">
-                <h3>STEP 2. 월 관리 구독 플랜</h3>
-                <p>프로그램이 멈추지 않고 계속 잘 돌아가도록 관리합니다</p>
-            </div>
-
-            <div class="plan-cards">
-                <!-- Basic -->
-                <div class="plan-card">
-                    <div class="plan-name">Basic</div>
-                    <div class="plan-price">15만원 <span>/월</span></div>
-                    <div class="plan-desc">프로그램이 안정적으로 돌아가는 것만 필요한 분</div>
-                    <ul>
-                        <li><span class="check">&#10003;</span> 24시간 모니터링 & 장애 알림</li>
-                        <li><span class="check">&#10003;</span> 월 1회 정기 점검</li>
-                        <li><span class="check">&#10003;</span> 버그 수정 무상 처리</li>
-                        <li><span class="check">&#10003;</span> 카카오톡/이메일 기술 지원</li>
-                        <li><span class="x-mark">&#10005;</span> 외부 변경 대응 (사이트/API)</li>
-                        <li><span class="x-mark">&#10005;</span> 기능 수정/추가</li>
-                        <li><span class="x-mark">&#10005;</span> 월간 절감 리포트</li>
-                    </ul>
-                    <a href="#contact" class="plan-cta outline">상담 신청하기</a>
-                </div>
-
-                <!-- Standard (추천) -->
-                <div class="plan-card recommended">
-                    <div class="plan-name">Standard</div>
-                    <div class="plan-price">30만원 <span>/월</span></div>
-                    <div class="plan-desc">변화에 대응하고 꾸준히 개선하고 싶은 분</div>
-                    <ul>
-                        <li><span class="check">&#10003;</span> Basic 전체 포함</li>
-                        <li><span class="check">&#10003;</span> 외부 변경 대응 (사이트/API)</li>
-                        <li><span class="check">&#10003;</span> 월 2시간 기능 수정/추가</li>
-                        <li><span class="check">&#10003;</span> 월간 절감 리포트 발송</li>
-                        <li><span class="check">&#10003;</span> 데이터 백업</li>
-                        <li><span class="x-mark">&#10005;</span> 우선 대응 (2시간 내)</li>
-                        <li><span class="x-mark">&#10005;</span> 분기별 최적화 미팅</li>
-                    </ul>
-                    <a href="#contact" class="plan-cta primary">가장 인기 플랜 시작하기</a>
-                </div>
-
-                <!-- Pro -->
-                <div class="plan-card">
-                    <div class="plan-name">Pro</div>
-                    <div class="plan-price">50만원 <span>/월</span></div>
-                    <div class="plan-desc">전담 관리로 프로그램을 매달 더 좋게 만들고 싶은 분</div>
-                    <ul>
-                        <li><span class="check">&#10003;</span> Standard 전체 포함</li>
-                        <li><span class="check">&#10003;</span> 월 5시간 기능 추가/개선</li>
-                        <li><span class="check">&#10003;</span> 우선 대응 (2시간 내)</li>
-                        <li><span class="check">&#10003;</span> 분기별 최적화 미팅</li>
-                        <li><span class="check">&#10003;</span> 전담 매니저 배정</li>
-                        <li><span class="check">&#10003;</span> 신규 자동화 개발 20% 할인</li>
-                        <li><span class="check">&#10003;</span> 연간 계약 시 2개월 무료</li>
-                    </ul>
-                    <a href="#contact" class="plan-cta outline">맞춤 상담 받기</a>
-                </div>
-            </div>
-
-            <div class="plan-footer">
-                <strong>구독을 해지해도 프로그램은 그대로 사용 가능합니다.</strong><br>
-                단, 해지 후 발생하는 오류 수정은 건당 별도 견적 (시간당 10만원~)이 적용됩니다.<br>
-                월 관리비는 프로그램이 멈추지 않게 지켜주는 <strong>보험</strong>입니다.
-            </div>
-        </div>
-    </section>
-
-    <!-- Quote Simulator Section -->
-    <section class="quote-sim" id="quote-sim">
-        <div class="container">
-            <div class="quote-sim-header">
-                <span class="section-badge">맞춤 견적</span>
-                <h2 class="section-title">필요한 기능만 선택하고<br>예상 견적을 바로 확인하세요</h2>
-                <p class="section-subtitle">아래에서 원하는 기능을 체크하면 예상 개발비, 기간, 난이도가 실시간으로 계산됩니다.</p>
-            </div>
-
-            <div class="quote-sim-grid">
-                <!-- Left: Tabs + Checklist -->
-                <div class="qs-left">
-                    <div class="qs-tabs" role="tablist">
-                        <button class="qs-tab active" data-cat="automation"><span class="qs-tab-icon">⚙️</span> 업무 자동화</button>
-                        <button class="qs-tab" data-cat="webapp"><span class="qs-tab-icon">🌐</span> 웹/앱 개발</button>
-                        <button class="qs-tab" data-cat="ai"><span class="qs-tab-icon">🤖</span> AI/데이터</button>
-                        <button class="qs-tab" data-cat="integration"><span class="qs-tab-icon">🔗</span> 시스템 연동</button>
-                        <button class="qs-tab" data-cat="extra"><span class="qs-tab-icon">✨</span> 추가 옵션</button>
-                    </div>
-
-                    <!-- 업무 자동화 -->
-                    <div class="qs-category active" data-cat="automation">
-                        <div class="qs-items" id="qs-automation"></div>
-                    </div>
-                    <!-- 웹/앱 개발 -->
-                    <div class="qs-category" data-cat="webapp">
-                        <div class="qs-items" id="qs-webapp"></div>
-                    </div>
-                    <!-- AI/데이터 -->
-                    <div class="qs-category" data-cat="ai">
-                        <div class="qs-items" id="qs-ai"></div>
-                    </div>
-                    <!-- 시스템 연동 -->
-                    <div class="qs-category" data-cat="integration">
-                        <div class="qs-items" id="qs-integration"></div>
-                    </div>
-                    <!-- 추가 옵션 -->
-                    <div class="qs-category" data-cat="extra">
-                        <div class="qs-items" id="qs-extra"></div>
-                    </div>
-                </div>
-
-                <!-- Right: Sticky Result Panel -->
-                <div class="qs-result">
-                    <div class="qs-result-title">예상 견적 요약</div>
-                    <div class="qs-result-count">선택한 기능: <strong id="qs-count">0</strong>개</div>
-
-                    <div id="qs-empty" class="qs-empty-state">왼쪽에서 기능을 선택해 주세요</div>
-
-                    <div id="qs-details" style="display:none;">
-                        <div class="qs-result-row">
-                            <div class="qs-result-label">예상 개발비</div>
-                            <div class="qs-result-value" id="qs-cost">0 ~ 0만원</div>
-                        </div>
-
-                        <div class="qs-result-row">
-                            <div class="qs-result-label">예상 개발 기간</div>
-                            <div class="qs-result-value small" id="qs-period">0 ~ 0주</div>
-                        </div>
-
-                        <div class="qs-result-row">
-                            <div class="qs-result-label">개발 난이도</div>
-                            <div class="qs-difficulty-bar">
-                                <div class="qs-diff-seg" id="qs-d1"></div>
-                                <div class="qs-diff-seg" id="qs-d2"></div>
-                                <div class="qs-diff-seg" id="qs-d3"></div>
-                                <div class="qs-diff-seg" id="qs-d4"></div>
-                            </div>
-                            <div class="qs-difficulty-label" id="qs-diff-label">-</div>
-                        </div>
-
-                        <hr class="qs-result-divider">
-
-                        <div class="qs-result-row">
-                            <div class="qs-result-label">추천 관리 플랜</div>
-                            <span class="qs-plan-badge basic" id="qs-plan">Basic</span>
-                        </div>
-
-                        <div class="qs-discount" id="qs-discount"></div>
-
-                        <a href="#contact" class="qs-cta" id="qs-cta-btn">이 견적으로 무료 상담 신청</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -4635,20 +4058,11 @@
             <div class="faq-list">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>개발비와 월 관리비, 왜 따로인가요?</span>
+                        <span>비용이 많이 들지 않을까요?</span>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>개발비는 귀사 맞춤 프로그램을 만드는 일회성 비용이고, 월 관리비는 프로그램이 문제없이 계속 돌아가도록 유지하는 비용입니다. 건물을 지으면 관리비가 필요하듯, 프로그램도 외부 환경 변화(사이트 구조 변경, API 업데이트 등)에 대응하려면 지속적인 관리가 필요합니다.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>월 관리 구독을 해지하면 프로그램은 어떻게 되나요?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>프로그램 소유권은 고객님께 있으므로 해지 후에도 그대로 사용 가능합니다. 다만, 해지 이후 발생하는 오류 수정이나 외부 변경 대응은 건당 별도 견적(시간당 10만원~)이 적용됩니다. 갑자기 프로그램이 멈췄을 때 긴급 수정비가 월 관리비보다 훨씬 비쌀 수 있어, 대부분의 고객이 관리 구독을 유지하십니다.</p>
+                        <p>직원 1명 월급(약 350만원)보다 저렴한 비용으로 시작할 수 있습니다. 게다가 한 번 개발하면 계속 사용 가능하니 장기적으로 보면 인건비 대비 훨씬 경제적입니다. 무료 상담에서 예상 ROI를 계산해 드립니다.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -4671,11 +4085,11 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>월 관리비가 부담됩니다. 꼭 가입해야 하나요?</span>
+                        <span>개발 후 문제가 생기면 어떻게 하나요?</span>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>필수는 아닙니다. 하지만 자동화 프로그램은 외부 사이트 변경, OS 업데이트, API 정책 변경 등으로 언제든 멈출 수 있습니다. 관리 없이 프로그램이 1주일 멈추면 직원 수작업 복귀 비용만 30만원 이상이고, 긴급 수정비는 별도입니다. Basic 15만원은 이런 리스크를 막아주는 보험이라고 생각하시면 됩니다.</p>
+                        <p>개발 완료 후 1개월간 무상 유지보수를 제공합니다. 이 기간 동안 발생하는 모든 버그 수정, 기능 조정은 무료입니다. 이후에도 합리적인 비용으로 지속적인 지원을 받으실 수 있습니다.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -4684,7 +4098,7 @@
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>개발비 100% 환불 보장합니다. 합의된 요구사항대로 개발했음에도 만족하지 못하시면 전액 환불해 드립니다. 월 관리 구독은 언제든 해지 가능하며, 위약금이 없습니다.</p>
+                        <p>100% 환불 보장합니다. 합의된 요구사항대로 개발했음에도 만족하지 못하시면 전액 환불해 드립니다. 저희는 그만큼 결과물에 자신 있습니다.</p>
                     </div>
                 </div>
             </div>
@@ -4696,27 +4110,28 @@
         <div class="container">
             <div class="cta-content">
                 <h2>
-                    <span class="highlight-danger">경쟁사는 이미 자동화했습니다</span><br>
-                    당신은 언제까지 수작업 하실 건가요?
+                    이 페이지를 읽는 <span class="highlight-danger">5분 동안</span><br>
+                    당신 회사에서 <span class="highlight-danger">25,000원</span>이 낭비됐습니다
                 </h2>
                 <p>
-                    이 페이지를 보는 동안에도 반복 업무로 <strong class="text-danger">돈이 새고 있습니다.</strong><br>
-                    30분 무료 진단 하나로, 연간 수천만 원을 아낄 수 있습니다.
+                    시급 2만원 × 직원 3명 × 5분 = 5,000원.<br>
+                    이게 반복 업무의 실제 비용입니다. 매일, 매달, 매년.<br>
+                    <strong style="color: var(--primary);">30분 무료 진단 하나</strong>로 이 숫자를 0에 가깝게 만들 수 있습니다.
                 </p>
-                <div class="urgency-box">
-                    <p>
-                        이번 달 무료 진단 가능 기업: <strong>3곳</strong> (품질 유지를 위해 제한)
+                <div style="background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.3); border-radius: 12px; padding: 16px 24px; margin-bottom: 30px; display: inline-block;">
+                    <p style="margin: 0; color: var(--danger); font-weight: 700;">
+                        ⚠️ 이번 주 상담 가능: 월/수/금 오전 10시~12시 (품질 유지를 위해 주 6건만 진행)
                     </p>
                 </div>
                 <div class="cta-buttons">
                     <a href="#contact" class="btn-primary">
-                        지금 바로 무료 진단받기
+                        🔥 우리 회사 연간 절감액 무료로 받기
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
                     </a>
                 </div>
-                <p class="cta-note">✓ 30초 신청 · ✓ 영업 전화 없음 · ✓ 상담 100% 무료 · ✓ 구독 해지 위약금 0원</p>
+                <p class="cta-note">✓ 폼 작성 30초 · ✓ 24시간 내 맞춤 견적 · ✓ 안 맞으면 100% 환불</p>
             </div>
         </div>
     </section>
@@ -4727,12 +4142,12 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <h2>
-                        이 폼 제출하면<br>
+                        30초만 투자하면<br>
                         <span class="highlight">연간 절감액</span> 바로 알려드립니다
                     </h2>
                     <p>
-                        <strong class="text-danger">"우리 회사도 자동화 가능할까?"</strong><br>
-                        30분 무료 진단으로 정확히 알려드립니다. 강매 절대 없습니다.
+                        <strong style="color: var(--danger);">"우리 회사도 자동화 가능할까?"</strong><br>
+                        3가지만 적어주세요. 24시간 내 맞춤 견적을 보내드립니다.
                     </p>
                     <div class="contact-benefits">
                         <div class="contact-benefit">
@@ -4751,7 +4166,7 @@
                             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            <span>24시간 내 개발비 + 관리 플랜 견적 제공</span>
+                            <span>24시간 내 맞춤 견적 제공</span>
                         </div>
                         <div class="contact-benefit">
                             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -4761,17 +4176,15 @@
                         </div>
                     </div>
                     <div class="contact-urgency">
-                        <div class="contact-urgency-icon">
-                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                        </div>
+                        <div class="contact-urgency-icon">⚡</div>
                         <div class="contact-urgency-text">
-                            <p><strong>품질 유지를 위해 월 10개 프로젝트만 진행합니다</strong></p>
-                            <p>빠른 상담을 원하시면 지금 신청해 주세요</p>
+                            <p><strong>이번 주 상담 가능: 월/수/금 오전 10시~12시</strong></p>
+                            <p>품질 유지를 위해 주 6건만 진행합니다</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <span class="form-badge">상담 비용 0원</span>
+                    <span class="form-badge">상담 비용 0원 · 폼 작성 30초</span>
                     <form id="inquiryForm">
                         <div class="form-group">
                             <label>회사명 <span>*</span></label>
@@ -4782,36 +4195,21 @@
                             <input type="text" name="name" required placeholder="예) 홍길동">
                         </div>
                         <div class="form-group">
-                            <label>연락처 <span>*</span></label>
-                            <input type="tel" name="phone" required placeholder="예) 010-1234-5678">
+                            <label>연락처 (전화 또는 이메일) <span>*</span></label>
+                            <input type="text" name="phone" required placeholder="예) 010-1234-5678 또는 contact@company.com">
                         </div>
                         <div class="form-group">
-                            <label>이메일 <span>*</span></label>
-                            <input type="email" name="email" required placeholder="예) contact@company.com">
-                        </div>
-                        <div class="form-group">
-                            <label>관심 서비스 <span>*</span></label>
-                            <select name="type" required>
-                                <option value="">선택해 주세요</option>
-                                <option value="업무 자동화">업무 자동화 (엑셀/보고서/데이터)</option>
-                                <option value="사내 프로그램">사내 전용 프로그램 개발</option>
-                                <option value="시스템 연동">기존 시스템 연동/통합</option>
-                                <option value="데이터 대시보드">데이터 분석/대시보드</option>
-                                <option value="기타/잘 모르겠음">기타/잘 모르겠음 (상담 필요)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>자동화하고 싶은 업무 <span>*</span></label>
-                            <textarea name="message" required placeholder="예) 매일 여러 사이트에서 가격 정보를 수집해서 엑셀로 정리하는 작업이 있는데, 직원 1명이 하루 3시간씩 소요됩니다."></textarea>
+                            <label>자동화하고 싶은 업무 <span style="color: var(--text-secondary); font-weight: 400;">(선택)</span></label>
+                            <textarea name="message" placeholder="예) 매일 여러 사이트에서 가격 정보를 수집해서 엑셀로 정리하는 작업 (없으면 비워두셔도 됩니다)"></textarea>
                         </div>
                         <button type="submit" class="submit-btn">
-                            내 회사 낭비 비용 확인하기
+                            🔥 우리 회사 연간 절감액 무료로 받기
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
                         </button>
                         <p class="form-note">
-                            ✓ 24시간 내 연락 · ✓ 강매 절대 없음 · ✓ 만족 못하면 100% 환불
+                            ✓ 24시간 내 맞춤 견적 · ✓ 강매 절대 없음 · ✓ 안 맞으면 100% 환불
                         </p>
                     </form>
                 </div>
@@ -4823,15 +4221,15 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">DevPLT</div>
+                <div class="footer-logo">DevAuto</div>
                 <div class="footer-links">
                     <a href="#solution">서비스</a>
-                    <a href="#portfolio">포트폴리오</a>
+                    <a href="#demo">데모</a>
                     <a href="#contact">문의하기</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 DevPLT. All rights reserved.</p>
+                <p>&copy; 2026 DevAuto. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -4843,31 +4241,49 @@
 
     <!-- Floating CTA - 긴급성 강화 -->
     <div class="floating-cta" id="floatingCta">
+        <div class="floating-urgency" style="font-size: 0.75rem; color: var(--danger); margin-bottom: 6px; text-align: center; font-weight: 700;">
+            🔥 이번 주 상담 가능: 월/수/금 오전
+        </div>
         <a href="#contact">
-            <span>무료 업무 진단 신청</span>
+            <span>연간 절감액 무료로 받기</span>
             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
         </a>
+        <div class="floating-micro" style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 6px; text-align: center;">
+            ✓ 폼 작성 30초 ✓ 24시간 내 견적 ✓ 100% 환불 보장
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+            <div class="video-modal-placeholder">
+                <p>데모 영상 준비 중입니다</p>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">
+                    실제 서비스 시 영상이 표시됩니다
+                </p>
+            </div>
+        </div>
     </div>
 
     <!-- Exit Intent Popup -->
     <div class="exit-popup" id="exitPopup">
         <div class="exit-popup-content">
             <button class="exit-popup-close" onclick="closeExitPopup()">&times;</button>
-            <div class="exit-popup-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            </div>
-            <h3>잠깐만요!</h3>
+            <div class="exit-popup-icon">⏰</div>
+            <h3>잠깐, 이것만 확인하세요</h3>
             <p>
-                <strong class="text-danger">무료 진단</strong> 받지 않고 가시면<br>
-                연간 <strong class="text-primary-color">수천만 원</strong> 절감 기회를 놓치실 수 있어요.
+                당신 회사에서 <strong style="color: var(--danger);">매년 1,200만원 이상</strong>이<br>
+                반복 업무에 낭비되고 있을 수 있습니다.<br>
+                <strong style="color: var(--primary);">30분 무료 진단</strong>으로 정확한 절감액을 알려드립니다.
             </p>
             <a href="#contact" class="btn-primary" onclick="closeExitPopup()">
-                30초만에 무료 진단 신청하기
+                🔥 연간 절감액 무료로 받기
             </a>
             <p class="popup-note">
-                ✓ 강매 없음 · ✓ 100% 무료 · ✓ 24시간 내 연락
+                ✓ 폼 작성 30초 · ✓ 24시간 내 맞춤 견적 · ✓ 안 맞으면 100% 환불
             </p>
         </div>
     </div>
@@ -4947,203 +4363,127 @@
         // Initial calculation
         calculateROI();
 
-        // ========== Quote Simulator ==========
-        (function() {
-            const QS_DATA = {
-                automation: [
-                    { id:'a1', name:'데이터 수집 자동화', desc:'웹/DB에서 데이터 자동 수집', minCost:100, maxCost:300, minW:1, maxW:3, diff:2 },
-                    { id:'a2', name:'엑셀 자동화', desc:'엑셀 입력·정리·변환 자동 처리', minCost:80, maxCost:200, minW:0.5, maxW:2, diff:1 },
-                    { id:'a3', name:'보고서 자동 생성', desc:'데이터 기반 리포트 자동 출력', minCost:150, maxCost:400, minW:1, maxW:3, diff:2 },
-                    { id:'a4', name:'이메일/알림 자동화', desc:'조건별 이메일·슬랙 알림 발송', minCost:50, maxCost:150, minW:0.5, maxW:1.5, diff:1 },
-                    { id:'a5', name:'문서 자동 생성', desc:'계약서·견적서 등 문서 자동화', minCost:120, maxCost:350, minW:1, maxW:3, diff:2 },
-                    { id:'a6', name:'재고 관리 자동화', desc:'입출고·재고 현황 자동 관리', minCost:200, maxCost:500, minW:2, maxW:4, diff:3 }
-                ],
-                webapp: [
-                    { id:'w1', name:'관리자 대시보드', desc:'핵심 지표 실시간 모니터링', minCost:300, maxCost:800, minW:2, maxW:5, diff:3 },
-                    { id:'w2', name:'고객 관리(CRM)', desc:'고객 정보·이력·상태 관리', minCost:250, maxCost:700, minW:2, maxW:5, diff:3 },
-                    { id:'w3', name:'주문/발주 관리', desc:'주문 접수·처리·이력 시스템', minCost:200, maxCost:600, minW:2, maxW:4, diff:2 },
-                    { id:'w4', name:'게시판/커뮤니티', desc:'공지사항·자료실·Q&A 게시판', minCost:100, maxCost:300, minW:1, maxW:3, diff:2 },
-                    { id:'w5', name:'예약 관리 시스템', desc:'일정·예약·캘린더 관리', minCost:200, maxCost:500, minW:1.5, maxW:4, diff:2 },
-                    { id:'w6', name:'견적/계약 시스템', desc:'견적 생성·승인·계약 관리', minCost:250, maxCost:600, minW:2, maxW:4, diff:3 }
-                ],
-                ai: [
-                    { id:'i1', name:'AI 챗봇', desc:'고객 문의 자동 응대 챗봇', minCost:300, maxCost:800, minW:2, maxW:5, diff:3 },
-                    { id:'i2', name:'데이터 분석/시각화', desc:'매출·성과 데이터 분석 대시보드', minCost:200, maxCost:600, minW:1.5, maxW:4, diff:3 },
-                    { id:'i3', name:'추천 시스템', desc:'고객 맞춤 상품·콘텐츠 추천', minCost:400, maxCost:1000, minW:3, maxW:6, diff:4 },
-                    { id:'i4', name:'자동 분류/태깅', desc:'텍스트·이미지 자동 카테고리 분류', minCost:200, maxCost:500, minW:1.5, maxW:4, diff:3 },
-                    { id:'i5', name:'매출 예측', desc:'과거 데이터 기반 매출 예측 모델', minCost:350, maxCost:800, minW:3, maxW:6, diff:4 }
-                ],
-                integration: [
-                    { id:'s1', name:'외부 API 연동', desc:'외부 서비스 데이터 연동', minCost:100, maxCost:300, minW:1, maxW:2, diff:2 },
-                    { id:'s2', name:'결제 시스템 연동', desc:'PG사 결제·정산 연동', minCost:200, maxCost:500, minW:1.5, maxW:3, diff:3 },
-                    { id:'s3', name:'소셜 로그인', desc:'카카오/네이버/구글 로그인', minCost:80, maxCost:200, minW:0.5, maxW:1.5, diff:1 },
-                    { id:'s4', name:'ERP 연동', desc:'SAP/더존 등 ERP 시스템 연동', minCost:300, maxCost:800, minW:2, maxW:5, diff:4 },
-                    { id:'s5', name:'메신저 연동', desc:'카카오톡/슬랙/텔레그램 연동', minCost:80, maxCost:250, minW:0.5, maxW:2, diff:2 },
-                    { id:'s6', name:'클라우드 인프라', desc:'AWS/GCP 서버·스토리지 구축', minCost:150, maxCost:400, minW:1, maxW:3, diff:3 }
-                ],
-                extra: [
-                    { id:'x1', name:'모바일 최적화', desc:'반응형 모바일 UI 구현', minCost:100, maxCost:300, minW:1, maxW:2, diff:1 },
-                    { id:'x2', name:'커스텀 디자인', desc:'브랜드 맞춤 UI/UX 디자인', minCost:150, maxCost:400, minW:1, maxW:3, diff:2 },
-                    { id:'x3', name:'교육/매뉴얼', desc:'사용자 매뉴얼·교육 영상 제작', minCost:50, maxCost:150, minW:0.5, maxW:1, diff:1 },
-                    { id:'x4', name:'보안 강화', desc:'접근 권한·암호화·보안 감사', minCost:200, maxCost:500, minW:1, maxW:3, diff:3 },
-                    { id:'x5', name:'다국어 지원', desc:'영어/일본어/중국어 다국어 처리', minCost:100, maxCost:300, minW:1, maxW:2, diff:2 },
-                    { id:'x6', name:'성능 최적화', desc:'로딩 속도·대용량 처리 최적화', minCost:150, maxCost:400, minW:1, maxW:3, diff:3 }
-                ]
-            };
+        // ========== Development Cost Calculator (Checklist) ==========
+        const costCheckItems = document.querySelectorAll('.cost-check-item');
 
-            const diffLabels = { 0:'-', 1:'하 (쉬움)', 2:'중하', 3:'중상', 4:'상 (복잡)' };
-            const diffColors = { 1:'var(--success)', 2:'var(--primary)', 3:'var(--warning)', 4:'var(--danger)' };
-            const checked = new Set();
+        costCheckItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                const cb = this.querySelector('input[type="checkbox"]');
+                cb.checked = !cb.checked;
+                this.classList.toggle('checked', cb.checked);
+                updateCostEstimate();
+            });
+        });
 
-            // Render items
-            Object.keys(QS_DATA).forEach(cat => {
-                const container = document.getElementById('qs-' + cat);
-                if (!container) return;
-                QS_DATA[cat].forEach(item => {
-                    const el = document.createElement('div');
-                    el.className = 'qs-item';
-                    el.dataset.id = item.id;
-                    el.innerHTML =
-                        '<div class="qs-checkbox">&#10003;</div>' +
-                        '<div class="qs-item-info">' +
-                            '<div class="qs-item-name">' + item.name + '</div>' +
-                            '<div class="qs-item-meta">' +
-                                '<span>' + item.minCost + '~' + item.maxCost + '만원</span>' +
-                                '<span>' + item.minW + '~' + item.maxW + '주</span>' +
-                                '<span>난이도 ' + '●'.repeat(item.diff) + '○'.repeat(4 - item.diff) + '</span>' +
-                            '</div>' +
-                        '</div>';
-                    el.addEventListener('click', () => toggleItem(item.id, el));
-                    container.appendChild(el);
+        function updateCostEstimate() {
+            const checked = document.querySelectorAll('.cost-check-item.checked');
+            let totalPrice = 0;
+            let totalMarket = 0;
+            let maxDiff = 0;
+            const selectedNames = [];
+
+            checked.forEach(item => {
+                const price = parseInt(item.dataset.price);
+                const market = parseInt(item.dataset.market);
+                const diff = parseInt(item.dataset.diff);
+                totalPrice += price;
+                totalMarket += market;
+                if (diff > maxDiff) maxDiff = diff;
+                selectedNames.push({
+                    name: item.querySelector('.cost-check-name').textContent,
+                    price: price
                 });
             });
 
-            // Tab switching
-            document.querySelectorAll('.qs-tab').forEach(tab => {
-                tab.addEventListener('click', () => {
-                    document.querySelectorAll('.qs-tab').forEach(t => t.classList.remove('active'));
-                    document.querySelectorAll('.qs-category').forEach(c => c.classList.remove('active'));
-                    tab.classList.add('active');
-                    const cat = tab.dataset.cat;
-                    document.querySelector('.qs-category[data-cat="' + cat + '"]').classList.add('active');
+            const count = checked.length;
+
+            // Update count
+            document.getElementById('costCount').textContent = count + '개 기능 선택됨';
+
+            // Determine difficulty based on highest feature level + count
+            let diffClass = 'easy';
+            let diffText = '선택 대기';
+            if (count === 0) { diffClass = ''; diffText = '선택 대기'; }
+            else if (maxDiff <= 1 && count <= 3) { diffClass = 'easy'; diffText = '쉬움'; }
+            else if (maxDiff <= 2 && count <= 5) { diffClass = 'medium'; diffText = '보통'; }
+            else if (maxDiff <= 3 && count <= 8) { diffClass = 'hard'; diffText = '높음'; }
+            else { diffClass = 'expert'; diffText = '매우 높음'; }
+
+            // Update difficulty meter
+            const diffLevel = document.getElementById('costDiffLevel');
+            diffLevel.textContent = diffText;
+            diffLevel.className = 'cost-diff-level ' + diffClass;
+
+            const diffFill = document.getElementById('costDiffFill');
+            diffFill.className = 'cost-diff-fill ' + diffClass;
+
+            // Update selected list
+            const listEl = document.getElementById('costSelectedList');
+            if (count === 0) {
+                listEl.innerHTML = '<div class="cost-selected-empty">왼쪽에서 필요한 기능을 체크하세요</div>';
+            } else {
+                listEl.innerHTML = selectedNames.map(s =>
+                    '<div class="cost-selected-item"><span class="name">' + s.name + '</span><span class="price">₩' + s.price.toLocaleString() + '</span></div>'
+                ).join('');
+            }
+
+            // Update prices
+            document.getElementById('costMarketPrice').textContent = '시장가 ₩' + totalMarket.toLocaleString();
+            document.getElementById('costOurPrice').textContent = '₩' + totalPrice.toLocaleString();
+
+            const saveBadge = document.getElementById('costSaveBadge');
+            if (count > 0) {
+                const saved = totalMarket - totalPrice;
+                const pct = Math.round((saved / totalMarket) * 100);
+                saveBadge.textContent = pct + '% 절감  -₩' + saved.toLocaleString();
+                saveBadge.style.display = 'inline-block';
+            } else {
+                saveBadge.style.display = 'none';
+            }
+
+            // Timeline
+            const timelineEl = document.getElementById('costTimeline');
+            if (count === 0) {
+                timelineEl.innerHTML = '기능을 선택하면 예상 기간이 표시됩니다';
+            } else {
+                let timeline = '';
+                if (totalPrice <= 500000) timeline = '3~5일';
+                else if (totalPrice <= 1000000) timeline = '1~2주';
+                else if (totalPrice <= 2000000) timeline = '2~3주';
+                else if (totalPrice <= 3500000) timeline = '3~4주';
+                else timeline = '4~6주';
+                timelineEl.innerHTML = '예상 개발 기간: <strong>' + timeline + '</strong>';
+            }
+        }
+
+        // ========== Video Modal ==========
+        function openVideoModal() {
+            document.getElementById('videoModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+
+            // Track video view
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'video_open', {
+                    'video_name': 'demo_video'
                 });
-            });
-
-            function toggleItem(id, el) {
-                if (checked.has(id)) {
-                    checked.delete(id);
-                    el.classList.remove('checked');
-                } else {
-                    checked.add(id);
-                    el.classList.add('checked');
-                }
-                calculate();
             }
+        }
 
-            function getAllItems() {
-                const all = [];
-                Object.values(QS_DATA).forEach(cat => cat.forEach(item => all.push(item)));
-                return all;
-            }
+        function closeVideoModal() {
+            document.getElementById('videoModal').classList.remove('show');
+            document.body.style.overflow = '';
+        }
 
-            function calculate() {
-                const allItems = getAllItems();
-                const selected = allItems.filter(item => checked.has(item.id));
-                const count = selected.length;
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeVideoModal();
+        });
 
-                document.getElementById('qs-count').textContent = count;
-                document.getElementById('qs-empty').style.display = count === 0 ? 'block' : 'none';
-                document.getElementById('qs-details').style.display = count === 0 ? 'none' : 'block';
-
-                if (count === 0) return;
-
-                // Cost
-                let minCost = 0, maxCost = 0;
-                selected.forEach(item => { minCost += item.minCost; maxCost += item.maxCost; });
-
-                let discountRate = 0;
-                let discountText = '';
-                if (count >= 8) { discountRate = 0.10; discountText = '8개 이상 선택 10% 할인 적용!'; }
-                else if (count >= 5) { discountRate = 0.05; discountText = '5개 이상 선택 5% 할인 적용!'; }
-
-                if (discountRate > 0) {
-                    minCost = Math.round(minCost * (1 - discountRate));
-                    maxCost = Math.round(maxCost * (1 - discountRate));
-                }
-
-                document.getElementById('qs-cost').textContent = minCost.toLocaleString() + ' ~ ' + maxCost.toLocaleString() + '만원';
-
-                // Period - first 3 full, rest 50%
-                const sorted = selected.slice().sort((a, b) => b.maxW - a.maxW);
-                let minWeeks = 0, maxWeeks = 0;
-                sorted.forEach((item, i) => {
-                    const factor = i < 3 ? 1 : 0.5;
-                    minWeeks += item.minW * factor;
-                    maxWeeks += item.maxW * factor;
-                });
-                minWeeks = Math.round(minWeeks * 10) / 10;
-                maxWeeks = Math.round(maxWeeks * 10) / 10;
-
-                document.getElementById('qs-period').textContent = minWeeks + ' ~ ' + maxWeeks + '주';
-
-                // Difficulty - max
-                let maxDiff = 0;
-                selected.forEach(item => { if (item.diff > maxDiff) maxDiff = item.diff; });
-
-                for (let i = 1; i <= 4; i++) {
-                    const seg = document.getElementById('qs-d' + i);
-                    seg.className = 'qs-diff-seg';
-                    if (i <= maxDiff) seg.classList.add('filled-' + maxDiff);
-                }
-                const diffLabel = document.getElementById('qs-diff-label');
-                diffLabel.textContent = diffLabels[maxDiff];
-                diffLabel.style.color = diffColors[maxDiff] || 'var(--text-secondary)';
-
-                // Recommended Plan
-                let plan, planClass;
-                if (maxDiff >= 4 || maxCost >= 1500) {
-                    plan = 'Pro'; planClass = 'pro';
-                } else if (maxDiff >= 3 || maxCost >= 500) {
-                    plan = 'Standard'; planClass = 'standard';
-                } else {
-                    plan = 'Basic'; planClass = 'basic';
-                }
-                const planBadge = document.getElementById('qs-plan');
-                planBadge.textContent = plan;
-                planBadge.className = 'qs-plan-badge ' + planClass;
-
-                // Discount
-                const discountEl = document.getElementById('qs-discount');
-                if (discountRate > 0) {
-                    discountEl.textContent = discountText;
-                    discountEl.classList.add('show');
-                } else {
-                    discountEl.classList.remove('show');
-                }
-            }
-
-            // CTA → fill contact form
-            document.getElementById('qs-cta-btn').addEventListener('click', function() {
-                const allItems = getAllItems();
-                const selected = allItems.filter(item => checked.has(item.id));
-                if (selected.length === 0) return;
-
-                const names = selected.map(item => item.name).join(', ');
-                const costText = document.getElementById('qs-cost').textContent;
-                const periodText = document.getElementById('qs-period').textContent;
-                const planText = document.getElementById('qs-plan').textContent;
-
-                const msg = '[견적 시뮬레이터 결과]\n' +
-                    '선택 기능: ' + names + '\n' +
-                    '예상 개발비: ' + costText + '\n' +
-                    '예상 기간: ' + periodText + '\n' +
-                    '추천 플랜: ' + planText + '\n\n' +
-                    '위 내용으로 상담 요청드립니다.';
-
-                const textarea = document.querySelector('#contact textarea[name="message"]');
-                if (textarea) textarea.value = msg;
-            });
-        })();
+        // Close modal on background click
+        document.getElementById('videoModal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeVideoModal();
+        });
 
         // ========== FAQ Accordion ==========
         document.querySelectorAll('.faq-question').forEach(question => {
